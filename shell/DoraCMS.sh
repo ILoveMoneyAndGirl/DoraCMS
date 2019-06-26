@@ -14,7 +14,7 @@
 
 
 
-/usr/local/mongodb/bin/mongorestore  -h 127.0.0.1:27017 -d adminUserdb --drop /root/DoraCMS/baseData
+/usr/local/mongodb/bin/mongorestore  -h 127.0.0.1:27017 -d WebBackUserDB --drop /root/DoraCMS/baseData
 #上传工程
 
 cd /root/DoraCMS/
