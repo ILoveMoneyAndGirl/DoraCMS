@@ -1,3 +1,5 @@
+cd /root/
+
 sudo apt-get  update
 #mongodb 所需库
 

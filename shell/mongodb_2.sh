@@ -1,4 +1,6 @@
 #********数据库创建账号
+cd /root/
+
 /usr/local/mongodb/bin/mongo
 
 use admin
