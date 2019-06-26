@@ -5,3 +5,4 @@ tar -zxvf node-v8.9.1-rc.1.tar.gz
 cd node-v8.9.1-rc.1.tar.gz 
 ./configure
 make install
+cd ../
