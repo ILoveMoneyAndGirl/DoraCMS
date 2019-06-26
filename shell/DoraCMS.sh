@@ -16,6 +16,8 @@
 
 /usr/local/mongodb/bin/mongorestore  -h 127.0.0.1:27017 -d adminUserdb --drop /root/DoraCMS/baseData
 #上传工程
+
+cd /root/DoraCMS/
 npm install
 
 sudo apt-get install redis-server
@@ -23,6 +25,7 @@ sudo apt-get install redis-server
 npm install pm2 -g
 
 pm2 start server.js --name doracms
+cd /root/
 
 
 
