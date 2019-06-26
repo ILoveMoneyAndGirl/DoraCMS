@@ -1,0 +1,1 @@
+{"options":{},"indexes":[{"v":2,"key":{"_id":1},"name":"_id_","ns":"testdora.messages"},{"v":2,"key":{"contentId":1},"name":"contentId_1","ns":"testdora.messages","background":true}],"uuid":"dab21f98aa1d4f6ea4060ffc3c17f249"}
