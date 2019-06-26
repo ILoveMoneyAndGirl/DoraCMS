@@ -5,8 +5,8 @@
 
 module.exports = {
 
-    session_secret: 'doracms', // 务必修改
-    auth_cookie_name: 'doracms',
+    session_secret: 'WebBackNew', // 务必修改
+    auth_cookie_name: 'WebBackNew',
     cache_maxAge: Math.floor(Date.now() / 1000) + 24 * 60 * 60, //1 hours
     serverPort: 8080,
     lang: 'zh-CN', // 设置默认语言
@@ -17,13 +17,16 @@ module.exports = {
     salt_aes_key: "doracms_", // 可以解密，秘钥必须为：8/16/32位
     salt_md5_key: "dora", // MD5的盐，用于加密密码
 
+// # use WebBackUserDB
+// # db.createUser( { user: "RootUser", pwd: "WebBackUserDB_Root.c.c", roles: [ { role: "readWrite", db: "WebBackUserDB" }, ] } )
+
     //    数据库配置
-    URL: 'mongodb://127.0.0.1:27017/doracms2',
-    DB: 'doracms2',
+    URL: 'mongodb://127.0.0.1:27017/WebBackUserDB',
+    DB: 'WebBackUserDB',
     HOST: '127.0.0.1',
     PORT: 27017,
-    USERNAME: 'doramart',
-    PASSWORD: 'doramart',
+    USERNAME: 'RootUser',
+    PASSWORD: 'WebBackUserDB_Root.c.c',
 
     // 七牛配置
     openqn: false, //是否开启,若为true 则下面的信息必须配置正确完整
