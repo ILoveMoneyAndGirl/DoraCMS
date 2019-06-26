@@ -33,6 +33,9 @@ sudo apt-get install libmysqlclient-dev
 # 查看mongodb是否启动
 # pgrep mongo -l 
 
+# 查看nodejs 相关进程
+# ps -ef|grep node
+
 sudo apt-get install update
 sudo apt-get install libcurl4-openssl-dev
 
