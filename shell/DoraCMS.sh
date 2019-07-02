@@ -24,7 +24,6 @@ cd /root/DoraCMS/
 npm install
 
 
-/usr/local/mongodb/bin/mongorestore  -h 127.0.0.1:27017 -d WebBackUserDB --drop /root/DoraCMS/baseData
 
 sudo apt-get install redis-server
 

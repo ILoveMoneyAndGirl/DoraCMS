@@ -17,11 +17,15 @@ module.exports = {
     salt_aes_key: "doracms_", // 可以解密，秘钥必须为：8/16/32位
     salt_md5_key: "dora", // MD5的盐，用于加密密码
 
+//     use WebBackUserDB
+// db.createUser( { user: "RootUser", pwd: "WebBackUserDB_Root.c.c", roles: [ { role: "readWrite", db: "WebBackUserDB" }, ] } )
+
+
 // # use WebBackUserDB
 // # db.createUser( { user: "RootUser", pwd: "WebBackUserDB_Root.c.c", roles: [ { role: "readWrite", db: "WebBackUserDB" }, ] } )
 
     //    数据库配置
-    URL: 'mongodb://127.0.0.1:27017/WebBackUserDB',
+    URL: 'mongodb://127.0.0.1:27017/doracms2',
     DB: 'WebBackUserDB',
     HOST: '127.0.0.1',
     PORT: 27017,

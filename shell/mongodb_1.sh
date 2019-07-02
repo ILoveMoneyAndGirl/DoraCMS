@@ -14,3 +14,4 @@ sudo apt-get install libcurl4-openssl-dev
 
 
 /usr/local/mongodb/bin/mongod -dbpath=/usr/local/mongodb/data -logpath=/usr/local/mongodb/log/mongodb.log -fork
+

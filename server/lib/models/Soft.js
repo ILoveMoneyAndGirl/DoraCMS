@@ -1,6 +1,6 @@
 /**
  * Created by Administrator on 2017/4/15.
- * 广告管理
+ * 软件ip
  */
 var mongoose = require('mongoose');
 var shortid = require('shortid');
@@ -14,7 +14,7 @@ var SoftSchema = new Schema({
     name: String,
     ip: String,//通信ip
     port: { type: Number, default: 8888 }, // 通信端口
-    comments: String, // 描述
+    comments: String // 描述
 });
 
 

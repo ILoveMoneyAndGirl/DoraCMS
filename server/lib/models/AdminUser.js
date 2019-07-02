@@ -5,7 +5,7 @@
 var mongoose = require('mongoose');
 var shortid = require('shortid');
 var Schema = mongoose.Schema;
-
+var Soft = require('./Soft');
 var AdminGroup = require('./AdminGroup');
 
 var AdminUserSchema = new Schema({
@@ -43,7 +43,12 @@ var AdminUserSchema = new Schema({
     group: {
         type: String,
         ref: 'AdminGroup'
-    }
+    },
+    softs:[{
+        type: String,
+        ref: "Soft"
+    }]
+
 });
 
 AdminUserSchema.statics = {
