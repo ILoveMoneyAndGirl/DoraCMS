@@ -15,6 +15,7 @@ exports.Ads = require('./ads');
 exports.ContentTemplate = require('./contentTemplate');
 exports.HelpCenter = require('./helpCenter');
 exports.VersionManage = require('./versionManage');
+exports.SiteMessage = require('./siteMessage');
 //DoraControlEnd
 //--------------------
 
