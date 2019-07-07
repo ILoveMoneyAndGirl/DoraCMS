@@ -21,6 +21,7 @@ const {
   SiteMessage,
   HelpCenter,
   VersionManage,
+  HelloOperation,
 
   //MgRoutersController
 } = require('../lib/controller');
@@ -304,6 +305,31 @@ router.get('/helpCenter/delete', authToken, authPower, HelpCenter.delHelpCenter)
 router.get('/versionManage/getList', authToken, authPower, VersionManage.getVersionManages);
 
 router.post('/versionManage/updateOne', authToken, authPower, VersionManage.updateVersionData);
+
+
+
+//---------------------------------------------------------------------
+
+//商品管理
+router.get('/goods/getList', authToken, authPower, HelloOperation.GetGoods);
+router.post('/goods/updateOne', authToken, authPower, HelloOperation.UpdateGoods);
+router.get('/goods/delete', authToken, authPower, HelloOperation.DeleteGoods);
+router.post('/goods/add', authToken, authPower, HelloOperation.AddGoods);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //ManageRouters
 module.exports = router

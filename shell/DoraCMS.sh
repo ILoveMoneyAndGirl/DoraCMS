@@ -33,5 +33,5 @@ pm2 start server.js --name doracms
 cd /root/
 
 
-
+# rootUser/wayz10xs.c.c
 # 我们通过（http://localhost:8080/dr-admin）访问后台，登录信息 doramart/123456 . doramart用户具有超级管理员权限。

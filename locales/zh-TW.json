@@ -297,6 +297,13 @@
 	"user_bill_type_activity_reward": "活动奖励",
 	"user_bill_type_backwash": "回冲",
 	"user_bill_type_others": "其它",
+
+
+
+	"user_action_type_creat_Soft": "产品创建",
+
+
+
 	"user_action_tips_repeat": "不可重复 {{label}}",
 	"user_action_tips_sendMessage": "验证码发送",
 	"user_action_tips_add_community": "关注社群",

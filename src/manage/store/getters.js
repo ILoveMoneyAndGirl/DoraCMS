@@ -63,6 +63,19 @@ const getters = {
   versionManageFormState: state => state.app.versionManage.formState,
   versionManage: state => state.app.versionManage,
   versionManageIos: state => state.app.versionManageIos,
+
+
+
+  //------------------------------------------
+    GoodsList: state => state.app.goods.goodsList,
+    GoodsListFormState: state => state.app.goods.formState,
+
+
+
+
+
+
+
   
   //StoreGetterEnd
 }

@@ -43,3 +43,10 @@ export const VERSIONMANAGE_FORMSTATE = 'VERSIONMANAGE_FORMSTATE';
 export const VERSIONMANAGEIOS_FORMSTATE = 'VERSIONMANAGEIOS_FORMSTATE';
 //StoreTypesEnd
 
+//------------------------
+export const GOODS_LIST = 'GOODS_LIST';
+export const GOODS_FORMSTATE = 'GOODS_FORMSTATE';
+
+
+
+

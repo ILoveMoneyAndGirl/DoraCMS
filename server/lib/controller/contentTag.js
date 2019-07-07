@@ -65,6 +65,10 @@ class ContentTag {
             }).skip(Number(pageSize) * (Number(current) - 1)).limit(Number(pageSize));
             const totalItems = await ContentTagModel.count(queryObj);
 
+            console.log("_______________>contentTags")
+            console.log(useClient)
+
+
             let userInfo = req.session.user || {};
             if (useClient == '2') {
                 contentTags = JSON.parse(JSON.stringify(contentTags));
@@ -93,7 +97,15 @@ class ContentTag {
                     searchkey: searchkey || ''
                 }
             };
+
+                        console.log(tagsData)
+
             let renderTagsData = siteFunc.renderApiData(req, res, 200, 'contentTag', tagsData);
+                                    console.log(renderTagsData)
+
+                                                                        console.log(contentTags)
+
+
             if (modules && modules.length > 0) {
                 return renderTagsData.data;
             } else {

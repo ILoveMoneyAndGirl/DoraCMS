@@ -329,6 +329,22 @@ export default {
     //StoreAppServiceEnd
 
 
+//----------------------------------------------------------------------------------
+    goodsList(params) {
+        return reqJsonData('manage/goods/getList', params, 'get')
+    },
+
+    updateGoods(params) {
+        return reqJsonData('manage/goods/updateOne', params)
+    },
+
+    deleteGoods(params) {
+        return reqJsonData('manage/goods/delete', params, 'get')
+    },
+
+    AddGoods(params) {
+        return reqJsonData('manage/goods/add', params)
+    },
 
 
 

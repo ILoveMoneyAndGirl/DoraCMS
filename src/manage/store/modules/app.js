@@ -439,8 +439,28 @@ const app = {
     },
     //StoreAppInitState
 
+//------------------------------------
 
-
+  goods: {
+      formState: {
+        show: false,
+        edit: false,
+        formData: {
+          price: '',
+          days: 0,
+          des: '',
+          payUrl:[]
+        }
+      },
+      goodsList: {
+        pageInfo: {},
+        docs: []
+      },
+      goods: {
+        state: '',
+        err: {}
+      }
+    },
 
 
 
@@ -1153,7 +1173,7 @@ const app = {
       commit
     }, params = {}) {
       services.contentTagList(params).then((result) => {
-        commit(types.CONTENTTAG_LIST, result.data.data)
+        commit(types.GOODS_LIST, result.data.data)
       })
     },
     showContentMessageForm: ({
@@ -1367,6 +1387,34 @@ const app = {
       })
     },
     //StoreAppActions
+
+
+
+
+    //-----------------------------
+
+    getGoodsList({
+      commit
+    }, params = {}) {
+      services.goodsList(params).then((result) => {
+        commit(types.CONTENTTAG_LIST, result.data.data)
+      })
+    },
+
+    showGoodsForm: ({
+      commit
+    }, params = {
+      edit: false,
+      formData: {}
+    }) => {
+      commit(types.GOODS_FORMSTATE, {
+        show: true,
+        edit: params.edit,
+        formData: params.formData
+      })
+    },
+
+
   }
 }
 

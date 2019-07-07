@@ -265,6 +265,7 @@
     "user_action_type_register": "Register",
     "user_action_type_login_first": "First login",
     "user_action_type_creat_content": "Content Creation",
+
     "user_action_type_creat_topic": "topic application",
     "user_action_type_creat_identity": "Real-name authentication application",
     "user_action_type_shop_send": "Merchant member directed distribution",
@@ -306,6 +307,13 @@
     "user_action_tips_subscribe_self": "Can't follow yourself",
     "user_action_tips_praise_self": "Can't praise yourself",
     "user_action_tips_comment_self": "Can't evaluate yourself",
+
+
+    "user_action_type_creat_Soft": "Soft Creation",
+
+
+
+
     "restful_api_response_success": "{{label}} success",
     "label_system_resend": "Resend",
     "label_system_justdownload": "Download now",

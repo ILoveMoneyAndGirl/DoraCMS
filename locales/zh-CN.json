@@ -306,6 +306,12 @@
 	"user_action_tips_subscribe_self": "不能关注自己",
 	"user_action_tips_praise_self": "不能点赞自己",
 	"user_action_tips_comment_self": "不能评价自己",
+
+
+    "user_action_type_creat_Soft": "产品创建",
+
+
+
     "restful_api_response_success": "{{label}} 成功",
     "label_system_resend": "重新发送",
     "label_system_justdownload": "立即下载",
