@@ -14,7 +14,7 @@ var SoftSchema = new Schema({
     name: String,
     ip: String,//通信ip
     port: { type: Number, default: 8888 }, // 通信端口
-    comments: String // 描述
+    comments: String, // 描述
     type:{ type: Number, default: 0},//产品类型
 });
 
