@@ -1,6 +1,6 @@
 <template>
     <div class="adminUser">
-        <TagForm :dialogState="formState"></TagForm>
+        <GoodsForm :dialogState="formState"></GoodsForm>
         <el-row class="dr-datatable">
             <el-col :span="24">
                 <TopBar type="goods" :pageInfo="GoodsList.pageInfo"></TopBar>
@@ -11,7 +11,7 @@
     </div>
 </template>
 <script>
-    import TagForm from './tagForm'
+    import GoodsForm from './goodsForm'
     import DataTable from './dataTable.vue';
     import TopBar from '../common/TopBar.vue';
     import Pagination from '../common/Pagination.vue';
@@ -30,7 +30,7 @@
         components: {
             DataTable,
             TopBar,
-            TagForm,
+            GoodsForm,
             Pagination
         },
         methods: mapActions([
