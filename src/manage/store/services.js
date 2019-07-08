@@ -342,7 +342,7 @@ export default {
         return reqJsonData('manage/goods/delete', params, 'get')
     },
 
-    AddGoods(params) {
+    addGoods(params) {
         return reqJsonData('manage/goods/add', params)
     },
 

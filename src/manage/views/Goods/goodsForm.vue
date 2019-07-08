@@ -72,7 +72,7 @@ export default {
           let params = this.dialogState.formData;
           // 更新
           if (this.dialogState.edit) {
-            services.updateContentTag(params).then(result => {
+            services.updateGoods(params).then(result => {
               if (result.data.status === 200) {
                 this.$store.dispatch("hideGoodsForm");
                 this.$store.dispatch("getGoodsList");
@@ -86,7 +86,7 @@ export default {
             });
           } else {
             // 新增
-            services.addContentTag(params).then(result => {
+            services.addGoods(params).then(result => {
               if (result.data.status === 200) {
                 this.$store.dispatch("hideGoodsForm");
                 this.$store.dispatch("getGoodsList");
