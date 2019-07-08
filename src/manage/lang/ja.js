@@ -530,5 +530,13 @@ export default {
     forcibly: '是否强制更新',
     url: '更新地址'
   },
+
+   goods: {
+    form_title: '填写商品信息',
+    price: '价格',
+    days: '天数',
+    payUrls: '支付二维码',
+    des:'描述'
+  },
   //LangEnd
 }
