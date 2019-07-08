@@ -155,7 +155,7 @@ export default {
   },
   methods: {
     confirm() {
-      this.$store.dispatch("hideContentTagForm");
+      this.$store.dispatch("hideGoodsForm");
     },
     submitForm(formName) {
       this.$refs[formName].validate(valid => {
@@ -163,10 +163,10 @@ export default {
           let params = this.dialogState.formData;
           // 更新
           if (this.dialogState.edit) {
-            services.updateContentTag(params).then(result => {
+            services.updateGoods(params).then(result => {
               if (result.data.status === 200) {
-                this.$store.dispatch("hideContentTagForm");
-                this.$store.dispatch("getContentTagList");
+                this.$store.dispatch("hideGoodsForm");
+                this.$store.dispatch("getGoodsList");
                 this.$message({
                   message: this.$t("main.updateSuccess"),
                   type: "success"
@@ -177,10 +177,10 @@ export default {
             });
           } else {
             // 新增
-            services.addContentTag(params).then(result => {
+            services.AddGoods(params).then(result => {
               if (result.data.status === 200) {
-                this.$store.dispatch("hideContentTagForm");
-                this.$store.dispatch("getContentTagList");
+                this.$store.dispatch("hideGoodsForm");
+                this.$store.dispatch("getGoodsList");
                 this.$message({
                   message: this.$t("main.addSuccess"),
                   type: "success"
