@@ -1414,6 +1414,14 @@ const app = {
       })
     },
 
+    hideGoodsForm: ({
+      commit
+    }) => {
+      commit(types.GOODS_FORMSTATE, {
+        show: false
+      })
+    },
+
 
   }
 }

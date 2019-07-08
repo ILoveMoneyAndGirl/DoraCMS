@@ -67,7 +67,7 @@ export default {
   },
   methods: {
     confirm() {
-      this.$store.dispatch("hideContentTagForm");
+      this.$store.dispatch("hideGoodsForm");
     },
     submitForm(formName) {
       this.$refs[formName].validate(valid => {
@@ -75,10 +75,10 @@ export default {
           let params = this.dialogState.formData;
           // 更新
           if (this.dialogState.edit) {
-            services.updateContentTag(params).then(result => {
+            services.updateGoods(params).then(result => {
               if (result.data.status === 200) {
-                this.$store.dispatch("hideContentTagForm");
-                this.$store.dispatch("getContentTagList");
+                this.$store.dispatch("hideGoodsForm");
+                this.$store.dispatch("getGoodsList");
                 this.$message({
                   message: this.$t("main.updateSuccess"),
                   type: "success"
@@ -89,15 +89,15 @@ export default {
             });
           } else {
             // 新增
-            services.addContentTag(params).then(result => {<template>
+            services.AddGoods(params).then(result => {<template>
     <div class="dr-contentTagForm">
-        <el-dialog :xs="20" :sm="20" :md="6" :lg="6" :xl="6" size="small" :title="$t('contentTag.form_title')" :visible.sync="dialogState.show" :close-on-click-modal="false">
+        <el-dialog :xs="20" :sm="20" :md="6" :lg="6" :xl="6" size="small" :title="$t('goods.form_title')" :visible.sync="dialogState.show" :close-on-click-modal="false">
             <el-form :model="dialogState.formData" :rules="rules" ref="ruleForm" label-width="120px" class="demo-ruleForm">
-                <el-form-item :label="$t('contentTag.name')" prop="name">
+                <el-form-item :label="$t('goods.price')" prop="price">
                     <el-input size="small" v-model="dialogState.formData.name"></el-input>
                 </el-form-item>
-                <el-form-item :label="$t('contentTag.comments')" prop="comments">
-                    <el-input size="small" type="textarea" v-model="dialogState.formData.comments"></el-input>
+                <el-form-item :label="$t('goods.days')" prop="days">
+                    <el-input size="small" type="textarea" v-model="dialogState.formData.days"></el-input>
                 </el-form-item>
                 <el-form-item>
                     <el-button size="medium" type="primary" @click="submitForm('ruleForm')">{{dialogState.edit ? $t('main.form_btnText_update') : $t('main.form_btnText_save')}}</el-button>
