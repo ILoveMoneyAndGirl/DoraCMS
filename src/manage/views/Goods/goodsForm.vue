@@ -91,7 +91,7 @@ export default {
             // 新增
             services.AddGoods(params).then(result => {<template>
     <div class="dr-goodsForm">
-        <el-dialog :xs="20" :sm="20" :md="6" :lg="6" :xl="6" size="small" :title="$t('goods.form_title')" :visible.sync="dialogState.show" :close-on-click-modal="false">
+        <el-dialog :xs="20" :sm="20" :md="6" :lg="6" :xl="6" size="small" :title="填写信息" :visible.sync="dialogState.show" :close-on-click-modal="false">
             <el-form :model="dialogState.formData" :rules="rules" ref="ruleForm" label-width="120px" class="demo-ruleForm">
                 <el-form-item :label="$t('goods.price')" prop="price">
                     <el-input size="small" v-model="dialogState.formData.price"></el-input>
