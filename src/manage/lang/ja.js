@@ -150,6 +150,18 @@ export default {
     getUserInfo: "查看会員",
     delUserInfo: "会員削除",
     // ROUTERLANGEND
+
+
+//--------------------
+    productManage:"产品管理",
+    productChange:"产品切换",
+    productGoods:"商品管理",
+    productUser:"用户管理",
+    productPay:"支付管理",
+
+
+
+
   },
   navbar: {
     logOut: '退出登录',

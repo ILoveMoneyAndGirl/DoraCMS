@@ -161,6 +161,16 @@ export default {
     getVersionConfigs: "获取客户端版本",
     updateVersionConfigs: "更新客户端版本",
     // ROUTERLANGEND
+
+
+//--------------------
+    productManage:"产品管理",
+    productChange:"产品切换",
+    productGoods:"商品管理",
+    productUser:"用户管理",
+    productPay:"支付管理",
+
+
   },
   navbar: {
     logOut: '退出登录',

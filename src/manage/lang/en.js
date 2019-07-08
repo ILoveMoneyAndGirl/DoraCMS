@@ -162,6 +162,16 @@ export default {
     getVersionConfigs: "Get Client Version",
     updateVersionConfigs: "Update Client Version",
     // ROUTERLANGEND
+
+
+
+
+//--------------------
+    productManage:"产品管理",
+    productChange:"产品切换",
+    productGoods:"商品管理",
+    productUser:"用户管理",
+    productPay:"支付管理",
   },
   navbar: {
     logOut: 'Log Out',
