@@ -41,7 +41,11 @@
                 'GoodsList'
             ]),
             formState() {
-                return this.$store.getters.GoodsListFormState
+
+                var formData=this.$store.getters.GoodsListFormState
+                   console.log("formData??????????????????????");
+                    console.log(formData);
+                return formData
             }
         },
         mounted() {
