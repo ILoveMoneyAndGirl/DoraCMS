@@ -26,6 +26,8 @@ class AdminGroup {
         // super()
     }
     async getAdminGroups(req, res, next) {
+                        console.log("getAdminGroups-->");
+
         try {
             let current = req.query.current || 1;
             let pageSize = req.query.pageSize || 10;
@@ -47,6 +49,8 @@ class AdminGroup {
     }
 
     async addAdminGroup(req, res, next) {
+                console.log("addAdminGroup-->");
+
         const form = new formidable.IncomingForm();
         form.parse(req, async (err, fields, files) => {
             try {
@@ -60,6 +64,9 @@ class AdminGroup {
                 comments: fields.comments
             }
 
+                            console.log("addAdminGroup-->",groupObj);
+
+
             const newAdminGroup = new AdminGroupModel(groupObj);
             try {
                 await newAdminGroup.save();
@@ -71,6 +78,8 @@ class AdminGroup {
     }
 
     async updateAdminGroup(req, res, next) {
+
+        console.log("updateAdminGroup-->");
         const form = new formidable.IncomingForm();
         form.parse(req, async (err, fields, files) => {
             try {
@@ -84,6 +93,9 @@ class AdminGroup {
                 comments: fields.comments,
                 power: fields.power
             }
+
+                                        console.log("addAdminGroup-->",userObj);
+
             const item_id = fields._id;
             try {
                 await AdminGroupModel.findOneAndUpdate({ _id: item_id }, { $set: userObj });
@@ -96,6 +108,8 @@ class AdminGroup {
     }
 
     async delAdminGroup(req, res, next) {
+                console.log("delAdminGroup-->");
+
         try {
             let errMsg = '';
             if (!siteFunc.checkCurrentId(req.query.ids)) {
