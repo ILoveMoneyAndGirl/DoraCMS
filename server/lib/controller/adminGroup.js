@@ -94,7 +94,7 @@ class AdminGroup {
                 power: fields.power
             }
 
-                                        console.log("addAdminGroup-->",userObj);
+                                        console.log("updateAdminGroup-->",userObj);
 
             const item_id = fields._id;
             try {
