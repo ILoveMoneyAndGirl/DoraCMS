@@ -158,6 +158,7 @@ export default {
     productGoods:"商品管理",
     productUser:"用户管理",
     productPay:"支付管理",
+    productList:"获取商品表",
 
 
 

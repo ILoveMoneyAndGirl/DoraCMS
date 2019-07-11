@@ -1173,7 +1173,7 @@ const app = {
       commit
     }, params = {}) {
       services.contentTagList(params).then((result) => {
-        commit(types.GOODS_LIST, result.data.data)
+        commit(types.CONTENTTAG_LIST, result.data.data)
       })
     },
     showContentMessageForm: ({
@@ -1397,7 +1397,7 @@ const app = {
       commit
     }, params = {}) {
       services.goodsList(params).then((result) => {
-        commit(types.CONTENTTAG_LIST, result.data.data)
+        commit(types.GOODS_LIST, result.data.data)
       })
     },
 
