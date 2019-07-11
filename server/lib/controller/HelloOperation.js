@@ -16,6 +16,8 @@ class HelloOperation {
 
     async GetGoods(req, res, next) {
         try {
+
+             console.log("HelloOperation.          ...?GetGoods")
             let modules = req.query.modules;
             let current = req.query.current || 1;
             let pageSize = req.query.pageSize || 10;
