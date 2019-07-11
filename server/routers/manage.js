@@ -330,6 +330,5 @@ router.post('/goods/add', authToken, authPower, HelloOperation.AddGoods);
 
 
 
-
 //ManageRouters
 module.exports = router

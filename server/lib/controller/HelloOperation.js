@@ -59,27 +59,41 @@ class HelloOperation {
             //     }
             // }
 
+            // let msg={
+            //     current:current,
+            //     queryObj:queryObj,
+            //     pageSize:pageSize,
+            // }
+
+            let data= [ { _id: 'HJ0aDsOhz',price: 10,days: 10,des: 'xx'}]
+
+
             let tagsData = {
-                docs: contentTags,
+                docs: data,
                 pageInfo: {
-                    totalItems,
+                    1,
                     current: Number(current) || 1,
                     pageSize: Number(pageSize) || 10,
                     searchkey: searchkey || ''
                 }
             };
-            let renderTagsData = siteFunc.renderApiData(req, res, 200, 'goods', tagsData);
+            let renderGoodsData = siteFunc.renderApiData(req, res, 200, 'goods', tagsData);
             if (modules && modules.length > 0) {
-                return renderTagsData.data;
+                console.log("renderGoodsData.data--------->",renderGoodsData.data)
+                return renderGoodsData.data;
             } else {
                 if (useClient == '2') {
-                    res.send(siteFunc.renderApiData(req, res, 200, 'goods', contentTags));
+                console.log("res.send(siteFunc.renderApiData(req, res, 200--------->",data)
+
+                    res.send(siteFunc.renderApiData(req, res, 200, 'goods', data));
                 } else {
-                    res.send(renderTagsData);
+                    res.send(renderGoodsData);
                 }
 
             }
         } catch (err) {
+
+                            console.log("res.send(siteFunc.renderApiData(req, res, 500--------->")
 
             res.send(siteFunc.renderApiErr(req, res, 500, err, 'getlist'))
 
@@ -88,12 +102,90 @@ class HelloOperation {
     }
 
     async UpdateGoods(req, res, next) {
+
+        // const form = new formidable.IncomingForm();
+        // form.parse(req, async (err, fields, files) => {
+        //     try {
+        //         checkFormData(req, res, fields);
+        //     } catch (err) {
+        //         console.log(err.message, err);
+        //         res.send(siteFunc.renderApiErr(req, res, 500, err, 'checkform'));
+        //     }
+
+        //     const userObj = {
+        //         name: fields.name,
+        //         alias: fields.alias,
+        //         comments: fields.comments
+        //     }
+        //     const item_id = fields._id;
+        //     try {
+        //         await ContentTagModel.findOneAndUpdate({
+        //             _id: item_id
+        //         }, {
+        //             $set: userObj
+        //         });
+        //         res.send(siteFunc.renderApiData(req, res, 200, 'contentTag', {}, 'update'))
+
+        //     } catch (err) {
+
+        //         res.send(siteFunc.renderApiErr(req, res, 500, err, 'update'));
+        //     }
+        // })
+
+         res.send(siteFunc.renderApiData(req, res, 200, 'contentTag', {}, 'update'))
         
     }
     async AddGoods(req, res, next) {
+                        const form = new formidable.IncomingForm();
+        form.parse(req, async (err, fields, files) => {
+            try {
+                checkFormData(req, res, fields);
+
+
+                const tagObj = {
+                    name: fields.name,
+                    alias: fields.alias,
+                    comments: fields.comments
+                }
+
+                const newContentTag = new ContentTagModel(tagObj);
+
+                await newContentTag.save();
+
+                res.send(siteFunc.renderApiData(req, res, 200, 'contentTag', {
+                    id: newContentTag._id
+                }, 'save'))
+
+            } catch (err) {
+
+                res.send(siteFunc.renderApiErr(req, res, 500, err, 'save'));
+            }
+        })
+
         
     }
     async DeleteGoods(req, res, next) {
+
+        //         try {
+        //     let errMsg = '';
+        //     if (!siteFunc.checkCurrentId(req.query.ids)) {
+        //         errMsg = res.__("validate_error_params");
+        //     }
+        //     if (errMsg) {
+        //         throw new siteFunc.UserException(errMsg);
+        //     }
+        //     await ContentTagModel.remove({
+        //         _id: req.query.ids
+        //     });
+        //     res.send(siteFunc.renderApiData(req, res, 200, 'contentTag', {}, 'delete'))
+
+        // } catch (err) {
+
+        //     res.send(siteFunc.renderApiErr(req, res, 500, err, 'delete'));
+        // }
+
+                    res.send(siteFunc.renderApiData(req, res, 200, 'contentTag', {}, 'delete'))
+
         
     }
 
