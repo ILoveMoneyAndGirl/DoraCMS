@@ -67,6 +67,8 @@ class ContentTag {
 
             console.log("_______________>contentTags")
             console.log(useClient)
+                        console.log(totalItems)
+
 
 
             let userInfo = req.session.user || {};
