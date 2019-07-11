@@ -40,7 +40,7 @@ class HelloOperation {
             // let contentTags = await ContentTagModel.find(queryObj).sort({
             //     date: -1
             // }).skip(Number(pageSize) * (Number(current) - 1)).limit(Number(pageSize));
-            // const totalItems = await ContentTagModel.count(queryObj);
+            const totalItems = await ContentTagModel.count(queryObj);
 
             // let userInfo = req.session.user || {};
             // if (useClient == '2') {
