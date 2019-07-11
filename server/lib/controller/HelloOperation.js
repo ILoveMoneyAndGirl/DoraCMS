@@ -71,7 +71,7 @@ class HelloOperation {
             let tagsData = {
                 docs: data,
                 pageInfo: {
-                    1,
+                    count:1,
                     current: Number(current) || 1,
                     pageSize: Number(pageSize) || 10,
                     searchkey: searchkey || ''
