@@ -853,6 +853,12 @@ const app = {
       state.basicInfo = list
     },
     //StoreAppMutations
+
+    [types.GOODS_LIST](state, goodsList) {
+      state.goods.goodsList = goodsList
+    },
+
+    
   },
   actions: {
     toggleSideBar({
