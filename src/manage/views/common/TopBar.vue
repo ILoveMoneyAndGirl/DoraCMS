@@ -46,7 +46,7 @@
       </div>
 
        <div v-else-if="type === 'goods'">
-        <el-button size="small" type="primary" plain round @click="addTag">
+        <el-button size="small" type="primary" plain round @click="addGoods">
           <i class="fa fa-fw fa-plus" aria-hidden="true"></i>
         </el-button>
       </div>
@@ -567,6 +567,11 @@ export default {
       });
     },
     // TOPBARLEFTOPTION
+
+    addTag() {
+      this.$store.dispatch("showGoodsForm");
+    },
+
   },
   components: {}
 };
