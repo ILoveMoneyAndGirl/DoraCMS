@@ -1,4 +1,16 @@
 
+const BaseComponent = require('../prototype/baseComponent');
+
+const formidable = require('formidable');
+const _ = require("lodash");
+const {
+    service,
+    validatorUtil,
+    siteFunc
+} = require('../../../utils');
+const shortid = require('shortid');
+const validator = require('validator')
+
 function checkFormData(req, res, fields) {
 
 
