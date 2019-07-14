@@ -1180,6 +1180,9 @@ const app = {
     }, params = {}) {
       services.contentTagList(params).then((result) => {
         commit(types.CONTENTTAG_LIST, result.data.data)
+
+                console.log("??????getContentTagList????",result);
+                console.log(result)
       })
     },
     showContentMessageForm: ({

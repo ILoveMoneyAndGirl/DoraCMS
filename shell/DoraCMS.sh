@@ -12,7 +12,8 @@
 
 # wget https://www.html-js.cn/upload/file/ueditor/1131952285434384384.zip
 
-
+# /goods/getList
+# productList
 
 #上传工程
 

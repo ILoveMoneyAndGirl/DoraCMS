@@ -17,6 +17,10 @@ module.exports = (req, res, next) => {
                     hasPower = true;
                     break;
                 }
+                console.log(resourceObj.api)
+                 console.log(resourceObj.targetApi)
+                   console.log(adminPower)
+                     console.log(adminPower.indexOf(resourceObj._id))
             } else {
                 break;
             }
