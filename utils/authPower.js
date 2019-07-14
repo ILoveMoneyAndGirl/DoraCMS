@@ -18,7 +18,7 @@ module.exports = (req, res, next) => {
                     break;
                 }
                 console.log(resourceObj.api)
-                 console.log(resourceObj.targetApi)
+                 console.log(targetApi)
                    console.log(adminPower)
                      console.log(adminPower.indexOf(resourceObj._id))
             } else {
