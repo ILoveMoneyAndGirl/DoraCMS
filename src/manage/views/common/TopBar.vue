@@ -568,7 +568,7 @@ export default {
     },
     // TOPBARLEFTOPTION
 
-    addTag() {
+    addGoods() {
       this.$store.dispatch("showGoodsForm");
     },
 
