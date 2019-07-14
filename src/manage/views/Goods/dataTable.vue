@@ -8,8 +8,7 @@
             <el-table-column prop="days" :label="$t('goods.days')">
             </el-table-column>
             </el-table-column>
-            <el-table-column prop="des" :label="$t('goods.des')">
-            </el-table-column>
+         
             
             <el-table-column :label="$t('main.dataTableOptions')" width="150">
                 <template slot-scope="scope">

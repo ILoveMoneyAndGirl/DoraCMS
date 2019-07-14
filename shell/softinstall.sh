@@ -23,6 +23,9 @@ sudo apt-get install libmysqlclient-dev
 # 方式二：sudo service mysql restart
 
 
+   # <el-table-column prop="des" :label="$t('goods.des')">
+   #          </el-table-column>
+
 # mac 端口查看
 # lsof -i:8888
 
