@@ -858,7 +858,7 @@ const app = {
       state.goods.goodsList = goodsList
     },
 
-    
+
   },
   actions: {
     toggleSideBar({
@@ -1403,9 +1403,8 @@ const app = {
       commit
     }, params = {}) {
       services.goodsList(params).then((result) => {
-         console.log("----->");
-        console.log(types.GOODS_LIST)
         commit(types.GOODS_LIST, result.data.data)
+        console.log("??????getGoodsList????",result);
       })
     },
 
