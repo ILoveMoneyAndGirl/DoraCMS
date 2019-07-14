@@ -44,6 +44,13 @@
           <i class="fa fa-fw fa-plus" aria-hidden="true"></i>
         </el-button>
       </div>
+
+       <div v-else-if="type === 'goods'">
+        <el-button size="small" type="primary" plain round @click="addTag">
+          <i class="fa fa-fw fa-plus" aria-hidden="true"></i>
+        </el-button>
+      </div>
+
       <div v-else-if="type === 'regUser'">
         <el-button size="small" type="danger" plain round @click="branchDelete('user')">
           <i class="fa fa-fw fa-trash-o"></i>

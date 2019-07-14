@@ -119,6 +119,12 @@ export default {
           pageSize,
           searchkey
         });
+      }else if (this.pageType === "goods") {
+        this.$store.dispatch("getGoodsList", {
+          current: targetCurrent,
+          pageSize,
+          searchkey
+        });
       }
       //ComponentPaginationEnd
     },

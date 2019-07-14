@@ -3,7 +3,7 @@
         <TagForm :dialogState="formState"></TagForm>
         <el-row class="dr-datatable">
             <el-col :span="24">
-                <TopBar type="contentTag13" :pageInfo="contentTagList.pageInfo"></TopBar>
+                <TopBar type="contentTag" :pageInfo="contentTagList.pageInfo"></TopBar>
                 <DataTable :pageInfo="contentTagList.pageInfo" :dataList="contentTagList.docs"></DataTable>
                 <Pagination :pageInfo="contentTagList.pageInfo" pageType="contentTag"></Pagination>
             </el-col>
