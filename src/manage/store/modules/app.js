@@ -448,8 +448,7 @@ const app = {
         formData: {
           price: '',
           days: 0,
-          des: '',
-          payUrl:[]
+          des: ''
         }
       },
       goodsList: {
@@ -856,6 +855,17 @@ const app = {
 
     [types.GOODS_LIST](state, goodsList) {
       state.goods.goodsList = goodsList
+    },
+
+    [types.GOODS_FORMSTATE](state, formState) {
+      state.contentTag.formState.show = formState.show;
+      state.contentTag.formState.edit = formState.edit;
+      state.contentTag.formState.formData = Object.assign({
+        price: '',
+        days: '',
+        des: ''
+      }, formState.formData);
+
     },
 
 
