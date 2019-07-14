@@ -1,5 +1,6 @@
 
 const BaseComponent = require('../prototype/baseComponent');
+const ContentTagModel = require("../models").ContentTag;
 
 const formidable = require('formidable');
 const _ = require("lodash");
@@ -35,7 +36,7 @@ class HelloOperation {
             let pageSize = req.query.pageSize || 10;
             let model = req.query.model; // 查询模式 full/simple
             let searchkey = req.query.searchkey,
-                queryObj = {};
+            let queryObj = {};
             let useClient = req.query.useClient;
 
             if (model === 'full') {
