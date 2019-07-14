@@ -36,7 +36,7 @@ class HelloOperation {
             let pageSize = req.query.pageSize || 10;
             let model = req.query.model; // 查询模式 full/simple
             let searchkey = req.query.searchkey,
-            let queryObj = {};
+             queryObj = {};
             let useClient = req.query.useClient;
 
             if (model === 'full') {
