@@ -3,16 +3,20 @@
         <el-table align="center" v-loading="loading" ref="multipleTable" :data="dataList" tooltip-effect="dark" style="width: 100%" @selection-change="handleSelectionChange">
             <el-table-column type="selection" width="55">
             </el-table-column>
+
             <el-table-column prop="name" :label="$t('contentTag.name')" width="120">
             </el-table-column>
+
             <el-table-column prop="comments" :label="$t('contentTag.comments')">
             </el-table-column>
+
             <el-table-column :label="$t('main.dataTableOptions')" width="150">
                 <template slot-scope="scope">
                     <el-button size="mini" type="primary" plain round @click="editContentTag(scope.$index, dataList)"><i class="fa fa-edit"></i></el-button>
                     <el-button size="mini" type="danger" plain round icon="el-icon-delete" @click="deleteContentTag(scope.$index, dataList)"></el-button>
                 </template>
             </el-table-column>
+            
         </el-table>
     </div>
 </template>

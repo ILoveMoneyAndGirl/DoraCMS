@@ -8,6 +8,11 @@
                 <el-form-item :label="$t('goods.days')" prop="days">
                     <el-input size="small" type="textarea" v-model="dialogState.formData.days"></el-input>
                 </el-form-item>
+                <el-form-item :label="$t('goods.des')" >
+                    <el-input size="small" type="textarea" v-model="dialogState.formData.des"></el-input>
+                </el-form-item>
+
+
                 <el-form-item>
                     <el-button size="medium" type="primary" @click="submitForm('ruleForm')">{{dialogState.edit ? $t('main.form_btnText_update') : $t('main.form_btnText_save')}}</el-button>
                 </el-form-item>

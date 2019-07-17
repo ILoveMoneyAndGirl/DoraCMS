@@ -7,6 +7,7 @@
             </el-table-column>
             <el-table-column prop="days" :label="$t('goods.days')">
             </el-table-column>
+              <el-table-column  :label="$t('goods.des')">
             </el-table-column>
          
             
