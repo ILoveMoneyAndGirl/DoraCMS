@@ -11,16 +11,30 @@
             <el-table-column :label="$t('payUrl.url')">
             </el-table-column>
 
-               <el-table-column :label="$t('payUrl.tag')">
+            <el-table-column :label="$t('payUrl.tag')">
             </el-table-column>
 
-               <el-table-column :label="$t('payUrl.isAny')">
+            <el-table-column :label="$t('payUrl.isAny')">
             </el-table-column>
+
+
+                  <el-table-column  :label="是否任意金额" width="55" show-overflow-tooltip>
+        <template slot-scope="scope">
+          <i
+            @click="edit(scope.$index, dataList)"
+            :class="scope.row.isAny  ? 'fa fa-star' : 'fa fa-star-o'"
+            :style="scope.row.isAny ? yellow : gray"
+          ></i>
+        </template>
+      </el-table-column>
+
+
+
 
             <el-table-column :label="$t('main.dataTableOptions')" width="150">
                 <template slot-scope="scope">
-                    <el-button size="mini" type="primary" plain round @click="editContentTag(scope.$index, dataList)"><i class="fa fa-edit"></i></el-button>
-                    <el-button size="mini" type="danger" plain round icon="el-icon-delete" @click="deleteContentTag(scope.$index, dataList)"></el-button>
+                    <el-button size="mini" type="primary" plain round @click="edit(scope.$index, dataList)"><i class="fa fa-edit"></i></el-button>
+                    <el-button size="mini" type="danger" plain round icon="el-icon-delete" @click="delete(scope.$index, dataList)"></el-button>
                 </template>
             </el-table-column>
             
@@ -46,14 +60,14 @@ export default {
     handleSelectionChange(val) {
       this.multipleSelection = val;
     },
-    editContentTag(index, rows) {
+    edit(index, rows) {
       let rowData = rows[index];
       this.$store.dispatch("showPayUrlorm", {
         edit: true,
         formData: rowData
       });
     },
-    deleteContentTag(index, rows) {
+    delete(index, rows) {
       this.$confirm(
         this.$t("main.del_notice"),
         this.$t("main.scr_modal_title"),

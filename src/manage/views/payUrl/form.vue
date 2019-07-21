@@ -82,8 +82,8 @@ export default {
           if (this.dialogState.edit) {
             services.updateContentTag(params).then(result => {
               if (result.data.status === 200) {
-                this.$store.dispatch("hideContentTagForm");
-                this.$store.dispatch("getContentTagList");
+                this.$store.dispatch("hidePayUrl");
+                this.$store.dispatch("getPayUrl");
                 this.$message({
                   message: this.$t("main.updateSuccess"),
                   type: "success"
