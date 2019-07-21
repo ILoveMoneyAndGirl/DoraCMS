@@ -1,0 +1,29 @@
+/**
+ * Created by Administrator on 2017/4/15.
+ * 收费统计　
+ */
+var mongoose = require('mongoose');
+var shortid = require('shortid');
+var Schema = mongoose.Schema;
+var AdminUser = require('./AdminUser');
+
+var PayUrlSchema = new Schema({
+    _id: {
+        type: String,
+        'default': shortid.generate
+    },
+    price: Number,//价格
+    tag: String,//标记
+    url:String,//二维码链接
+    adminUser: {
+        type: String,
+        ref: 'AdminUser'
+    },
+    isAny:Boolean
+});
+
+
+var PayUrl = mongoose.model("PayUrl", PayUrlSchema);
+module.exports = PayUrl;
+
+   

@@ -1,0 +1,118 @@
+
+
+
+<template>
+    <div class="dr-contentTagForm">
+        <el-dialog :xs="20" :sm="20" :md="6" :lg="6" :xl="6" size="small" :title="$t('支付列表')" :visible.sync="dialogState.show" :close-on-click-modal="false">
+            <el-form :model="dialogState.formData" :rules="rules" ref="ruleForm" label-width="120px" class="demo-ruleForm">
+                <el-form-item :label="价格" prop="name">
+                    <el-input size="small" v-model="dialogState.formData.price"></el-input>
+                </el-form-item>
+                <el-form-item :label="二维码" prop="comments">
+                    <el-input size="small" type="textarea" v-model="dialogState.formData.url"></el-input>
+                </el-form-item>
+
+                <el-form-item :label="标签" prop="comments">
+                    <el-input size="small" type="textarea" v-model="dialogState.formData.tag"></el-input>
+                </el-form-item>
+
+                <el-form-item>
+                    <el-button size="medium" type="primary" @click="submitForm('ruleForm')">{{dialogState.edit ? $t('main.form_btnText_update') : $t('main.form_btnText_save')}}</el-button>
+                </el-form-item>
+            </el-form>
+        </el-dialog>
+    </div>
+</template>
+<script>
+import services from "../../store/services.js";
+import _ from "lodash";
+export default {
+  props: {
+    dialogState: Object,
+    groups: Array
+  },
+  data() {
+    return {
+      rules: {
+        name: [
+          {
+            required: true,
+            message: this.$t("validate.inputNull", {
+              label: this.$t("contentTag.name")
+            }),
+            trigger: "blur"
+          },
+          {
+            min: 1,
+            max: 12,
+            message: this.$t("validate.rangelength", { min: 1, max: 12 }),
+            trigger: "blur"
+          }
+        ],
+        comments: [
+          {
+            required: true,
+            message: this.$t("validate.inputNull", {
+              label: this.$t("main.comments_label")
+            }),
+            trigger: "blur"
+          },
+          {
+            min: 2,
+            max: 30,
+            message: this.$t("validate.ranglengthandnormal", {
+              min: 2,
+              max: 30
+            }),
+            trigger: "blur"
+          }
+        ]
+      }
+    };
+  },
+  methods: {
+    confirm() {
+      this.$store.dispatch("hidePayUrlForm");
+    },
+    submitForm(formName) {
+      this.$refs[formName].validate(valid => {
+        if (valid) {
+          let params = this.dialogState.formData;
+          // 更新
+          if (this.dialogState.edit) {
+            services.updateContentTag(params).then(result => {
+              if (result.data.status === 200) {
+                this.$store.dispatch("hideContentTagForm");
+                this.$store.dispatch("getContentTagList");
+                this.$message({
+                  message: this.$t("main.updateSuccess"),
+                  type: "success"
+                });
+              } else {
+                this.$message.error(result.data.message);
+              }
+            });
+          } else {
+            // 新增
+            services.addContentTag(params).then(result => {
+              if (result.data.status === 200) {
+                this.$store.dispatch("hidePayUrlForm");
+                this.$store.dispatch("getPayUrlList");
+                this.$message({
+                  message: this.$t("main.addSuccess"),
+                  type: "success"
+                });
+              } else {
+                this.$message.error(result.data.message);
+              }
+            });
+          }
+        } else {
+          console.log("error submit!!");
+          return false;
+        }
+      });
+    }
+  }
+};
+</script>
