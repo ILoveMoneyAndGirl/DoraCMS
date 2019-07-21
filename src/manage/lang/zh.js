@@ -162,15 +162,14 @@ export default {
     updateVersionConfigs: "更新客户端版本",
     // ROUTERLANGEND
 
-
-//--------------------
+//------------------------------------------------------------------------------------------------------------------------
     productManage:"产品管理",
     productChange:"产品切换",
     productGoods:"商品管理",
     productUser:"用户管理",
     productPay:"支付管理",
     productList:"获取商品表",
-
+    payUrlList:"二维码列表",
 
 
   },

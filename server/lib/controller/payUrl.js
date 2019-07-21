@@ -29,7 +29,7 @@ class PayUrl {
         // super()
     }
 
-    async GetPayUrl(req, res, next) {
+    async GetList(req, res, next) {
         try {
 
              console.log("HelloOperation.          ...?GetGoods")
@@ -59,30 +59,6 @@ class PayUrl {
             }).skip(Number(pageSize) * (Number(current) - 1)).limit(Number(pageSize));
             const totalItems = await PayUrlModel.count(queryObj);
 
-            // let userInfo = req.session.user || {};
-            // if (useClient == '2') {
-            //     contentTags = JSON.parse(JSON.stringify(contentTags));
-            //     for (const tagItem of contentTags) {
-            //         tagItem.hadWatched = false;
-            //         if (userInfo._id) {
-            //             let targetUser = await UserModel.findOne({
-            //                 _id: userInfo._id
-            //             }, siteFunc.getAuthUserFields('session'));
-            //             if (!_.isEmpty(targetUser)) {
-            //                 // 本人是否已添加该标签
-            //                 if (targetUser.watchTags && targetUser.watchTags.indexOf(tagItem._id) >= 0) {
-            //                     tagItem.hadWatched = true;
-            //                 }
-            //             }
-            //         }
-            //     }
-            // }
-
-            // let msg={
-            //     current:current,
-            //     queryObj:queryObj,
-            //     pageSize:pageSize,
-            // }
 
 
 
@@ -95,13 +71,13 @@ class PayUrl {
                     searchkey: searchkey || ''
                 }
             };
-            let rendeData = siteFunc.renderApiData(req, res, 200, 'goods', sendData);
+            let rendeData = siteFunc.renderApiData(req, res, 200, 'PayUrl', sendData);
             if (modules && modules.length > 0) {
                 return rendeData.data;
             } else {
                 if (useClient == '2') {
 
-                    res.send(siteFunc.renderApiData(req, res, 200, 'goods', data));
+                    res.send(siteFunc.renderApiData(req, res, 200, 'PayUrl', data));
                 } else {
                     res.send(rendeData);
                 }
@@ -116,59 +92,68 @@ class PayUrl {
         
     }
 
-    async UpdatePayUrl(req, res, next) {
+    async Update(req, res, next) {
 
-        // const form = new formidable.IncomingForm();
-        // form.parse(req, async (err, fields, files) => {
-        //     try {
-        //         checkFormData(req, res, fields);
-        //     } catch (err) {
-        //         console.log(err.message, err);
-        //         res.send(siteFunc.renderApiErr(req, res, 500, err, 'checkform'));
-        //     }
+        const form = new formidable.IncomingForm();
+        form.parse(req, async (err, fields, files) => {
+            try {
+                checkFormData(req, res, fields);
+            } catch (err) {
+                console.log(err.message, err);
+                res.send(siteFunc.renderApiErr(req, res, 500, err, 'checkform'));
+            }
 
-        //     const userObj = {
-        //         name: fields.name,
-        //         alias: fields.alias,
-        //         comments: fields.comments
-        //     }
-        //     const item_id = fields._id;
-        //     try {
-        //         await ContentTagModel.findOneAndUpdate({
-        //             _id: item_id
-        //         }, {
-        //             $set: userObj
-        //         });
-        //         res.send(siteFunc.renderApiData(req, res, 200, 'contentTag', {}, 'update'))
 
-        //     } catch (err) {
 
-        //         res.send(siteFunc.renderApiErr(req, res, 500, err, 'update'));
-        //     }
-        // })
+            const obj = {
+                price: fields.price,
+                tag: fields.tag,
+                url: fields.url,
+                isAny: fields.isAny,
 
-         res.send(siteFunc.renderApiData(req, res, 200, 'contentTag', {}, 'update'))
+            }
+            const item_id = fields._id;
+            try {
+                await PayUrlModel.findOneAndUpdate({
+                    _id: item_id
+                }, {
+                    $set: obj
+                });
+                res.send(siteFunc.renderApiData(req, res, 200, 'payUrl', {}, 'update'))
+
+            } catch (err) {
+
+                res.send(siteFunc.renderApiErr(req, res, 500, err, 'update'));
+            }
+        })
+
+         res.send(siteFunc.renderApiData(req, res, 200, 'payUrl', {}, 'update'))
         
     }
-    async AddPayUrl(req, res, next) {
-                        const form = new formidable.IncomingForm();
+
+
+    async Add(req, res, next) {
+        
+        const form = new formidable.IncomingForm();
         form.parse(req, async (err, fields, files) => {
             try {
                 checkFormData(req, res, fields);
 
 
-                const tagObj = {
-                    name: fields.name,
-                    alias: fields.alias,
-                    comments: fields.comments
-                }
+                const obj = {
+                price: fields.price,
+                tag: fields.tag,
+                url: fields.url,
+                isAny: fields.isAny,
+                adminUser:req.session.adminUserInfo._id
+            }
 
-                const newContentTag = new ContentTagModel(tagObj);
+                const newObj = new PayUrlModel(obj);
 
-                await newContentTag.save();
+                await newObj.save();
 
-                res.send(siteFunc.renderApiData(req, res, 200, 'contentTag', {
-                    id: newContentTag._id
+                res.send(siteFunc.renderApiData(req, res, 200, 'payUrl', {
+                    id: newObj._id
                 }, 'save'))
 
             } catch (err) {
@@ -179,30 +164,30 @@ class PayUrl {
 
         
     }
-    async DeletePayUrl(req, res, next) {
+    async Delete(req, res, next) {
 
-        //         try {
-        //     let errMsg = '';
-        //     if (!siteFunc.checkCurrentId(req.query.ids)) {
-        //         errMsg = res.__("validate_error_params");
-        //     }
-        //     if (errMsg) {
-        //         throw new siteFunc.UserException(errMsg);
-        //     }
-        //     await ContentTagModel.remove({
-        //         _id: req.query.ids
-        //     });
-        //     res.send(siteFunc.renderApiData(req, res, 200, 'contentTag', {}, 'delete'))
+        try {
+            let errMsg = '';
+            if (!siteFunc.checkCurrentId(req.query.ids)) {
+                errMsg = res.__("validate_error_params");
+            }
+            if (errMsg) {
+                throw new siteFunc.UserException(errMsg);
+            }
+            await PayUrlModel.remove({
+                _id: req.query.ids
+            });
+            res.send(siteFunc.renderApiData(req, res, 200, 'payUrl', {}, 'delete'))
 
-        // } catch (err) {
+        } catch (err) {
 
-        //     res.send(siteFunc.renderApiErr(req, res, 500, err, 'delete'));
-        // }
+            res.send(siteFunc.renderApiErr(req, res, 500, err, 'delete'));
+        }
 
-        res.send(siteFunc.renderApiData(req, res, 200, 'contentTag', {}, 'delete'))
+        res.send(siteFunc.renderApiData(req, res, 200, 'payUrl', {}, 'delete'))
     }
 
 
 }
 
-module.exports = new HelloOperation();
+module.exports = new PayUrl();

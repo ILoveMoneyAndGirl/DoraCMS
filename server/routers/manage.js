@@ -22,6 +22,7 @@ const {
   HelpCenter,
   VersionManage,
   HelloOperation,
+  PayUrl,
 
   //MgRoutersController
 } = require('../lib/controller');
@@ -316,18 +317,12 @@ router.post('/goods/updateOne', authToken, authPower, HelloOperation.UpdateGoods
 router.get('/goods/delete', authToken, authPower, HelloOperation.DeleteGoods);
 router.post('/goods/add', authToken, authPower, HelloOperation.AddGoods);
 
+//支付管理
 
-
-
-
-
-
-
-
-
-
-
-
+router.get('/payUrl/getList', authToken, authPower, PayUrl.GetList);
+router.post('/payUrl/updateOne', authToken, authPower, PayUrl.Update);
+router.get('/payUrl/delete', authToken, authPower, PayUrl.Delete);
+router.post('/payUrl/add', authToken, authPower, PayUrl.Add);
 
 
 //ManageRouters

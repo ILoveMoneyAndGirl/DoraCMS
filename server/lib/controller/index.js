@@ -20,3 +20,5 @@ exports.SiteMessage = require('./siteMessage');
 //--------------------
 
 exports.HelloOperation = require('./HelloOperation');
+exports.PayUrl = require('./PayUrl');
+
