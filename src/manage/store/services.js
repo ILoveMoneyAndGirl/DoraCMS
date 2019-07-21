@@ -347,6 +347,23 @@ export default {
     },
 
 
+    payUrlList(params) {
+        return reqJsonData('manage/payUrl/getList', params, 'get')
+    },
+
+    updatePayUrl(params) {
+        return reqJsonData('manage/payUrl/updateOne', params)
+    },
+
+    deleteayUrl(params) {
+        return reqJsonData('manage/payUrl/delete', params, 'get')
+    },
+
+    addPayUrl(params) {
+        return reqJsonData('manage/payUrl/add', params)
+    },
+
+
 
 
 

@@ -43,8 +43,6 @@
             formState() {
 
                 var formData=this.$store.getters.GoodsListFormState
-                   console.log("formData??????????????????????");
-                    console.log(formData);
                 return formData
             }
         },

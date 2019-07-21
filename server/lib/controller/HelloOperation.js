@@ -199,9 +199,7 @@ class HelloOperation {
         //     res.send(siteFunc.renderApiErr(req, res, 500, err, 'delete'));
         // }
 
-                    res.send(siteFunc.renderApiData(req, res, 200, 'contentTag', {}, 'delete'))
-
-        
+        res.send(siteFunc.renderApiData(req, res, 200, 'contentTag', {}, 'delete'))
     }
 
     async AddTime(req, res, next) {

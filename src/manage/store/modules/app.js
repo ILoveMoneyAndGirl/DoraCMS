@@ -439,8 +439,8 @@ const app = {
     },
     //StoreAppInitState
 
-//------------------------------------
-
+//---------------------------------------------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------------------------------------------
   goods: {
       formState: {
         show: false,
@@ -456,6 +456,28 @@ const app = {
         docs: []
       },
       goods: {
+        state: '',
+        err: {}
+      }
+    },
+
+    payUrl: {
+      formState: {
+        show: false,
+        edit: false,
+        formData: {
+          price: '',
+          url: '',
+          tag: '',
+          isAny: '',
+
+        }
+      },
+      payUrlList: {
+        pageInfo: {},
+        docs: []
+      },
+      payUrl: {
         state: '',
         err: {}
       }
@@ -852,6 +874,8 @@ const app = {
       state.basicInfo = list
     },
     //StoreAppMutations
+//------------------------------------------------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------------------------------------------------
 
     [types.GOODS_LIST](state, goodsList) {
       state.goods.goodsList = goodsList
@@ -864,6 +888,26 @@ const app = {
         price: '',
         days: '',
         des: ''
+      }, formState.formData);
+
+    },
+
+
+    [types.PAYURL_LIST](state, payUrlList) {
+      state.payUrl.payUrlList = payUrlList
+    },
+
+
+
+
+    [types.PAYURL_FORMSTATE](state, formState) {
+      state.goods.formState.show = formState.show;
+      state.goods.formState.edit = formState.edit;
+      state.goods.formState.formData = Object.assign({
+        price: '',
+        url: '',
+        tag: '',
+        isAny:'',
       }, formState.formData);
 
     },
@@ -1409,8 +1453,8 @@ const app = {
 
 
 
-
-    //-----------------------------
+//-------------------------------------------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------------------------------------------------------------------
 
     getGoodsList({
       commit
@@ -1438,6 +1482,36 @@ const app = {
       commit
     }) => {
       commit(types.GOODS_FORMSTATE, {
+        show: false
+      })
+    },
+
+
+    getPayUrlList({
+      commit
+    }, params = {}) {
+      services.payUrlList(params).then((result) => {
+        commit(types.PAYURL_LIST, result.data.data)
+      })
+    },
+
+    showPayUrlForm: ({
+      commit
+    }, params = {
+      edit: false,
+      formData: {}
+    }) => {
+      commit(types.PAYURL_FORMSTATE, {
+        show: true,
+        edit: params.edit,
+        formData: params.formData
+      })
+    },
+
+    hidePayUrlForm: ({
+      commit
+    }) => {
+      commit(types.PAYURL_FORMSTATE, {
         show: false
       })
     },
