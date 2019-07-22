@@ -1,6 +1,3 @@
-
-
-
 <template>
     <div class="dr-payUrlForm">
         <el-dialog :xs="20" :sm="20" :md="6" :lg="6" :xl="6" size="small" :title="$t('payUrl.form_title')" :visible.sync="dialogState.show" :close-on-click-modal="false">
