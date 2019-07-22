@@ -8,16 +8,16 @@
                 <el-form-item :label="$t('payUrl.price')" prop="price">
                     <el-input size="small" v-model="dialogState.formData.price"></el-input>
                 </el-form-item>
-                <el-form-item :label="$t('payUrl.url')" prop="url">
+                <el-form-item :label="$t('payUrl.url')" >
                     <el-input size="small" type="textarea" v-model="dialogState.formData.url"></el-input>
                 </el-form-item>
 
-                <el-form-item :label="$t('payUrl.tag')" prop="tag">
+                <el-form-item :label="$t('payUrl.tag')" >
                     <el-input size="small" type="textarea" v-model="dialogState.formData.tag"></el-input>
                 </el-form-item>
 
 
-                <el-form-item :label="$t('payUrl.isAny')" prop="tisAnyag">
+                <el-form-item :label="$t('payUrl.isAny')">
                     <el-input size="small" type="textarea" v-model="dialogState.formData.isAny"></el-input>
                 </el-form-item>
 
