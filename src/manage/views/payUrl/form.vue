@@ -39,39 +39,6 @@ export default {
   data() {
     return {
       rules: {
-        name: [
-          {
-            required: true,
-            message: this.$t("validate.inputNull", {
-              label: this.$t("contentTag.name")
-            }),
-            trigger: "blur"
-          },
-          {
-            min: 1,
-            max: 12,
-            message: this.$t("validate.rangelength", { min: 1, max: 12 }),
-            trigger: "blur"
-          }
-        ],
-        comments: [
-          {
-            required: true,
-            message: this.$t("validate.inputNull", {
-              label: this.$t("main.comments_label")
-            }),
-            trigger: "blur"
-          },
-          {
-            min: 2,
-            max: 30,
-            message: this.$t("validate.ranglengthandnormal", {
-              min: 2,
-              max: 30
-            }),
-            trigger: "blur"
-          }
-        ]
       }
     };
   },
@@ -85,7 +52,7 @@ export default {
           let params = this.dialogState.formData;
           // 更新
           if (this.dialogState.edit) {
-            services.updateContentTag(params).then(result => {
+            services.updatePayUrl(params).then(result => {
               if (result.data.status === 200) {
                 this.$store.dispatch("hidePayUrl");
                 this.$store.dispatch("getPayUrl");
@@ -99,7 +66,7 @@ export default {
             });
           } else {
             // 新增
-            services.addContentTag(params).then(result => {
+            services.addPayUrl(params).then(result => {
               if (result.data.status === 200) {
                 this.$store.dispatch("hidePayUrlForm");
                 this.$store.dispatch("getPayUrlList");
