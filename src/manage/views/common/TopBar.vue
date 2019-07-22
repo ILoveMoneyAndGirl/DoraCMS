@@ -52,7 +52,7 @@
       </div>
 
         <div v-else-if="type === 'payUrl'">
-        <el-button size="small" type="primary" plain round @click="addGoods">
+        <el-button size="small" type="primary" plain round @click="addPayUrl">
           <i class="fa fa-fw fa-plus" aria-hidden="true"></i>
         </el-button>
       </div>

@@ -5,7 +5,7 @@
             <el-table-column type="selection" width="55">
             </el-table-column>
 
-            <el-table-column prop="price" :label="$t('payUrl.price')" width="120">
+            <el-table-column prop="price" :label="$t('payUrl.price')">
             </el-table-column>
 
             <el-table-column  prop="url":label="$t('payUrl.url')">
@@ -14,9 +14,7 @@
             <el-table-column prop="tag" :label="$t('payUrl.tag')">
             </el-table-column>
 
-           
-
-           <el-table-column  :label="$t('payUrl.isAny')" width="55" show-overflow-tooltip>
+           <el-table-column  :label="$t('payUrl.isAny')" show-overflow-tooltip>
         <template slot-scope="scope">
           <i
             @click="edit(scope.$index, dataList)"
@@ -25,9 +23,6 @@
           ></i>
         </template>
       </el-table-column>
-
-
-
 
             <el-table-column :label="$t('main.dataTableOptions')" width="150">
                 <template slot-scope="scope">
