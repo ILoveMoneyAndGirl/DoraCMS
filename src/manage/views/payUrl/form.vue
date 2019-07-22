@@ -51,8 +51,8 @@ export default {
           if (this.dialogState.edit) {
             services.updatePayUrl(params).then(result => {
               if (result.data.status === 200) {
-                this.$store.dispatch("hidePayUrl");
-                this.$store.dispatch("getPayUrl");
+                this.$store.dispatch("hidePayUrlForm");
+                this.$store.dispatch("getPayUrlList");
                 this.$message({
                   message: this.$t("main.updateSuccess"),
                   type: "success"
