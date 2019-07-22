@@ -575,11 +575,18 @@ export default {
     // TOPBARLEFTOPTION
 
     addGoods() {
+                   console.log("addGoods.addGoods--------->0")
+
       this.$store.dispatch("showGoodsForm");
+               console.log("addGoods.addGoods--------->")
+
     },
 
     addPayUrl() {
+             console.log("addPayUrl.addPayUrl--------->o")
+
       this.$store.dispatch("showPayUrlForm");
+         console.log("addPayUrl.addPayUrl--------->")
     },
 
   },
