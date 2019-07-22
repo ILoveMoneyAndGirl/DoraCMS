@@ -5,16 +5,16 @@
             <el-table-column type="selection" width="55">
             </el-table-column>
 
-            <el-table-column  :label="$t('payUrl.price')" width="120">
+            <el-table-column prop="price" :label="价格" width="120">
             </el-table-column>
 
-            <el-table-column :label="$t('payUrl.url')">
+            <el-table-column  prop="url":label="二维码链接">
             </el-table-column>
 
-            <el-table-column :label="$t('payUrl.tag')">
+            <el-table-column prop="tag" :label="标签">
             </el-table-column>
 
-            <el-table-column :label="$t('payUrl.isAny')">
+            <el-table-column prop="isAny" :label="任意金额">
             </el-table-column>
 
 

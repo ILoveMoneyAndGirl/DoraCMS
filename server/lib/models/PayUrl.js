@@ -1,6 +1,6 @@
 /**
  * Created by Administrator on 2017/4/15.
- * 收费统计　
+ * 二维码
  */
 var mongoose = require('mongoose');
 var shortid = require('shortid');
