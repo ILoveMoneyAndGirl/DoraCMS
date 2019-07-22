@@ -901,9 +901,9 @@ const app = {
 
 
     [types.PAYURL_FORMSTATE](state, formState) {
-      state.goods.formState.show = formState.show;
-      state.goods.formState.edit = formState.edit;
-      state.goods.formState.formData = Object.assign({
+      state.payUrl.formState.show = formState.show;
+      state.payUrl.formState.edit = formState.edit;
+      state.payUrl.formState.formData = Object.assign({
         price: '',
         url: '',
         tag: '',
