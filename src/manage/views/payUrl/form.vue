@@ -6,7 +6,7 @@
                     <el-input size="small" v-model="dialogState.formData.price"></el-input>
                 </el-form-item>
 
-                <el-form-item class="upSimg" :label="payUrl.qrCode" >
+                <el-form-item class="upSimg" :label="$t('payUrl.qrCode')" >
                       <el-upload
                         class="avatar-uploader"
                         action="/api/v0/upload/files?type=images"
