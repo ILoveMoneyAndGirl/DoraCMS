@@ -33,11 +33,11 @@ module.exports = {
     PASSWORD: 'WebBackUserDB_Root.c.c',
 
     // 七牛配置
-    openqn: false, //是否开启,若为true 则下面的信息必须配置正确完整
-    accessKey: 'your accessKey',
-    secretKey: 'your secretKey',
-    bucket: 'cmsupload', //上传的目标资源空间
-    origin: 'http://cdn.html-js.cn', // cdn域名
+    openqn: true, //是否开启,若为true 则下面的信息必须配置正确完整
+    accessKey: 'k6H7PEc1xPgFsYyqX95A1EnpwGdCPVAJVSr1uc4s',
+    secretKey: '00R6UXznWALltatLBXr-kjzDqVvoAh2yp7PGSdLI',
+    bucket: 'build', //上传的目标资源空间
+    origin: 'http://pic.qunniao68.com', // cdn域名
     fsizeLimit: 1024 * 1024 * 5, // 上传文件大小限制默认为5M
     assetsCdn: true, // 静态资源使用cnd.请在build完成后将 elemt.*.js 上传的七牛的融合cdn
 

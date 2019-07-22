@@ -446,7 +446,7 @@ const app = {
         show: false,
         edit: false,
         formData: {
-          price: '',
+          price: 0,
           days: 0,
           des: ''
         }
@@ -466,10 +466,10 @@ const app = {
         show: false,
         edit: false,
         formData: {
-          price: '',
+          price: 0,
           url: '',
           tag: '',
-          isAny: '',
+          isAny: false,
 
         }
       },
@@ -885,8 +885,8 @@ const app = {
       state.goods.formState.show = formState.show;
       state.goods.formState.edit = formState.edit;
       state.goods.formState.formData = Object.assign({
-        price: '',
-        days: '',
+        price: 0,
+        days: 0,
         des: ''
       }, formState.formData);
 
@@ -904,10 +904,10 @@ const app = {
       state.payUrl.formState.show = formState.show;
       state.payUrl.formState.edit = formState.edit;
       state.payUrl.formState.formData = Object.assign({
-        price: '',
+        price: 0,
         url: '',
         tag: '',
-        isAny:'',
+        isAny:true,
       }, formState.formData);
 
     },

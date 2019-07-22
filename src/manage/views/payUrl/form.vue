@@ -5,9 +5,19 @@
                 <el-form-item :label="$t('payUrl.price')">
                     <el-input size="small" v-model="dialogState.formData.price"></el-input>
                 </el-form-item>
-                <el-form-item :label="$t('payUrl.url')" >
-                    <el-input size="small" type="textarea" v-model="dialogState.formData.url"></el-input>
-                </el-form-item>
+
+                <el-form-item class="upSimg" :label="二维码" prop="url">
+                      <el-upload
+                        class="avatar-uploader"
+                        action="/api/v0/upload/files?type=images"
+                        :show-file-list="false"
+                        :on-success="handleAvatarSuccess"
+                        :before-upload="beforeAvatarUpload"
+                      >
+                        <img v-if="dialogState.formData.url" :src="dialogState.formData.url" class="avatar">
+                        <i v-else class="el-icon-plus avatar-uploader-icon"></i>
+                    </el-upload>
+                 </el-form-item>
 
                 <el-form-item :label="$t('payUrl.tag')" >
                     <el-input size="small" type="textarea" v-model="dialogState.formData.tag"></el-input>
@@ -15,8 +25,13 @@
 
 
                 <el-form-item :label="$t('payUrl.isAny')">
-                    <el-input size="small" type="textarea" v-model="dialogState.formData.isAny"></el-input>
+                  <el-switch
+                    :on-text="$t('main.radioOn')"
+                    :off-text="$t('main.radioOff')"
+                    v-model="dialogState.formData.isAny"
+                  ></el-switch>
                 </el-form-item>
+
 
                 <el-form-item>
                     <el-button size="medium" type="primary" @click="submitForm('ruleForm')">{{dialogState.edit ? $t('main.form_btnText_update') : $t('main.form_btnText_save')}}</el-button>
@@ -36,6 +51,15 @@ export default {
   data() {
     return {
       rules: {
+          url: [
+          {
+            required: true,
+            message: this.$t("validate.selectNull", {
+              label: "二维码"
+            }),
+            trigger: "blur"
+          }
+        ],
       }
     };
   },
