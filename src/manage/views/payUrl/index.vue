@@ -1,5 +1,5 @@
 <template>
-    <div class="payUrl">
+    <div class="adminUser">
         <Form :dialogState="formState"></Form>
         <el-row class="dr-datatable">
             <el-col :span="24">
