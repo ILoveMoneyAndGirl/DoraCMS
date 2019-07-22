@@ -108,11 +108,11 @@ export default {
     },
     handleAvatarSuccess(res, file) {
       let imageUrl = res.data.path;
-       console.log(this.formState);
-      
+       console.log(this.dialogState.formState);
+
       this.$store.dispatch("showPayUrlForm", {
-        edit: this.formState.edit,
-        formData: Object.assign({}, this.formState.formData, {
+        edit: this.dialogState.formState.edit,
+        formData: Object.assign({}, this.dialogState.formState.formData, {
           url: imageUrl
         })
       });
