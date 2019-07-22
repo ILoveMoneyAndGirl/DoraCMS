@@ -170,7 +170,7 @@ export default {
     productPay:"支付管理",
     productList:"获取商品表",
     payUrlList:"二维码列表",
-
+    addPayUrl:"添加二维码",
 
   },
   navbar: {
