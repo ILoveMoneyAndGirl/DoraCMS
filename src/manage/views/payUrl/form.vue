@@ -111,11 +111,11 @@ export default {
             console.log("imageUrl")
 
       console.log(imageUrl)
-       console.log(this.dialogState.formState);
+       console.log(this.dialogState);
 
       this.$store.dispatch("showPayUrlForm", {
-        edit: this.dialogState.formState.edit,
-        formData: Object.assign({}, this.dialogState.formState.formData, {
+        edit: this.dialogState.edit,
+        formData: Object.assign({}, this.dialogState.formData, {
           url: imageUrl
         })
       });
