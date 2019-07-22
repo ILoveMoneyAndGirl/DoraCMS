@@ -581,7 +581,8 @@ export default {
     url: '链接',
     tag: '标签',
     isAny: '任意金额',
-    price:'价格'
+    price:'价格',
+    qrCode:'二维码'
   },
 
 }

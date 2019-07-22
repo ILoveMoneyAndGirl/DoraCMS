@@ -6,7 +6,7 @@
                     <el-input size="small" v-model="dialogState.formData.price"></el-input>
                 </el-form-item>
 
-                <el-form-item class="upSimg" :label="二维码" prop="url">
+                <el-form-item class="upSimg" :label="payUrl.qrCode" >
                       <el-upload
                         class="avatar-uploader"
                         action="/api/v0/upload/files?type=images"
@@ -105,7 +105,31 @@ export default {
           return false;
         }
       });
-    }
+    },
+    handleAvatarSuccess(res, file) {
+      let imageUrl = res.data.path;
+      this.$store.dispatch("showPayUrlForm", {
+        edit: this.formState.edit,
+        formData: Object.assign({}, this.formState.formData, {
+          url: imageUrl
+        })
+      });
+    },
+    beforeAvatarUpload(file) {
+      const isJPG = file.type === "image/jpeg";
+      const isPNG = file.type === "image/png";
+      const isGIF = file.type === "image/gif";
+      const isLt2M = file.size / 1024 / 1024 < 2;
+      if (!isJPG && !isPNG && !isGIF) {
+        this.$message.error(this.$t("validate.limitUploadImgType"));
+      }
+      if (!isLt2M) {
+        this.$message.error(
+          this.$t("validate.limitUploadImgSize", { size: 2 })
+        );
+      }
+      return (isJPG || isPNG || isGIF) && isLt2M;
+    },
   }
 };
 </script>
