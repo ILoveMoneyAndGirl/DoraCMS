@@ -41,7 +41,7 @@
                 'PayUrlList'
             ]),
             formState() {
-                return this.$store.getters.PayUrlListListFormState
+                return this.$store.getters.PayUrlListFormState
             }
         },
         mounted() {
