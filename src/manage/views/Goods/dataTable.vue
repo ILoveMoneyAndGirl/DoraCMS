@@ -3,7 +3,7 @@
         <el-table align="center" v-loading="loading" ref="multipleTable" :data="dataList" tooltip-effect="dark" style="width: 100%" @selection-change="handleSelectionChange">
             <el-table-column type="selection" width="55">
             </el-table-column>
-            <el-table-column prop="price" :label="$t('goods.price')" width="120">
+            <el-table-column prop="price" :label="$t('goods.price')">
             </el-table-column>
             <el-table-column prop="days" :label="$t('goods.days')">
             </el-table-column>

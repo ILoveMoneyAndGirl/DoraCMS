@@ -3,7 +3,7 @@
         <Form :dialogState="formState"></Form>
         <el-row class="dr-datatable">
             <el-col :span="24">
-                <TopBar type="PayUrlList" :pageInfo="PayUrlList.pageInfo"></TopBar>
+                <TopBar type="payUrl" :pageInfo="PayUrlList.pageInfo"></TopBar>
                 <DataTable :pageInfo="PayUrlList.pageInfo" :dataList="PayUrlList.docs"></DataTable>
                 <Pagination :pageInfo="PayUrlList.pageInfo" pageType="PayUrlList"></Pagination>
             </el-col>
