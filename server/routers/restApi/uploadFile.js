@@ -132,15 +132,20 @@ router.post('/files', siteFunc.checkUserSessionForApi, function (req, res, next)
 
                 // let fileInfo = await updateFileForApi(fileType, newFileName, addPath);
                     console.log('uploadToQiniu ---0');
+                 try {
 
-                let url=await uploadToQiniu(addPath,newFileName)
-                    console.log('uploadToQiniu ---url',url);
+                    let url=await uploadToQiniu(addPath,newFileName)
+                        console.log('uploadToQiniu ---url',url);
 
-                fs.unlink(addPath)
+                    fs.unlink(addPath)
 
-                res.send(siteFunc.renderApiData(req, res, 200, 'get data success', {
-                    path: url
-                }, 'save'));
+                    res.send(siteFunc.renderApiData(req, res, 200, 'get data success', {
+                        path: url
+                    }, 'save'));
+                 } catch (err) {
+
+                    res.send(siteFunc.renderApiErr(req, res, 500, err, 'upload'));
+                 }
 
             } else {
                 throw new siteFunc.UserException(settings.system_error_upload);

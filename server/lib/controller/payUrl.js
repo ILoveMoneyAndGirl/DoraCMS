@@ -133,12 +133,14 @@ class PayUrl {
 
 
     async Add(req, res, next) {
-        
+                        console.log("Add.....0")
+
         const form = new formidable.IncomingForm();
         form.parse(req, async (err, fields, files) => {
             try {
                 checkFormData(req, res, fields);
 
+                        console.log("Add.....1")
 
                 const obj = {
                 price: fields.price,
@@ -147,17 +149,26 @@ class PayUrl {
                 isAny: fields.isAny,
                 adminUser:req.session.adminUserInfo._id
             }
+              console.log("Add.....2")
 
                 const newObj = new PayUrlModel(obj);
-
+              console.log("Add.....3")
                 await newObj.save();
+
+                 console.log("Add.....4")
+
 
                 res.send(siteFunc.renderApiData(req, res, 200, 'payUrl', {
                     id: newObj._id
                 }, 'save'))
 
-            } catch (err) {
+                console.log("Add.....5")
 
+
+            } catch (err) {
+                console.log("Add.....err")
+
+                console.log(err)
                 res.send(siteFunc.renderApiErr(req, res, 500, err, 'save'));
             }
         })
