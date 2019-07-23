@@ -156,7 +156,7 @@ async function uploadToQiniu(file,imgkey) {
      console.log('uploadToQiniu ---enter',file,imgkey);
 
 
-    return new Promise(function (resolve, reject,file,imgkey) {
+    return new Promise(function (resolve, reject) {
      console.log('uploadToQiniu ---Promise',file,imgkey);
 
             // 鉴权凭证
