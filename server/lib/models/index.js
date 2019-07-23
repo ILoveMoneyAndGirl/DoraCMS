@@ -53,6 +53,8 @@ exports.HelpCenter = require('./HelpCenter');
 exports.VersionManage = require('./VersionManage');
 //------------------------MINE-----------MY----------------ME---------------
 exports.Soft = require('./Soft');
+exports.PayUrl = require('./PayUrl');
+
 
 
 //DoraModelEnd
