@@ -70,6 +70,7 @@ export default {
       });
     },
     delete(index, rows) {
+      console.log("delete")
       this.$confirm(
         this.$t("main.del_notice"),
         this.$t("main.scr_modal_title"),
@@ -80,6 +81,8 @@ export default {
         }
       )
         .then(() => {
+              console.log("then")
+
           return services.deletePayUrl({
             ids: rows[index]._id
           });
