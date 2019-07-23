@@ -80,7 +80,7 @@ export default {
         }
       )
         .then(() => {
-          return services.deleteContentTag({
+          return services.deletePayUrl({
             ids: rows[index]._id
           });
         })
