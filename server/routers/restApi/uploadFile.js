@@ -182,6 +182,8 @@ async function uploadToQiniu(file,imgkey) {
         formUploader.putFile(uploadToken, imgkey, file, putExtra, function (respErr,
             respBody, respInfo) {
             if (respErr) {
+                 console.log("respErr");
+                  console.log(respErr);
                 reject(respErr);
             }
             if (respInfo.statusCode == 200) {
