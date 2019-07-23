@@ -14,15 +14,16 @@
             <el-table-column prop="tag" :label="$t('payUrl.tag')">
             </el-table-column>
 
-           <el-table-column  :label="$t('payUrl.isAny')" show-overflow-tooltip>
-        <template slot-scope="scope">
-          <i
-            @click="edit(scope.$index, dataList)"
-            :class="scope.row.isAny  ? 'fa fa-star' : 'fa fa-star-o'"
-            :style="scope.row.isAny ? yellow : gray"
-          ></i>
-        </template>
-      </el-table-column>
+
+
+            <el-table-column  :label="$t('payUrl.isAny')" show-overflow-tooltip>
+              <template slot-scope="scope">
+                <i
+                  :class="scope.row.isAny ? 'fa fa-check-circle' : 'fa fa-minus-circle'"
+                  :style="scope.row.isAny ? green : red"
+                ></i>
+              </template>
+          </el-table-column>
 
             <el-table-column :label="$t('main.dataTableOptions')" width="150">
                 <template slot-scope="scope">
