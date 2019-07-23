@@ -189,7 +189,7 @@ async function uploadToQiniu(file,imgkey) {
                  reject(respInfo.statusCode);
             }
         });
-    }
+    })
 }
 
 
