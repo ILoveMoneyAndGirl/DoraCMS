@@ -11,6 +11,8 @@ const formidable = require('formidable');
 const util = require('util');
 const fs = require('fs');
 const axios = require('axios');
+const qiniu = require('qiniu');
+
 
 const mime = require('../../../utils/mime').types;
 const service = require('../../../utils/service');
