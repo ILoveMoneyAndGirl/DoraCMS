@@ -149,7 +149,7 @@ router.post('/files', siteFunc.checkUserSessionForApi, function (req, res, next)
 
 });
 
-function uploadToQiniu(file,imgkey) {
+async function uploadToQiniu(file,imgkey) {
     // 鉴权凭证
     let { openqn, accessKey, secretKey, bucket, origin, fsizeLimit } = settings;
     let config = new qiniu.conf.Config();
