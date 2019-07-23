@@ -46,7 +46,15 @@ export default {
   data() {
     return {
       loading: false,
-      multipleSelection: []
+      multipleSelection: [],
+      yellow: {
+        color: "#F7BA2A"
+      },
+      gray: {
+        color: "#CCC"
+      },
+      green: { color: "#13CE66" },
+      red: { color: "#FF4949" }
     };
   },
 
