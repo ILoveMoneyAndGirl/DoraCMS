@@ -355,7 +355,7 @@ export default {
         return reqJsonData('manage/payUrl/updateOne', params)
     },
 
-    deleteayUrl(params) {
+    deletePayUrl(params) {
         return reqJsonData('manage/payUrl/delete', params, 'get')
     },
 
