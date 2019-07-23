@@ -129,8 +129,10 @@ router.post('/files', siteFunc.checkUserSessionForApi, function (req, res, next)
             if (await checkFilePath(addPath)) {
 
                 // let fileInfo = await updateFileForApi(fileType, newFileName, addPath);
+                    console.log('uploadToQiniu ---0');
 
                 let url=await uploadToQiniu(addPath,newFileName)
+                    console.log('uploadToQiniu ---url',url);
 
                 fs.unlink(addPath)
 
@@ -150,6 +152,8 @@ router.post('/files', siteFunc.checkUserSessionForApi, function (req, res, next)
 });
 
 async function uploadToQiniu(file,imgkey) {
+
+     console.log('uploadToQiniu ---enter',file,imgkey);
     // 鉴权凭证
     let { openqn, accessKey, secretKey, bucket, origin, fsizeLimit } = settings;
     let config = new qiniu.conf.Config();
