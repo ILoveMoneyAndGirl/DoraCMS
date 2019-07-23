@@ -154,33 +154,37 @@ router.post('/files', siteFunc.checkUserSessionForApi, function (req, res, next)
 async function uploadToQiniu(file,imgkey) {
 
      console.log('uploadToQiniu ---enter',file,imgkey);
-    // 鉴权凭证
-    let { openqn, accessKey, secretKey, bucket, origin, fsizeLimit } = settings;
-    let config = new qiniu.conf.Config();
-    // 空间对应的机房
-    config.zone = qiniu.zone.Zone_z0;
-    // 是否使用https域名
-    //config.useHttpsDomain = true;
-    // 上传是否使用cdn加速
-    config.useCdnDomain = true;
 
-    let mac = new qiniu.auth.digest.Mac(accessKey, secretKey);
-    let options = {
-        scope: bucket,
-        fsizeLimit: fsizeLimit,
-        mimeLimit: 'image/*'
-    };
-    let putPolicy = new qiniu.rs.PutPolicy(options);
-    let uploadToken = putPolicy.uploadToken(mac);
 
-    let formUploader = new qiniu.form_up.FormUploader(config);
-    let putExtra = new qiniu.form_up.PutExtra();
+    return new Promise(function (resolve, reject,file,imgkey) {
+     console.log('uploadToQiniu ---Promise',file,imgkey);
 
-    return new Promise(function (resolve, reject) {
+            // 鉴权凭证
+        let { openqn, accessKey, secretKey, bucket, origin, fsizeLimit } = settings;
+        let config = new qiniu.conf.Config();
+        // 空间对应的机房
+        config.zone = qiniu.zone.Zone_z0;
+        // 是否使用https域名
+        //config.useHttpsDomain = true;
+        // 上传是否使用cdn加速
+        config.useCdnDomain = true;
+
+        let mac = new qiniu.auth.digest.Mac(accessKey, secretKey);
+        let options = {
+            scope: bucket,
+            fsizeLimit: fsizeLimit,
+            mimeLimit: 'image/*'
+        };
+        let putPolicy = new qiniu.rs.PutPolicy(options);
+        let uploadToken = putPolicy.uploadToken(mac);
+
+        let formUploader = new qiniu.form_up.FormUploader(config);
+        let putExtra = new qiniu.form_up.PutExtra();
 
         // 文件上传
         formUploader.putFile(uploadToken, imgkey, file, putExtra, function (respErr,
             respBody, respInfo) {
+              console.log(' formUploader.putFile ---Promise',file,imgkey,uploadToken,putExtra);
             if (respErr) {
                  console.log("respErr");
                   console.log(respErr);
