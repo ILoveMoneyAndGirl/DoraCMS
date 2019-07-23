@@ -163,30 +163,41 @@ async function uploadToQiniu(file,imgkey) {
 
             // 鉴权凭证
         let { openqn, accessKey, secretKey, bucket, origin, fsizeLimit } = settings;
+        console.log('0')
         let config = new qiniu.conf.Config();
+          console.log('1')
         // 空间对应的机房
         config.zone = qiniu.zone.Zone_z0;
+                  console.log('2')
+
         // 是否使用https域名
         //config.useHttpsDomain = true;
         // 上传是否使用cdn加速
         config.useCdnDomain = true;
+          console.log('3')
 
         let mac = new qiniu.auth.digest.Mac(accessKey, secretKey);
+          console.log('4')
         let options = {
             scope: bucket,
             fsizeLimit: fsizeLimit,
             mimeLimit: 'image/*'
         };
+          console.log('5')
         let putPolicy = new qiniu.rs.PutPolicy(options);
+          console.log('6')
         let uploadToken = putPolicy.uploadToken(mac);
+          console.log('7')
 
         let formUploader = new qiniu.form_up.FormUploader(config);
+          console.log('8')
         let putExtra = new qiniu.form_up.PutExtra();
+          console.log('9')
 
         // 文件上传
         formUploader.putFile(uploadToken, imgkey, file, putExtra, function (respErr,
             respBody, respInfo) {
-              console.log(' formUploader.putFile ---Promise',file,imgkey,uploadToken,putExtra);
+              console.log(' formUploader.putFile ---Promise10',file,imgkey,uploadToken,putExtra);
             if (respErr) {
                  console.log("respErr");
                   console.log(respErr);
