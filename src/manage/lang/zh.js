@@ -171,6 +171,9 @@ export default {
     productList:"获取商品表",
     payUrlList:"二维码列表",
     addPayUrl:"添加二维码",
+    updatePayUrl:"修改二维码",
+    deletePayUrl:"删除二维码",
+
 
   },
   navbar: {
