@@ -2,11 +2,12 @@
     <div class="dr-payUrlForm">
         <el-dialog :xs="20" :sm="20" :md="6" :lg="6" :xl="6" size="small" :title="$t('payUrl.form_title')" :visible.sync="dialogState.show" :close-on-click-modal="false">
             <el-form :model="dialogState.formData" :rules="rules" ref="ruleForm" label-width="120px" class="demo-ruleForm">
-                <el-form-item :label="$t('payUrl.price')">
+            
+                <el-form-item :label="$t('payUrl.price')" prop="price">
                     <el-input size="small" v-model="dialogState.formData.price"></el-input>
                 </el-form-item>
 
-                <el-form-item class="upSimg" :label="$t('payUrl.qrCode')" >
+                <el-form-item class="upSimg" :label="$t('payUrl.qrCode')" prop="url">
                       <el-upload
                         class="avatar-uploader"
                         action="/api/v0/upload/files?type=images"
@@ -19,7 +20,7 @@
                     </el-upload>
                  </el-form-item>
 
-                <el-form-item :label="$t('payUrl.tag')" >
+                <el-form-item :label="$t('payUrl.tag')" prop="tag">
                     <el-input size="small" type="textarea" v-model="dialogState.formData.tag"></el-input>
                 </el-form-item>
 
@@ -55,7 +56,32 @@ export default {
           {
             required: true,
             message: this.$t("validate.selectNull", {
-              label: "二维码"
+              label: this.$t("payUrl.qrCode")
+            }),
+            trigger: "blur"
+          }       
+          ],
+          tag: [
+          {
+            required: true,
+            message: this.$t("validate.inputNull", {
+              label: this.$t("payUrl.tag")
+            }),
+            trigger: "blur"
+          },
+          {
+            min: 2,
+            max: 50,
+            message: this.$t("validate.rangelength", { min: 1, max: 50 }),
+            trigger: "blur"
+          }
+        ],
+
+          price: [
+          {
+            required: true,
+            message: this.$t("validate.inputNull", {
+              label: this.$t("payUrl.price")
             }),
             trigger: "blur"
           }

@@ -904,10 +904,10 @@ const app = {
       state.payUrl.formState.show = formState.show;
       state.payUrl.formState.edit = formState.edit;
       state.payUrl.formState.formData = Object.assign({
-        price: 0,
+        price: '',
         url: '',
         tag: '',
-        isAny:true,
+        isAny:false,
       }, formState.formData);
 
     },

@@ -15,9 +15,36 @@ const shortid = require('shortid');
 const validator = require('validator')
 
 function checkFormData(req, res, fields) {
+    let errMsg = '';
+
+    // console.log('--fields---', fields)
+    if (fields._id && !siteFunc.checkCurrentId(fields._id)) {
+        errMsg = res.__("validate_error_params");
+    }
+
+    if (fields.tag) {
+        errMsg = res.__("validate_selectNull", {
+            label: "标记"
+        });
+    }
+
+    if (fields.price) {
+        errMsg = res.__("validate_selectNull", {
+            label: "价格"
+        });
+    }
 
 
+    if (!fields.url) {
+        errMsg = res.__("validate_selectNull", {
+            label:  "二维码"
+        });
+    }
 
+
+    if (errMsg) {
+        throw new siteFunc.UserException(errMsg);
+    }
 }
 
 
