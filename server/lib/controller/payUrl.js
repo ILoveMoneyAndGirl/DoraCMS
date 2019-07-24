@@ -22,13 +22,13 @@ function checkFormData(req, res, fields) {
         errMsg = res.__("validate_error_params");
     }
 
-    if (fields.tag) {
+    if (!fields.tag) {
         errMsg = res.__("validate_selectNull", {
             label: "标记"
         });
     }
 
-    if (fields.price) {
+    if (!fields.price) {
         errMsg = res.__("validate_selectNull", {
             label: "价格"
         });
