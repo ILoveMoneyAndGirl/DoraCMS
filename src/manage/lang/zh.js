@@ -595,7 +595,7 @@ export default {
 com:
 {
     info:"详情",
-}
+},
 
 soft: {
     name: '名字',
