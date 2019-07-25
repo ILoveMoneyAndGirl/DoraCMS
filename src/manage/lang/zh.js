@@ -174,7 +174,11 @@ export default {
     updatePayUrl:"修改二维码",
     deletePayUrl:"删除二维码",
 
-
+    softList:"产品列表",
+    addSoft:"添加产品",
+    updateSoft:"修改产品",
+    deleteSoft:"删除产品",
+    
   },
   navbar: {
     logOut: '退出登录',
@@ -588,7 +592,7 @@ export default {
     qrCode:'二维码'
   },
 
-   soft: {
+soft: {
     name: '名字',
     ip: 'ip地址',
     port: '端口',
