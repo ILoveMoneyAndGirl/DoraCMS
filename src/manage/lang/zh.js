@@ -592,6 +592,11 @@ export default {
     qrCode:'二维码'
   },
 
+com:
+{
+    info:"详情",
+}
+
 soft: {
     name: '名字',
     ip: 'ip地址',
