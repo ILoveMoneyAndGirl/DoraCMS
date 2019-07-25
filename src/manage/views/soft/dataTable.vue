@@ -78,7 +78,7 @@ export default {
         .then(() => {
               console.log("then")
 
-          return services.deletePayUrl({
+          return services.deleteSoft({
             ids: rows[index]._id
           });
         })

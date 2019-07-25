@@ -61,12 +61,6 @@ export default {
               label: this.$t("soft.ip")
             }),
             trigger: "blur"
-          },
-          {
-            min: 8,
-            max: 50,
-            message: this.$t("validate.rangelength", { min: 8, max: 50 }),
-            trigger: "blur"
           }
         ],
 
@@ -76,12 +70,6 @@ export default {
             message: this.$t("validate.inputNull", {
               label: this.$t("soft.port")
             }),
-            trigger: "blur"
-          },
-          {
-            min: 3,
-            max: 10,
-            message: this.$t("validate.rangelength", { min: 3, max: 10 }),
             trigger: "blur"
           }
         ],
@@ -121,7 +109,7 @@ export default {
           let params = this.dialogState.formData;
           // 更新
           if (this.dialogState.edit) {
-            services.updatePayUrl(params).then(result => {
+            services.updateSoft(params).then(result => {
               if (result.data.status === 200) {
                 this.$store.dispatch("hideSoftForm");
                 this.$store.dispatch("getSoftList");
