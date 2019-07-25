@@ -364,6 +364,24 @@ export default {
     },
 
 
+    softList(params) {
+        return reqJsonData('manage/soft/getList', params, 'get')
+    },
+
+    updateSoft(params) {
+        return reqJsonData('manage/soft/updateOne', params)
+    },
+
+    deleteSoft(params) {
+        return reqJsonData('manage/soft/delete', params, 'get')
+    },
+
+    addSoft(params) {
+        return reqJsonData('manage/soft/add', params)
+    },
+
+
+
 
 
 

@@ -50,6 +50,9 @@ export const GOODS_FORMSTATE = 'GOODS_FORMSTATE';
 export const PAYURL_LIST = 'PAYURL_LIST';
 export const PAYURL_FORMSTATE = 'PAYURL_FORMSTATE';
 
+export const  SOFT_LIST = 'SOFT_LIST';
+export const SOFT_FORMSTATE = 'SOFT_FORMSTATE';
+
 
 
 

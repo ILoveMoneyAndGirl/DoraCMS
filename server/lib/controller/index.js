@@ -21,4 +21,6 @@ exports.SiteMessage = require('./siteMessage');
 
 exports.HelloOperation = require('./HelloOperation');
 exports.PayUrl = require('./payUrl');
+exports.Soft = require('./soft');
+
 

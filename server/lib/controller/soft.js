@@ -1,49 +1,42 @@
 const SoftUserModel = require("../models").Soft;
 
 function checkFormData(req, res, fields) {
+
     let errMsg = '';
     if (fields._id && !siteFunc.checkCurrentId(fields._id)) {
         errMsg = res.__("validate_error_params");
     }
-    if (!validatorUtil.checkUserName(fields.userName)) {
-        errMsg = res.__("validate_rangelength", {
-            min: 5,
-            max: 12,
-            label: res.__("label_user_userName")
-        });
-    }
-    if (!validatorUtil.checkName(fields.name)) {
-        errMsg = res.__("validate_rangelength", {
-            min: 2,
-            max: 6,
-            label: res.__("label_name")
-        });
-    }
-    if (fields.password !== fields.confirmPassword) {
-        errMsg = res.__("validate_error_pass_atypism");
-    }
-    if (!validatorUtil.checkPhoneNum(fields.phoneNum)) {
-        errMsg = res.__("validate_inputCorrect", {
-            label: res.__("label_user_phoneNum")
-        });
-    }
-    if (!fields.countryCode) {
+
+    if (!fields.name) {
         errMsg = res.__("validate_selectNull", {
-            label: res.__("label_user_countryCode")
+            label: "名称"
         });
     }
-    if (!validatorUtil.checkEmail(fields.email)) {
-        errMsg = res.__("validate_inputCorrect", {
-            label: res.__("label_user_email")
+
+    if (!fields.ip) {
+        errMsg = res.__("validate_selectNull", {
+            label: "ip"
         });
     }
-    if (fields.comments && !validator.isLength(fields.comments, 5, 30)) {
-        errMsg = res.__("validate_rangelength", {
-            min: 5,
-            max: 30,
-            label: res.__("label_comments")
+
+    if (!fields.port) {
+        errMsg = res.__("validate_selectNull", {
+            label: "端口"
         });
     }
+
+    if (!fields.type) {
+        errMsg = res.__("validate_selectNull", {
+            label: "类型"
+        });
+    }
+    if (!fields.comments) {
+        errMsg = res.__("validate_selectNull", {
+            label: "描述"
+        });
+    }
+
+
     if (errMsg) {
         throw new siteFunc.UserException(errMsg);
     }
@@ -66,61 +59,92 @@ class Soft {
         // super()
     }
 
-    async addSoft(req, res, next) {
-        const form = new formidable.IncomingForm();
-        form.parse(req, async (err, fields, files) => {
-             try {
-                checkFormData(req, res, fields);
-                const softObj = {
-                    ip: fields.ip,
-                    name: fields.name,
-                    port: fields.port,
-                    comments: fields.comments,
-                }
+        async GetList(req, res, next) {
+        try {
 
-                const softData = new SoftUserModel(softObj);
+             console.log("HelloOperation.          ...?GetGoods")
+            let modules = req.query.modules;
+            let current = req.query.current || 1;
+            let pageSize = req.query.pageSize || 10;
+            let model = req.query.model; // 查询模式 full/simple
+            let searchkey = req.query.searchkey,
+             queryObj = {};
+            let useClient = req.query.useClient;
 
-                await softData.save();
-
-                let renderSendData = siteFunc.renderApiData(req, res, 200, res.__('restful_api_response_success', {
-                    label: res.__('user_action_type_creat_Soft')
-                }), {
-                    id: softData._id
-                })
-
-                res.send(renderSendData);
-
-             } catch (err) {
-
-                res.send(siteFunc.renderApiErr(req, res, 500, err, 'save'))
+            if (model === 'full') {
+                pageSize = 100;
             }
 
-        }
+            if (searchkey) {
+                let reKey = new RegExp(searchkey, 'i')
+                queryObj.name = {
+                    $regex: reKey
+                }
+                queryObj.adminUser=req.session.adminUserInfo._id
+                
+            }
 
+            let data = await SoftUserModel.find(queryObj).sort({
+                price: -1
+            }).skip(Number(pageSize) * (Number(current) - 1)).limit(Number(pageSize));
+            const totalItems = await SoftUserModel.count(queryObj);
+
+
+            let sendData = {
+                docs: data,
+                pageInfo: {
+                    count:totalItems,
+                    current: Number(current) || 1,
+                    pageSize: Number(pageSize) || 10,
+                    searchkey: searchkey || ''
+                }
+            };
+            let rendeData = siteFunc.renderApiData(req, res, 200, 'Soft', sendData);
+            if (modules && modules.length > 0) {
+                return rendeData.data;
+            } else {
+                if (useClient == '2') {
+
+                    res.send(siteFunc.renderApiData(req, res, 200, 'Soft', data));
+                } else {
+                    res.send(rendeData);
+                }
+
+            }
+        } catch (err) {
+
+
+            res.send(siteFunc.renderApiErr(req, res, 500, err, 'getlist'))
+
+        }
+        
     }
 
-
-    async updateSoft(req, res, next) {
+    async Update(req, res, next) {
 
         const form = new formidable.IncomingForm();
         form.parse(req, async (err, fields, files) => {
             try {
+                checkFormData(req, res, fields);
+            } catch (err) {
+                console.log(err.message, err);
+                res.send(siteFunc.renderApiErr(req, res, 500, err, 'checkform'));
+            }
 
-                const softObj = {
-                    ip: fields.ip,
-                    name: fields.name,
-                    port: fields.port,
-                    comments: fields.comments,
-                }
-
-                const item_id = fields._id;
-
+            const obj = {
+                name: fields.name,
+                ip: fields.ip,
+                port: fields.port,
+                type: fields.type,
+                comments: fields.comments
+            }
+            const item_id = fields._id;
+            try {
                 await SoftUserModel.findOneAndUpdate({
                     _id: item_id
                 }, {
-                    $set: softObj
+                    $set: obj
                 });
-
                 res.send(siteFunc.renderApiData(req, res, 200, 'soft', {}, 'update'))
 
             } catch (err) {
@@ -129,24 +153,62 @@ class Soft {
             }
         })
 
+         res.send(siteFunc.renderApiData(req, res, 200, 'soft', {}, 'update'))
+        
+    }
+
+    async Add(req, res, next) {
+        const form = new formidable.IncomingForm();
+        form.parse(req, async (err, fields, files) => {
+            try {
+                checkFormData(req, res, fields);
+
+                 const obj = {
+                    name: fields.name,
+                    ip: fields.ip,
+                    port: fields.port,
+                    type: fields.type,
+                    comments: fields.comments,
+                    adminUser:req.session.adminUserInfo._id
+                }
+                const newObj = new SoftUserModel(obj);
+                await newObj.save();
+
+                res.send(siteFunc.renderApiData(req, res, 200, 'soft', {
+                    id: newObj._id
+                }, 'save'))
+
+            } catch (err) {
+                console.log(err)
+                res.send(siteFunc.renderApiErr(req, res, 500, err, 'save'));
+            }
+        })
+
+        
     }
 
 
+    async Delete(req, res, next) {
 
-    async delSoft(req, res, next) {
         try {
-
+            let errMsg = '';
+            if (!siteFunc.checkCurrentId(req.query.ids)) {
+                errMsg = res.__("validate_error_params");
+            }
+            if (errMsg) {
+                throw new siteFunc.UserException(errMsg);
+            }
             await SoftUserModel.remove({
-                '_id': {
-                    $in:  req.query._id
-                }
+                _id: req.query.ids
             });
-            res.send(siteFunc.renderApiData(req, res, 200, 'content', {}, 'delete'))
+            res.send(siteFunc.renderApiData(req, res, 200, 'soft', {}, 'delete'))
 
         } catch (err) {
 
             res.send(siteFunc.renderApiErr(req, res, 500, err, 'delete'));
         }
+
+        res.send(siteFunc.renderApiData(req, res, 200, 'soft', {}, 'delete'))
     }
 
 }

@@ -23,6 +23,7 @@ const {
   VersionManage,
   HelloOperation,
   PayUrl,
+  Soft,
 
   //MgRoutersController
 } = require('../lib/controller');
@@ -323,6 +324,11 @@ router.get('/payUrl/getList', authToken, authPower, PayUrl.GetList);
 router.post('/payUrl/updateOne', authToken, authPower, PayUrl.Update);
 router.get('/payUrl/delete', authToken, authPower, PayUrl.Delete);
 router.post('/payUrl/add', authToken, authPower, PayUrl.Add);
+
+router.get('/soft/getList', authToken, authPower, Soft.GetList);
+router.post('/soft/updateOne', authToken, authPower, Soft.Update);
+router.get('/soft/delete', authToken, authPower, Soft.Delete);
+router.post('/soft/add', authToken, authPower, Soft.Add);
 
 
 //ManageRouters

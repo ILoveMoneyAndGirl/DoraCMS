@@ -588,4 +588,12 @@ export default {
     qrCode:'二维码'
   },
 
+   soft: {
+    name: '名字',
+    ip: 'ip地址',
+    port: '端口',
+    comments: '描述',
+    type:'类型',
+  },
+
 }

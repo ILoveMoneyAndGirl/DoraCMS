@@ -484,6 +484,30 @@ const app = {
     },
 
 
+    soft: {
+      formState: {
+        show: false,
+        edit: false,
+        formData: {
+          name: '',
+          ip: '',
+          port: 8888,
+          comments: '',
+          type:0,
+
+        }
+      },
+      softList: {
+        pageInfo: {},
+        docs: []
+      },
+      soft: {
+        state: '',
+        err: {}
+      }
+    },
+
+
 
 
 
@@ -898,8 +922,6 @@ const app = {
     },
 
 
-
-
     [types.PAYURL_FORMSTATE](state, formState) {
       state.payUrl.formState.show = formState.show;
       state.payUrl.formState.edit = formState.edit;
@@ -908,6 +930,24 @@ const app = {
         url: '',
         tag: '',
         isAny:false,
+      }, formState.formData);
+
+    },
+
+    [types.SOFT_LIST](state, softList) {
+      state.soft.softList = softList
+    },
+
+
+    [types.SOFT_FORMSTATE](state, formState) {
+      state.soft.formState.show = formState.show;
+      state.soft.formState.edit = formState.edit;
+      state.soft.formState.formData = Object.assign({
+        name: '',
+        ip: '',
+        port: '',
+        comments: '',
+        type:0,
       }, formState.formData);
 
     },
@@ -1511,6 +1551,36 @@ const app = {
       commit
     }) => {
       commit(types.PAYURL_FORMSTATE, {
+        show: false
+      })
+    },
+
+
+    getSoftList({
+      commit
+    }, params = {}) {
+      services.softList(params).then((result) => {
+        commit(types.SOFT_LIST, result.data.data)
+      })
+    },
+
+    showSoftForm: ({
+      commit
+    }, params = {
+      edit: false,
+      formData: {}
+    }) => {
+      commit(types.SOFT_FORMSTATE, {
+        show: true,
+        edit: params.edit,
+        formData: params.formData
+      })
+    },
+
+    hideSoftForm: ({
+      commit
+    }) => {
+      commit(types.SOFT_FORMSTATE, {
         show: false
       })
     },

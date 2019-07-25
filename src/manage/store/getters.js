@@ -73,6 +73,9 @@ const getters = {
     PayUrlList: state => state.app.payUrl.payUrlList,
     PayUrlListFormState: state => state.app.payUrl.formState,
 
+    SoftList: state => state.app.soft.softList,
+    SoftListFormState: state => state.app.soft.formState,
+
 
 
 

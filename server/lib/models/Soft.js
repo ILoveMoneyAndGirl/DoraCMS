@@ -5,6 +5,7 @@
 var mongoose = require('mongoose');
 var shortid = require('shortid');
 var Schema = mongoose.Schema;
+var AdminUser = require('./AdminUser');
 
 var SoftSchema = new Schema({
     _id: {
@@ -16,6 +17,10 @@ var SoftSchema = new Schema({
     port: { type: Number, default: 8888 }, // 通信端口
     comments: String, // 描述
     type:{ type: Number, default: 0},//产品类型
+    adminUser: {
+        type: String,
+        ref: 'AdminUser'
+    },
 });
 
 
