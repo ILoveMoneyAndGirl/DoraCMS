@@ -1,4 +1,15 @@
-const SoftUserModel = require("../models").Soft;
+const SoftModel = require("../models").Soft;
+
+const formidable = require('formidable');
+const _ = require("lodash");
+const {
+    service,
+    validatorUtil,
+    siteFunc
+} = require('../../../utils');
+const shortid = require('shortid');
+const validator = require('validator')
+
 
 function checkFormData(req, res, fields) {
 
@@ -62,7 +73,6 @@ class Soft {
         async GetList(req, res, next) {
         try {
 
-             console.log("HelloOperation.          ...?GetGoods")
             let modules = req.query.modules;
             let current = req.query.current || 1;
             let pageSize = req.query.pageSize || 10;
@@ -84,10 +94,10 @@ class Soft {
                 
             }
 
-            let data = await SoftUserModel.find(queryObj).sort({
+            let data = await SoftModel.find(queryObj).sort({
                 price: -1
             }).skip(Number(pageSize) * (Number(current) - 1)).limit(Number(pageSize));
-            const totalItems = await SoftUserModel.count(queryObj);
+            const totalItems = await SoftModel.count(queryObj);
 
 
             let sendData = {
@@ -140,7 +150,7 @@ class Soft {
             }
             const item_id = fields._id;
             try {
-                await SoftUserModel.findOneAndUpdate({
+                await SoftModel.findOneAndUpdate({
                     _id: item_id
                 }, {
                     $set: obj
@@ -171,7 +181,7 @@ class Soft {
                     comments: fields.comments,
                     adminUser:req.session.adminUserInfo._id
                 }
-                const newObj = new SoftUserModel(obj);
+                const newObj = new SoftModel(obj);
                 await newObj.save();
 
                 res.send(siteFunc.renderApiData(req, res, 200, 'soft', {
@@ -198,7 +208,7 @@ class Soft {
             if (errMsg) {
                 throw new siteFunc.UserException(errMsg);
             }
-            await SoftUserModel.remove({
+            await SoftModel.remove({
                 _id: req.query.ids
             });
             res.send(siteFunc.renderApiData(req, res, 200, 'soft', {}, 'delete'))
