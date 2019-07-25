@@ -57,6 +57,12 @@
         </el-button>
       </div>
 
+        <div v-else-if="type === 'soft'">
+        <el-button size="small" type="primary" plain round @click="addSoft">
+          <i class="fa fa-fw fa-plus" aria-hidden="true"></i>
+        </el-button>
+      </div>
+
       <div v-else-if="type === 'regUser'">
         <el-button size="small" type="danger" plain round @click="branchDelete('user')">
           <i class="fa fa-fw fa-trash-o"></i>
@@ -575,18 +581,19 @@ export default {
     // TOPBARLEFTOPTION
 
     addGoods() {
-                   console.log("addGoods.addGoods--------->0")
 
       this.$store.dispatch("showGoodsForm");
-               console.log("addGoods.addGoods--------->")
 
     },
 
     addPayUrl() {
-             console.log("addPayUrl.addPayUrl--------->o")
 
       this.$store.dispatch("showPayUrlForm");
-         console.log("addPayUrl.addPayUrl--------->")
+    },
+
+    addSoft() {
+
+      this.$store.dispatch("showSoftForm");
     },
 
   },
