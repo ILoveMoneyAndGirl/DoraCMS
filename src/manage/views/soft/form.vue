@@ -23,7 +23,7 @@
                 </el-form-item>
 
 
-                <el-form-item :label="$t('soft.type')" prop="type">
+                <el-form-item :label="$t('soft.type')" >
                     <el-input size="small" type="textarea" v-model="dialogState.formData.type"></el-input>
                 </el-form-item>
 

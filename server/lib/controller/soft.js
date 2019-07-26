@@ -18,34 +18,43 @@ function checkFormData(req, res, fields) {
         errMsg = res.__("validate_error_params");
     }
 
+     console.log("a1")
+
     if (!fields.name) {
         errMsg = res.__("validate_selectNull", {
             label: "名称"
         });
     }
+     console.log("a2")
+
 
     if (!fields.ip) {
         errMsg = res.__("validate_selectNull", {
             label: "ip"
         });
     }
+     console.log("a3")
+
 
     if (!fields.port) {
         errMsg = res.__("validate_selectNull", {
             label: "端口"
         });
     }
+       console.log("a4")
 
     if (!fields.type) {
         errMsg = res.__("validate_selectNull", {
             label: "类型"
         });
     }
+      console.log("a5")
     if (!fields.comments) {
         errMsg = res.__("validate_selectNull", {
             label: "描述"
         });
     }
+     console.log("a6")
 
 
     if (errMsg) {
@@ -135,9 +144,13 @@ class Soft {
         const form = new formidable.IncomingForm();
         form.parse(req, async (err, fields, files) => {
             try {
+                console.log("1")
                 checkFormData(req, res, fields);
+                console.log("2")
             } catch (err) {
                 console.log(err.message, err);
+                console.log("3")
+
                 res.send(siteFunc.renderApiErr(req, res, 500, err, 'checkform'));
             }
 
@@ -155,15 +168,20 @@ class Soft {
                 }, {
                     $set: obj
                 });
+                  console.log("4")
                 res.send(siteFunc.renderApiData(req, res, 200, 'soft', {}, 'update'))
+                    console.log("5")
 
             } catch (err) {
 
                 res.send(siteFunc.renderApiErr(req, res, 500, err, 'update'));
+                   console.log("6")
+
             }
         })
-
+ console.log("6.1")
          res.send(siteFunc.renderApiData(req, res, 200, 'soft', {}, 'update'))
+          console.log("7")
         
     }
 
