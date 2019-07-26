@@ -86,8 +86,6 @@ class PayUrl {
             const totalItems = await PayUrlModel.count(queryObj);
 
 
-
-
             let sendData = {
                 docs: data,
                 pageInfo: {
@@ -129,8 +127,6 @@ class PayUrl {
                 res.send(siteFunc.renderApiErr(req, res, 500, err, 'checkform'));
             }
 
-
-
             const obj = {
                 price: fields.price,
                 tag: fields.tag,
@@ -153,7 +149,6 @@ class PayUrl {
             }
         })
 
-         res.send(siteFunc.renderApiData(req, res, 200, 'payUrl', {}, 'update'))
         
     }
 
@@ -206,7 +201,6 @@ class PayUrl {
             res.send(siteFunc.renderApiErr(req, res, 500, err, 'delete'));
         }
 
-        res.send(siteFunc.renderApiData(req, res, 200, 'payUrl', {}, 'delete'))
     }
 
 
