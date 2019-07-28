@@ -382,12 +382,15 @@ export default {
 
 
     getSoftArg(params) {
-        return reqJsonData('manage/softArg/get', params, 'get')
+        return reqJsonData('manage/softArg/get', params)
     },
 
     updateSoftArg(params) {
-        return reqJsonData('manage/softArg/update', params)
+        return reqJsonData('manage/softArg/set', params)
     },
+
+//     router.post('/softArg/get', authToken, authPower, HelloOperation.GetSetting);
+// router.post('/softArg/set', authToken, authPower, HelloOperation.UpdateSetting);
 
 
 
