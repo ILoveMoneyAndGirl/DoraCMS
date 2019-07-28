@@ -1,7 +1,7 @@
 <template>
     <div class="adminUser">
         <Form :dialogState="formState"></Form>
-        <ArgForm :dialogState="formState"></ArgForm>
+        <ArgForm :dialogState="softArgFormState"></ArgForm>
 
         <el-row class="dr-datatable">
             <el-col :span="24">
@@ -48,8 +48,8 @@
             formState() {
                 return this.$store.getters.SoftListFormState
             },
-            formState() {
-                return this.$store.getters.SoftListFormState
+            softArgFormState() {
+                return this.$store.getters.SoftArgFormState
             }
         },
         mounted() {

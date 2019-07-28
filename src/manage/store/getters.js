@@ -75,6 +75,8 @@ const getters = {
 
     SoftList: state => state.app.soft.softList,
     SoftListFormState: state => state.app.soft.formState,
+    SoftArgFormState: state => state.app.softArg.formState,
+
 
 
 
