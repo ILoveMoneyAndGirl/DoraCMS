@@ -381,6 +381,16 @@ export default {
     },
 
 
+    softArg(params) {
+        return reqJsonData('manage/softArg/get', params, 'get')
+    },
+
+    updateSoftArg(params) {
+        return reqJsonData('manage/softArg/update', params)
+    },
+
+
+
 
 
 

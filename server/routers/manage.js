@@ -330,6 +330,12 @@ router.post('/soft/updateOne', authToken, authPower, Soft.Update);
 router.get('/soft/delete', authToken, authPower, Soft.Delete);
 router.post('/soft/add', authToken, authPower, Soft.Add);
 
+//
+router.post('/softArg/get', authToken, authPower, HelloOperation.GetSetting);
+router.post('/softArg/set', authToken, authPower, HelloOperation.UpdateSetting);
+
+
+
 
 //ManageRouters
 module.exports = router

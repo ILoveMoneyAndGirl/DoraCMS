@@ -53,6 +53,12 @@ export const PAYURL_FORMSTATE = 'PAYURL_FORMSTATE';
 export const  SOFT_LIST = 'SOFT_LIST';
 export const SOFT_FORMSTATE = 'SOFT_FORMSTATE';
 
+export const  SOFTARG_FORMSTATE = 'SOFTARG_FORMSTATE';
+export const  SOFTARG = 'SOFTARG';
+
+
+
+
 
 
 

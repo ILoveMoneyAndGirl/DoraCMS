@@ -508,6 +508,25 @@ const app = {
     },
 
 
+    softArg: {
+      formState: {
+        show: false,
+        edit: false,
+        formData: {
+          name: '',
+          ip: '',
+          port: 8888,
+          comments: '',
+          type:0,
+        }
+      },
+      softArg: {
+        state: '',
+        err: {}
+      }
+    },
+
+
 
 
 
@@ -1525,7 +1544,7 @@ const app = {
       })
     },
 
-
+//
     getPayUrlList({
       commit
     }, params = {}) {
@@ -1555,7 +1574,7 @@ const app = {
       })
     },
 
-
+//
     getSoftList({
       commit
     }, params = {}) {
@@ -1581,6 +1600,36 @@ const app = {
       commit
     }) => {
       commit(types.SOFT_FORMSTATE, {
+        show: false
+      })
+    },
+
+//
+    getSoftArg({
+      commit
+    }, params = {}) {
+      services.getSoftArg(params).then((result) => {
+        console.log("services.getSoftArg---",result)
+        commit(types.SOFTARG, result.data)
+      })
+    },
+    showSoftArgForm: ({
+      commit
+    }, params = {
+      edit: false,
+      formData: {}
+    }) => {
+      commit(types.SOFTARG_FORMSTATE, {
+        show: true,
+        edit: params.edit,
+        formData: params.formData
+      })
+    },
+
+    hideSoftArgForm: ({
+      commit
+    }) => {
+      commit(types.SOFTARG_FORMSTATE, {
         show: false
       })
     },

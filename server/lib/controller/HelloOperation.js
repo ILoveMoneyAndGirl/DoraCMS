@@ -181,6 +181,8 @@ class HelloOperation {
     }
     async DeleteGoods(req, res, next) {
 
+
+
         //         try {
         //     let errMsg = '';
         //     if (!siteFunc.checkCurrentId(req.query.ids)) {
@@ -212,7 +214,24 @@ class HelloOperation {
 
     async GetSetting(req, res, next) {
 
-        // var responseData={"callback":"","data":"","disptch":true,"msg":"","status":500};
+        console.log("GetSettingGetSetting.....",req.query._id)
+
+         try {
+                const totalItems = await ContentTagModel.count();
+                let tagsData = {
+                    name: "test1",
+                    port: 8888,
+                    comments:"test1_comments",
+                    type:0,
+                    ip:"123.123.123.11"
+                };
+                 res.send(siteFunc.renderApiData(req, res, 200, 'softArg', tagsData));
+
+             } catch (err) {
+
+                res.send(siteFunc.renderApiErr(req, res, 500, err, 'softArg'))
+
+            }
 
         
     }

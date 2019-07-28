@@ -12,6 +12,8 @@
 </template>
 <script>
     import Form from './form'
+    import ArgForm from './argForm'
+
     import DataTable from './dataTable.vue';
     import TopBar from '../common/TopBar.vue';
     import Pagination from '../common/Pagination.vue';
@@ -32,6 +34,7 @@
             TopBar,
             Form,
             Pagination
+            ArgForm,
         },
         methods: mapActions([
 
