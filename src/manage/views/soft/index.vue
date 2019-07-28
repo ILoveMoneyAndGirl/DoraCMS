@@ -1,6 +1,8 @@
 <template>
     <div class="adminUser">
         <Form :dialogState="formState"></Form>
+        <ArgForm :dialogState="formState"></ArgForm>
+
         <el-row class="dr-datatable">
             <el-col :span="24">
                 <TopBar type="soft" :pageInfo="SoftList.pageInfo"></TopBar>
