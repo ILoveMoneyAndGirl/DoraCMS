@@ -1,7 +1,6 @@
 <template>
     <div class="adminUser">
         <Form :dialogState="formState"></Form>
-        <ArgForm :dialogState="softArgFormState"></ArgForm>
 
         <el-row class="dr-datatable">
             <el-col :span="24">
@@ -14,7 +13,6 @@
 </template>
 <script>
     import Form from './form'
-    import ArgForm from './argForm'
 
     import DataTable from './dataTable.vue';
     import TopBar from '../common/TopBar.vue';
@@ -36,7 +34,6 @@
             TopBar,
             Form,
             Pagination,
-            ArgForm,
         },
         methods: mapActions([
 
