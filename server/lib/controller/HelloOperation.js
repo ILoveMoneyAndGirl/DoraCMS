@@ -214,11 +214,10 @@ class HelloOperation {
 
     async GetSetting(req, res, next) {
 
-        console.log("GetSettingGetSetting.....",req)
-                console.log("GetSettingGetSetting.....",req.req.query)
 
 
-        console.log("GetSettingGetSetting.....",req.query._id)
+
+        console.log("GetSettingGetSetting.....",req.query.softId)
 
          try {
                 const totalItems = await ContentTagModel.count();
