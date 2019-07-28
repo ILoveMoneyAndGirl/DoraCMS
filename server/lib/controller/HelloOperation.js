@@ -239,6 +239,37 @@ class HelloOperation {
         
     }
     async UpdateSetting(req, res, next) {
+
+        const form = new formidable.IncomingForm();
+        form.parse(req, async (err, fields, files) => {
+            try {
+                checkFormData(req, res, fields);
+            } catch (err) {
+                console.log(err.message, err);
+                res.send(siteFunc.renderApiErr(req, res, 500, err, 'checkform'));
+            }
+
+            // const userObj = {
+            //     name: fields.name,
+            //     alias: fields.alias,
+            //     comments: fields.comments
+            // }
+            // const item_id = fields._id;
+             const totalItems = await ContentTagModel.count();
+             
+            try {
+                // await ContentTagModel.findOneAndUpdate({
+                //     _id: item_id
+                // }, {
+                //     $set: userObj
+                // });
+                res.send(siteFunc.renderApiData(req, res, 200, 'softArg', {}, 'update'))
+
+            } catch (err) {
+
+                res.send(siteFunc.renderApiErr(req, res, 500, err, 'update'));
+            }
+        })
         
     }
 
