@@ -966,7 +966,7 @@ const app = {
         ip: '',
         port: '',
         comments: '',
-        type:0,
+        type:1,
       }, formState.formData);
 
     },

@@ -381,7 +381,7 @@ export default {
     },
 
 
-    softArg(params) {
+    getSoftArg(params) {
         return reqJsonData('manage/softArg/get', params, 'get')
     },
 
