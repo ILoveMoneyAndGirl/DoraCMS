@@ -101,7 +101,7 @@ export default {
   },
   methods: {
     confirm() {
-      this.$store.dispatch("hideSoftForm");
+      this.$store.dispatch("hideSoftArgForm");
     },
     submitForm(formName) {
       this.$refs[formName].validate(valid => {
@@ -109,10 +109,9 @@ export default {
           let params = this.dialogState.formData;
           // 更新
           if (this.dialogState.edit) {
-            services.updateSoft(params).then(result => {
+            services.updateSoftArg(params).then(result => {
               if (result.data.status === 200) {
-                this.$store.dispatch("hideSoftForm");
-                this.$store.dispatch("getSoftList");
+                this.$store.dispatch("hideSoftArgForm");
                 this.$message({
                   message: this.$t("main.updateSuccess"),
                   type: "success"
@@ -121,21 +120,7 @@ export default {
                 this.$message.error(result.data.message);
               }
             });
-          } else {
-            // 新增
-            services.addSoft(params).then(result => {
-              if (result.data.status === 200) {
-                this.$store.dispatch("hideSoftForm");
-                this.$store.dispatch("getSoftList");
-                this.$message({
-                  message: this.$t("main.addSuccess"),
-                  type: "success"
-                });
-              } else {
-                this.$message.error(result.data.message);
-              }
-            });
-          }
+          } 
         } else {
           console.log("error submit!!");
           return false;

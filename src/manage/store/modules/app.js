@@ -1623,23 +1623,23 @@ const app = {
         })
       })
     },
-    showSoftArgForm: ({
-      commit
-    }, params = {
-      edit: false,
-      formData: {}
-    }) => {
-      commit(types.SOFTARG_FORMSTATE, {
-        show: true,
-        edit: params.edit,
-        formData: params.formData
-      })
-    },
+    // showSoftArgForm: ({
+    //   commit
+    // }, params = {
+    //   edit: false,
+    //   formData: {}
+    // }) => {
+    //   commit(types.SOFTARG_FORMSTATE, {
+    //     show: true,
+    //     edit: params.edit,
+    //     formData: params.formData
+    //   })
+    // },
 
     hideSoftArgForm: ({
       commit
     }) => {
-      commit(types.SOFTARG_FORMSTATE, {
+      commit(types.SOFTARG, {
         show: false
       })
     },

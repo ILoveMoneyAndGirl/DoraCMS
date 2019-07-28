@@ -68,9 +68,9 @@ export default {
     editArg(index, rows)
     {
         let rowData = rows[index];
-         console.log("editArg.....",rows[index]._id)
+         console.log("editArg.....",{softId:rows[index]._id})
          
-        this.$store.dispatch("getSoftArg",rows[index]._id);
+        this.$store.dispatch("getSoftArg",{softId:rows[index]._id});
     },
 
     deleteOne(index, rows) {
