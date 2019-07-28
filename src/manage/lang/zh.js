@@ -178,6 +178,9 @@ export default {
     addSoft:"添加产品",
     updateSoft:"修改产品",
     deleteSoft:"删除产品",
+
+    getSoftArg:"获取参数",
+    setSoftArg:"设置参数",
     
   },
   navbar: {

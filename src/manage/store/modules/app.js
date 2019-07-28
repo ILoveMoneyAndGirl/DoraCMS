@@ -971,6 +971,19 @@ const app = {
 
     },
 
+    [types.SOFTARG](state, formState) {
+      state.soft.formState.show = formState.show;
+      state.soft.formState.edit = formState.edit;
+      state.soft.formState.formData = Object.assign({
+        name: '',
+        ip: '',
+        port: '',
+        comments: '',
+        type:1,
+      }, formState.formData);
+
+    },
+
 
   },
   actions: {
@@ -1610,7 +1623,11 @@ const app = {
     }, params = {}) {
       services.getSoftArg(params).then((result) => {
         console.log("services.getSoftArg---",result)
-        commit(types.SOFTARG, result.data)
+        commit(types.SOFTARG, {
+          show: true,
+          edit:true,
+          formData:result.data
+        })
       })
     },
     showSoftArgForm: ({
