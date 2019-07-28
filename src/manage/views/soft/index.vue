@@ -47,6 +47,9 @@
             ]),
             formState() {
                 return this.$store.getters.SoftListFormState
+            },
+            formState() {
+                return this.$store.getters.SoftListFormState
             }
         },
         mounted() {
