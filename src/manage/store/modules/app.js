@@ -976,6 +976,10 @@ const app = {
       state.softArg.formState.formData = formState.formData;
     },
 
+    [types.SOFTARG_HIDE](state, formState) {
+      state.softArg.formState.show = formState.show;
+    },
+
 
   },
   actions: {
@@ -1638,7 +1642,7 @@ const app = {
     hideSoftArgForm: ({
       commit
     }) => {
-      commit(types.SOFTARG, {
+      commit(types.SOFTARG_HIDE, {
         show: false
       })
     },
