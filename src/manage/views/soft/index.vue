@@ -33,7 +33,7 @@
             DataTable,
             TopBar,
             Form,
-            Pagination
+            Pagination,
             ArgForm,
         },
         methods: mapActions([
