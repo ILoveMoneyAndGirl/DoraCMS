@@ -70,7 +70,7 @@ export default {
         let rowData = rows[index];
          console.log("editArg.....",rows[index]._id)
          
-        this.$store.dispatch("getSoftArg",  rows[index]._id);
+        this.$store.dispatch("getSoftArg",rows[index]._id);
     },
 
     deleteOne(index, rows) {

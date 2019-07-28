@@ -972,16 +972,9 @@ const app = {
     },
 
     [types.SOFTARG](state, formState) {
-      state.soft.formState.show = formState.show;
-      state.soft.formState.edit = formState.edit;
-      state.soft.formState.formData = Object.assign({
-        name: '',
-        ip: '',
-        port: '',
-        comments: '',
-        type:1,
-      }, formState.formData);
-
+      state.softArg.formState.show = formState.show;
+      state.softArg.formState.edit = formState.edit;
+      state.softArg.formState.formData = formState.formData;
     },
 
 
@@ -1626,7 +1619,7 @@ const app = {
         commit(types.SOFTARG, {
           show: true,
           edit:true,
-          formData:result.data
+          formData:result.data.data
         })
       })
     },
