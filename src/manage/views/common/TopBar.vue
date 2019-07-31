@@ -604,6 +604,7 @@ export default {
     },
 
     addPayProduct(){
+    console.log("addPayProduct")
       this.$store.dispatch("showPayProductForm");
     },
 
