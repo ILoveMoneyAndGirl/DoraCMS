@@ -1002,7 +1002,7 @@ const app = {
       state.payProduct.payProductList = softList
     },
 
-     [types.SOFTPRODUCT_FORMSTATE](state, formState) {
+     [types.PAYPRODUCT_FORMSTATE](state, formState) {
       state.payProduct.formState.show = formState.show;
       state.payProduct.formState.edit = formState.edit;
       state.payProduct.formState.formData = Object.assign({

@@ -5,10 +5,10 @@
             <el-table-column type="selection" width="55">
             </el-table-column>
 
-            <el-table-column  :label="$t('payProduct.price')">
+            <el-table-column  prop="name" :label="$t('payProduct.name')">
             </el-table-column>
 
-            <el-table-column :label="$t('payProduct._id')">
+            <el-table-column prop="_id" :label="$t('payProduct._id')">
             </el-table-column>
 
 
