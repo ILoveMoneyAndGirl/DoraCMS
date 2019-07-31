@@ -18,7 +18,7 @@
     import TopBar from '../common/TopBar.vue';
     import Pagination from '../common/Pagination.vue';
     import {
-        mapGetters,
+        mapGetters,payProductList
         mapActions
     } from 'vuex'
 

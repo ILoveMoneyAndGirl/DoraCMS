@@ -525,7 +525,7 @@ const app = {
       }
     },
 
-      payProduct: {
+    payProduct: {
       formState: {
         show: false,
         edit: false,
