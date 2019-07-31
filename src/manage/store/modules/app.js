@@ -463,8 +463,8 @@ const app = {
 
     payUrl: {
       formState: {
-        show: false,
-        edit: false,
+        showUrl: false,
+        showName: false,
         formData: {
           price: 0,
           url: '',
@@ -1680,12 +1680,13 @@ const app = {
     showPayProductForm: ({
       commit
     }, params = {
-      edit: false,
+      showUrl: false,
+      showName: false,
       formData: {}
     }) => {
       commit(types.PAYPRODUCT_FORMSTATE, {
-        show: true,
-        edit: params.edit,
+        showUrl: params.showUrl,
+        showName: params.showName,
         formData: params.formData
       })
     },

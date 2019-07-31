@@ -52,7 +52,8 @@ export default {
     edit(index, rows) {
       let rowData = rows[index];
       this.$store.dispatch("showPayProductForm", {
-        edit: true,
+        showUrl: true,
+        showName:false,
         formData: rowData
       });
     },

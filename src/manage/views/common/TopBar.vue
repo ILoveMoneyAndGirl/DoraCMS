@@ -604,7 +604,10 @@ export default {
     },
 
     addPayProduct(){
-      this.$store.dispatch("showPayProductForm");
+      this.$store.dispatch("showPayProductForm", {
+         showUrl: false,
+         showName:true,
+      });
     },
 
   },
