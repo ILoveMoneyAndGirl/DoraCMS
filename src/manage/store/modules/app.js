@@ -1685,7 +1685,7 @@ const app = {
     }) => {
           console.log("showPayProductForm")
 
-      commit(types.PAYPRODUCTL_FORMSTATE, {
+      commit(types.PAYPRODUCT_FORMSTATE, {
         show: true,
         edit: params.edit,
         formData: params.formData
