@@ -7,7 +7,7 @@
                 </el-form-item>
             </el-form>
             <el-form-item>
-                    <el-button size="medium" type="primary" @click="submitForm('ruleForm')">{{dialogState.edit ? $t('main.form_btnText_update') : $t('main.form_btnText_save')}}</el-button>
+                    <el-button size="medium" type="primary" @click="submitForm('ruleForm')">{$t('main.form_btnText_update')}</el-button>
               </el-form-item>
         </el-dialog>
     </div>
@@ -45,9 +45,8 @@ export default {
       this.$refs[formName].validate(valid => {
         if (valid) {
           let params = this.dialogState.formData;
-          // 更新
-          if (this.dialogState.edit) {
-            services.updatePayProduct(params).then(result => {
+            // 更新
+           services.updatePayProduct(params).then(result => {
               if (result.data.status === 200) {
                 this.$store.dispatch("hidePayProductForm");
                 this.$store.dispatch("getPayProductList");
@@ -59,22 +58,6 @@ export default {
                 this.$message.error(result.data.message);
               }
             });
-          } else {
-
-            // 新增
-            services.addPayProduct(params).then(result => {
-              if (result.data.status === 200) {
-                this.$store.dispatch("hidePayProductForm");
-                this.$store.dispatch("getPayProductList");
-                this.$message({
-                  message: this.$t("main.addSuccess"),
-                  type: "success"
-                });
-              } else {
-                this.$message.error(result.data.message);
-              }
-            });
-          }
         } else {
           console.log("error submit!!");
           return false;
