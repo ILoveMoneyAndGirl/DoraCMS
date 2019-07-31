@@ -5,6 +5,8 @@
                 <el-form-item :label="$t('payProduct.name')" prop="name">
                     <el-input size="small" v-model="dialogState.formData.name"></el-input>
                 </el-form-item>
+            </el-form>
+
         </el-dialog>
     </div>
 </template>
