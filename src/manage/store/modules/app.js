@@ -1683,8 +1683,6 @@ const app = {
       edit: false,
       formData: {}
     }) => {
-          console.log("showPayProductForm")
-
       commit(types.PAYPRODUCT_FORMSTATE, {
         show: true,
         edit: params.edit,
