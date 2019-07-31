@@ -9,7 +9,7 @@ var AdminUser = require('./AdminUser');
 var PayUrl = require('./PayUrl');
 
 
-var PayUrlSchema = new Schema({
+var PayProductSchema = new Schema({
     _id: {
         type: String,
         'default': shortid.generate
@@ -26,7 +26,7 @@ var PayUrlSchema = new Schema({
 });
 
 
-var PayUrl = mongoose.model("PayUrl", PayUrlSchema);
-module.exports = PayUrl;
+var PayProduct = mongoose.model("PayProduct", PayProductSchema);
+module.exports = PayProduct;
 
    
