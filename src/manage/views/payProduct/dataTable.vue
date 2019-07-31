@@ -57,7 +57,6 @@ export default {
       });
     },
 
-    },
 
     deleteOne(index, rows) {
       console.log("delete")
