@@ -181,6 +181,11 @@ export default {
 
     getSoftArg:"获取参数",
     setSoftArg:"设置参数",
+
+    payProducttList:"支付产品列表",
+    payProductSoft:"添加支付产品",
+    updatePayProduct:"修改支付产品",
+    deletePayProduct:"删除支付产品",
     
   },
   navbar: {
