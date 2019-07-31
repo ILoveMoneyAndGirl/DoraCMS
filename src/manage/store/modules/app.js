@@ -525,7 +525,24 @@ const app = {
       }
     },
 
-
+      payProduct: {
+      formState: {
+        show: false,
+        edit: false,
+        formData: {
+          name: 0,
+          url: [],
+        }
+      },
+      payProductList: {
+        pageInfo: {},
+        docs: []
+      },
+      payProduct: {
+        state: '',
+        err: {}
+      }
+    },
 
 
 
@@ -978,6 +995,21 @@ const app = {
 
     [types.SOFTARG_HIDE](state, formState) {
       state.softArg.formState.show = formState.show;
+    },
+
+//
+    [types.PAYPRODUCT_LIST](state, softList) {
+      state.payProduct.payProductList = softList
+    },
+
+     [types.SOFTPRODUCT_FORMSTATE](state, formState) {
+      state.payProduct.formState.show = formState.show;
+      state.payProduct.formState.edit = formState.edit;
+      state.payProduct.formState.formData = Object.assign({
+        name: '',
+        url: [],
+      }, formState.formData);
+
     },
 
 
@@ -1626,23 +1658,42 @@ const app = {
         })
       })
     },
-    // showSoftArgForm: ({
-    //   commit
-    // }, params = {
-    //   edit: false,
-    //   formData: {}
-    // }) => {
-    //   commit(types.SOFTARG_FORMSTATE, {
-    //     show: true,
-    //     edit: params.edit,
-    //     formData: params.formData
-    //   })
-    // },
+
 
     hideSoftArgForm: ({
       commit
     }) => {
       commit(types.SOFTARG_HIDE, {
+        show: false
+      })
+    },
+//
+
+    getPayProductList({
+      commit
+    }, params = {}) {
+      services.payUrlList(params).then((result) => {
+        commit(types.PAYPRODUCT_LIST, result.data.data)
+      })
+    },
+
+    showPayProductForm: ({
+      commit
+    }, params = {
+      edit: false,
+      formData: {}
+    }) => {
+      commit(types.PAYPRODUCTL_FORMSTATE, {
+        show: true,
+        edit: params.edit,
+        formData: params.formData
+      })
+    },
+
+    hidePayProductForm: ({
+      commit
+    }) => {
+      commit(types.PAYPRODUCT_FORMSTATE, {
         show: false
       })
     },

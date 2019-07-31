@@ -389,6 +389,24 @@ export default {
         return reqJsonData('manage/softArg/set', params)
     },
 
+    //
+
+    payProductList(params) {
+        return reqJsonData('manage/payProduct/getList', params, 'get')
+    },
+
+    updatePayProduct(params) {
+        return reqJsonData('manage/payProduct/updateOne', params)
+    },
+
+    deletePayProduct(params) {
+        return reqJsonData('manage/payProduct/delete', params, 'get')
+    },
+
+    addPayProduct(params) {
+        return reqJsonData('manage/payProduct/add', params)
+    },
+
 //     router.post('/softArg/get', authToken, authPower, HelloOperation.GetSetting);
 // router.post('/softArg/set', authToken, authPower, HelloOperation.UpdateSetting);
 

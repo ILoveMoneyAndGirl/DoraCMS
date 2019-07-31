@@ -63,6 +63,13 @@
         </el-button>
       </div>
 
+        <div v-else-if="type === 'payProduct'">
+        <el-button size="small" type="primary" plain round @click="addPayProduct">
+          <i class="fa fa-fw fa-plus" aria-hidden="true"></i>
+        </el-button>
+      </div>
+
+
       <div v-else-if="type === 'regUser'">
         <el-button size="small" type="danger" plain round @click="branchDelete('user')">
           <i class="fa fa-fw fa-trash-o"></i>
@@ -594,6 +601,10 @@ export default {
     addSoft() {
 
       this.$store.dispatch("showSoftForm");
+    },
+
+    addPayProduct(){
+      this.$store.dispatch("showPayProductForm");
     },
 
   },

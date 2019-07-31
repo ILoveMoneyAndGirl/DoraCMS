@@ -78,6 +78,9 @@ const getters = {
     SoftArgFormState: state => state.app.softArg.formState,
 
 
+    PayProductList: state => state.app.payProduct.payProductList,
+    PayProductListFormState: state => state.app.payProduct.formState,
+
 
 
 

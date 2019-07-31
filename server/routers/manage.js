@@ -24,6 +24,7 @@ const {
   HelloOperation,
   PayUrl,
   Soft,
+  PayProduct,
 
   //MgRoutersController
 } = require('../lib/controller');
@@ -334,6 +335,11 @@ router.post('/soft/add', authToken, authPower, Soft.Add);
 router.get('/softArg/get', authToken, authPower, HelloOperation.GetSetting);
 router.post('/softArg/set', authToken, authPower, HelloOperation.UpdateSetting);
 
+
+router.get('/payProduct/getList', authToken, authPower, PayProduct.GetList);
+router.post('/payProduct/updateOne', authToken, authPower, PayProduct.Update);
+router.get('/payProduct/delete', authToken, authPower, PayProduct.Delete);
+router.post('/payProduct/add', authToken, authPower, PayProduct.Add);
 
 
 

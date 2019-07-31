@@ -56,6 +56,8 @@ export const SOFT_FORMSTATE = 'SOFT_FORMSTATE';
 export const  SOFTARG_HIDE = 'SOFTARG_HIDE';
 export const  SOFTARG = 'SOFTARG';
 
+export const PAYPRODUCT_LIST = 'PAYURL_LIST';
+export const PAYPRODUCT_FORMSTATE = 'PAYURL_FORMSTATE';
 
 
 
