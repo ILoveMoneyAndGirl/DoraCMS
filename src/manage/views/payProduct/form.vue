@@ -7,7 +7,7 @@
                 </el-form-item>
 
                   <el-form-item>
-                    <el-button size="medium" type="primary" @click="submitForm('ruleForm')">$t('main.form_btnText_save')</el-button>
+                    <el-button size="medium" type="primary" @click="submitForm('ruleForm')">{{dialogState.showName ? $t('main.form_btnText_save') : $t('main.form_btnText_save')}}</el-button>
                 </el-form-item>
 
                </el-form>
@@ -43,9 +43,10 @@ export default {
   },
   methods: {
     confirm() {
-        this.$store.dispatch("showPayProductForm", {
-                      showName:false
-                    });
+      this.$store.dispatch("showPayProductForm", {
+         showUrl: false,
+         showName:false,
+      });
     },
     submitForm(formName) {
       this.$refs[formName].validate(valid => {
@@ -55,8 +56,9 @@ export default {
             services.addPayProduct(params).then(result => {
               if (result.data.status === 200) {
                 this.$store.dispatch("showPayProductForm", {
-                      showName:false
-                    });
+                    showUrl: false,
+                    showName:false,
+                });
                 this.$store.dispatch("getPayProductList");
                 this.$message({
                   message: this.$t("main.addSuccess"),

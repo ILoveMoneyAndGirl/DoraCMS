@@ -71,6 +71,10 @@ class PayProduct {
             }).skip(Number(pageSize) * (Number(current) - 1)).limit(Number(pageSize));
             const totalItems = await PayProductModel.count(queryObj);
 
+            console.log("/////////------------",queryObj)
+            console.log("/////////------------",totalItems)
+
+
             let sendData = {
                 docs: data,
                 pageInfo: {
