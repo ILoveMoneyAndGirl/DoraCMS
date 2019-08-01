@@ -1672,7 +1672,7 @@ const app = {
     getPayProductList({
       commit
     }, params = {}) {
-      services.payUrlList(params).then((result) => {
+      services.payProductList(params).then((result) => {
         commit(types.PAYPRODUCT_LIST, result.data.data)
       })
     },
