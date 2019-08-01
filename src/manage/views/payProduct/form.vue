@@ -5,11 +5,13 @@
                 <el-form-item :label="$t('payProduct.name')" prop="name">
                     <el-input size="small" v-model="dialogState.formData.name"></el-input>
                 </el-form-item>
-            </el-form>
 
                   <el-form-item>
                     <el-button size="medium" type="primary" @click="submitForm('ruleForm')">{$t('main.form_btnText_save')}</el-button>
                 </el-form-item>
+
+               </el-form>
+
 
         </el-dialog>
     </div>
