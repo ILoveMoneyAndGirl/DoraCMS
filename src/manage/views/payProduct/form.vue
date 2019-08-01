@@ -1,6 +1,6 @@
 <template>
     <div class="dr-payProductForm">
-        <el-dialog :xs="20" :sm="20" :md="6" :lg="6" :xl="6" size="small" :title="$t('com.info')" :visible.sync="dialogState.showName" :close-on-click-modal="close">
+        <el-dialog :xs="20" :sm="20" :md="6" :lg="6" :xl="6" size="small" :title="$t('com.info')" :visible.sync="dialogState.showName" :close-on-click-modal="false">
             <el-form :model="dialogState.formData" :rules="rules" ref="ruleForm" label-width="120px" class="demo-ruleForm">
                 <el-form-item :label="$t('payProduct.name')" prop="name">
                     <el-input size="small" v-model="dialogState.formData.name"></el-input>
@@ -11,11 +11,14 @@
                 </el-form-item>
 
                </el-form>
-
-
         </el-dialog>
     </div>
 </template>
+
+
+
+
+
 <script>
 import services from "../../store/services.js";
 import _ from "lodash";
@@ -26,7 +29,6 @@ export default {
   },
   data() {
     return {
-      close:false,
       rules: {
           name: [
           {

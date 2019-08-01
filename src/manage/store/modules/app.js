@@ -463,8 +463,8 @@ const app = {
 
     payUrl: {
       formState: {
-        showUrl: false,
-        showName: false,
+        show: false,
+        edit: false,
         formData: {
           price: 0,
           url: '',
@@ -527,8 +527,8 @@ const app = {
 
     payProduct: {
       formState: {
-        show: false,
-        edit: false,
+        showUrl: false,
+        showName: false,
         formData: {
           name: 0,
           url: [],
