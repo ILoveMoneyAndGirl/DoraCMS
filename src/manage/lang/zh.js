@@ -167,7 +167,7 @@ export default {
     productChange:"产品切换",
     productGoods:"商品管理",
     productUser:"用户管理",
-    productPay:"支付管理",
+    productPay:"支付二维码管理",
     productList:"获取商品表",
     payUrlList:"二维码列表",
     addPayUrl:"添加二维码",
@@ -594,10 +594,11 @@ export default {
 
  payUrl: {
     form_title: '填写二维码信息',
-    url: '链接',
-    tag: '标签',
+    url: '二维码地址',
+    tag: '描述',
     isAny: '任意金额',
-    price:'价格',
+    price:'实际金额',
+    tagPrice:'目标金额',
     qrCode:'二维码'
   },
 

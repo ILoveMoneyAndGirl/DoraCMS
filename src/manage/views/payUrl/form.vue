@@ -7,6 +7,11 @@
                     <el-input size="small" v-model="dialogState.formData.price"></el-input>
                 </el-form-item>
 
+                  <el-form-item :label="$t('payUrl.tagPrice')" prop="tagPrice">
+                    <el-input size="small" v-model="dialogState.formData.tagPrice"></el-input>
+                </el-form-item>
+
+
                 <el-form-item class="upSimg" :label="$t('payUrl.qrCode')" prop="url">
                       <el-upload
                         class="avatar-uploader"
@@ -86,6 +91,18 @@ export default {
             trigger: "blur"
           }
         ],
+
+        tagPrice: [
+          {
+            required: true,
+            message: this.$t("validate.inputNull", {
+              label: this.$t("payUrl.price")
+            }),
+            trigger: "blur"
+          }
+        ],
+
+        
       },
       green: { color: "#13CE66" },
       red: { color: "#FF4949" },

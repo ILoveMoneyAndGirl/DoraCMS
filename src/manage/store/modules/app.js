@@ -466,6 +466,7 @@ const app = {
         show: false,
         edit: false,
         formData: {
+          tagPrice:0,
           price: 0,
           url: '',
           tag: '',

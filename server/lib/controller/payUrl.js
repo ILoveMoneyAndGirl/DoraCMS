@@ -34,6 +34,12 @@ function checkFormData(req, res, fields) {
         });
     }
 
+    if (!fields.tagPrice) {
+        errMsg = res.__("validate_selectNull", {
+            label: "价格"
+        });
+    }
+
 
     if (!fields.url) {
         errMsg = res.__("validate_selectNull", {
@@ -132,6 +138,7 @@ class PayUrl {
                 tag: fields.tag,
                 url: fields.url,
                 isAny: fields.isAny,
+                tagPrice: fields.tagPrice,
 
             }
             const item_id = fields._id;
@@ -164,6 +171,7 @@ class PayUrl {
                 tag: fields.tag,
                 url: fields.url,
                 isAny: fields.isAny,
+                tagPrice: fields.tagPrice,
                 adminUser:req.session.adminUserInfo._id
             }
                 const newObj = new PayUrlModel(obj);

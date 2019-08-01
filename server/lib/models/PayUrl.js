@@ -19,6 +19,7 @@ var PayUrlSchema = new Schema({
         type: String,
         ref: 'AdminUser'
     },
+    tagPrice:Number,//目标价格
     isAny:Boolean
 });
 
