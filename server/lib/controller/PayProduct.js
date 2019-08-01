@@ -137,7 +137,7 @@ class PayProduct {
                 url: [],
                 adminUser:req.session.adminUserInfo._id
             }
-                const newObj = new PayProduct(obj);
+                const newObj = new PayProductModel(obj);
                 await newObj.save();
 
                 res.send(siteFunc.renderApiData(req, res, 200, 'PayProduct', {

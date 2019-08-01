@@ -7,7 +7,7 @@
                 </el-form-item>
 
                   <el-form-item>
-                    <el-button size="medium" type="primary" @click="submitForm('ruleForm')">{$t('main.form_btnText_save')}</el-button>
+                    <el-button size="medium" type="primary" @click="submitForm('ruleForm')">$t('main.form_btnText_save')</el-button>
                 </el-form-item>
 
                </el-form>
@@ -43,7 +43,9 @@ export default {
   },
   methods: {
     confirm() {
-      this.$store.dispatch("hideSoftForm");
+        this.$store.dispatch("showPayProductForm", {
+                      showName:false
+                    });
     },
     submitForm(formName) {
       this.$refs[formName].validate(valid => {
@@ -52,7 +54,9 @@ export default {
             // 新增
             services.addPayProduct(params).then(result => {
               if (result.data.status === 200) {
-                this.$store.dispatch("hidePayProductForm");
+                this.$store.dispatch("showPayProductForm", {
+                      showName:false
+                    });
                 this.$store.dispatch("getPayProductList");
                 this.$message({
                   message: this.$t("main.addSuccess"),

@@ -6,7 +6,7 @@
                     <el-input size="small" v-model="dialogState.formData.name"></el-input>
                 </el-form-item>
             <el-form-item>
-                    <el-button size="medium" type="primary" @click="submitForm('ruleForm')">{$t('main.form_btnText_update')}</el-button>
+                    <el-button size="medium" type="primary" @click="submitForm('ruleForm')">$t('main.form_btnText_update')</el-button>
               </el-form-item>
             </el-form>
 
@@ -40,7 +40,9 @@ export default {
   },
   methods: {
     confirm() {
-      this.$store.dispatch("hideSoftForm");
+        this.$store.dispatch("showPayProductForm", {
+                      showUrl:false
+                    });
     },
     submitForm(formName) {
       this.$refs[formName].validate(valid => {
@@ -49,7 +51,9 @@ export default {
             // 更新
            services.updatePayProduct(params).then(result => {
               if (result.data.status === 200) {
-                this.$store.dispatch("hidePayProductForm");
+                  this.$store.dispatch("showPayProductForm", {
+                      showUrl:false
+                    });
                 this.$store.dispatch("getPayProductList");
                 this.$message({
                   message: this.$t("main.updateSuccess"),
