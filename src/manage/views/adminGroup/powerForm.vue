@@ -66,6 +66,7 @@ export default {
     }
   },
   updated() {
+      console.log("types.ADMINRESOURCE_LIST,updated")
     this.$refs.tree &&
       this.$refs.tree.setCheckedKeys(this.roleState.formData.power);
   }
