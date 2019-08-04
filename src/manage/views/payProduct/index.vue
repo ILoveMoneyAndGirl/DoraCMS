@@ -42,7 +42,7 @@
         computed: {
             ...mapGetters([
                 'PayProductList',
-                'payUrlTreeList'
+                'PayUrlTreeList'
             ]),
             formState() {
                 return this.$store.getters.PayProductListFormState
