@@ -46,6 +46,9 @@ class AdminResource {
                 }
             };
 
+            console.log("getAdminResources--->")
+            console.log(renderData)
+
             res.send(siteFunc.renderApiData(req, res, 200, 'adminResource', renderData, 'getlist'))
 
         } catch (err) {

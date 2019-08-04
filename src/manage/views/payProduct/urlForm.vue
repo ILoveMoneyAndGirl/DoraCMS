@@ -1,76 +1,48 @@
 <template>
-    <div class="dr-payProductUrlForm">
-        <el-dialog :xs="20" :sm="20" :md="6" :lg="6" :xl="6" size="small" :title="$t('com.info')" :visible.sync="dialogState.showUrl" :close-on-click-modal="false">
-            <el-form :model="dialogState.formData" :rules="rules" ref="ruleForm" label-width="120px" class="demo-ruleForm">
-                <el-form-item :label="$t('payProduct.name')" prop="name">
-                    <el-input size="small" v-model="dialogState.formData.name"></el-input>
-                </el-form-item>
-            <el-form-item>
-                    <el-button size="medium" type="primary" @click="submitForm('ruleForm')">{{dialogState.showUrl ? $t('main.form_btnText_update') : $t('main.form_btnText_update')}}</el-button>
-              </el-form-item>
-            </el-form>
-
+    <div class="dr-adminGroupForm">
+        <el-dialog :xs="20" :sm="20" :md="6" :lg="6" :xl="6" size="small" :title="$t('adminGroup.lb_give_power')" :visible.sync="dialogState.showName" :close-on-click-modal="false">
+            <el-tree :data="treeData" show-checkbox node-key="_id" ref="tree" highlight-current :props="defaultProps" :render-content="renderContent">
+            </el-tree>
+            <span slot="footer" class="dialog-footer">
+                <el-button size="medium" @click="closeTree">{{$t("main.cancelBtnText")}}</el-button>
+                <el-button size="medium" type="primary" @click="savePower">{{$t("main.confirmBtnText")}}</el-button>
+            </span>
         </el-dialog>
     </div>
 </template>
 <script>
 import services from "../../store/services.js";
 import _ from "lodash";
+
 export default {
   props: {
     dialogState: Object,
-    groups: Array
+    treeData: Array
   },
   data() {
     return {
-      rules: {
-          name: [
-          {
-            required: true,
-            message: this.$t("validate.inputNull", {
-              label: this.$t("payProduct.name")
-            }),
-            trigger: "blur"
-          }       
-          ],
-      },
-      green: { color: "#13CE66" },
-      red: { color: "#FF4949" },
+      defaultProps: {
+        children: "children",
+        label: "label"
+      }
     };
   },
   methods: {
-    confirm() {
-      this.$store.dispatch("showPayProductForm", {
-         showUrl:false,
-         showName:false,
-      });
+    savePower() {
+
     },
-    submitForm(formName) {
-      this.$refs[formName].validate(valid => {
-        if (valid) {
-          let params = this.dialogState.formData;
-            // 更新
-           services.updatePayProduct(params).then(result => {
-              if (result.data.status === 200) {
-                this.$store.dispatch("showPayProductForm", {
-                   showUrl: false,
-                   showName:false,
-                });
-                this.$store.dispatch("getPayProductList");
-                this.$message({
-                  message: this.$t("main.updateSuccess"),
-                  type: "success"
-                });
-              } else {
-                this.$message.error(result.data.message);
-              }
-            });
-        } else {
-          console.log("error submit!!");
-          return false;
-        }
-      });
+    closeTree() {
     },
-  }
+    renderContent(h, { node, data, store }) {
+      return (
+        <span style="flex: 1; display: flex; align-items: center; justify-content: space-between; font-size: 14px; padding-right: 8px;">
+          <span>
+            <span>{this.$t("route." + node.label)}</span>
+          </span>
+        </span>
+      );
+    }
+  },
+
 };
 </script>
