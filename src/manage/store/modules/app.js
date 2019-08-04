@@ -672,6 +672,10 @@ const app = {
 
     },
     [types.ADMINRESOURCE_LIST](state, resourceList) {
+
+      console.log("types.ADMINRESOURCE_LIST")
+
+      console.log(resourceList)
       state.adminResource.resourceList = resourceList
     },
     [types.ADMINTEMPLATE_LIST](state, templateList) {
