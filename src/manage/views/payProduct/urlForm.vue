@@ -23,17 +23,41 @@ export default {
     return {
       defaultProps: {
         children: "children",
-        tag: "tag"
+        lable: "lable"
       }
     };
   },
   methods: {
     savePower() {
-       console.log(this.treeData)
-        console.log("----->1")
-          console.log(this.dialogState)
+      let currentNodes = this.$refs.tree.getCheckedNodes();
+      let currentArr = [];
+      currentNodes.length > 0 &&
+        currentNodes.map((item, index) => {
+          if (item._id !=item.price) {
+            currentArr.push(item._id);
+          }
+        });
+
+      let params = this.dialogState.formData;
+      params.url = currentArr;
+            console.log("savePower")
+
+      console.log(params.url)
+     /* services.updateAdminGroup(params).then(result => {
+        if (result.data.status === 200) {
+          this.$store.dispatch("hideAdminGroupRoleForm");
+          this.$store.dispatch("getAdminGroupList");
+          this.$message({
+            message: this.$t("adminGroup.lb_updatePower_success"),
+            type: "success"
+          });
+        } else {
+          this.$message.error(result.data.message);
+        }
+      });*/
     },
     closeTree() {
+      //this.$store.dispatch("hideAdminGroupRoleForm");
     },
     renderContent(h, { node, data, store }) {
     console.log("renderContent")
@@ -41,11 +65,17 @@ export default {
       return (
         <span style="flex: 1; display: flex; align-items: center; justify-content: space-between; font-size: 14px; padding-right: 8px;">
           <span>
-            <span>{node.tag}</span>
+            <span>{node.data.lable}</span>
           </span>
         </span>
       );
     }
+
+    updated() {
+      console.log("types.ADMINRESOURCE_LIST,updated")
+       this.$refs.tree &&
+      this.$refs.tree.setCheckedKeys(this.dialogState.formData.url);
+     }
   },
 
 };

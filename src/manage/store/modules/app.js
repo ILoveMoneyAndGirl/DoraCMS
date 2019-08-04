@@ -49,10 +49,12 @@ export function payUrlTreeData(result) {
               item.tag=""
               item.price=key
               item.isAny=true
+              item.lable="任意金额"
               parent[index]=item
               index++
            }
           let i=tempData.isAny
+          treeItem.lable="任意金额"
           parent[i].children.push(treeItem)
 
        }else{
@@ -64,9 +66,11 @@ export function payUrlTreeData(result) {
             item.price=key
             item.isAny=false
             parent[index]=item
+            item.lable=key+"元"
             index++
           }
           let i=tempData[key]
+           treeItem.lable="实际金额："+treeItem.price+"元 描述："+treeItem.tag
           parent[i].children.push(treeItem)
          } 
     }
