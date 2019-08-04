@@ -69,7 +69,7 @@ export default {
           </span>
         </span>
       );
-    }
+    },
 
     updated() {
       console.log("types.ADMINRESOURCE_LIST,updated")
