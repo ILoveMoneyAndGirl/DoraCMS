@@ -1,7 +1,7 @@
 <template>
     <div class="adminUser">
         <Form :dialogState="formState"></Form>
-        <UrlForm :dialogState="formState" :treeData="adminResourceList.docs"></UrlForm>
+        <UrlForm :dialogState="formState" :treeData="payUrlTreeList"></UrlForm>
         <el-row class="dr-datatable">
             <el-col :span="24">
                 <TopBar type="payProduct" :pageInfo="PayProductList.pageInfo"></TopBar>
@@ -42,22 +42,15 @@
         computed: {
             ...mapGetters([
                 'PayProductList',
-                'adminResourceList'
+                'payUrlTreeList'
             ]),
             formState() {
                 return this.$store.getters.PayProductListFormState
-            },
-            urlList() {
-            //有问题
-                return this.$store.getters.PayProductListFormState
-            },
-
-            roleState() {
-                return this.$store.getters.adminGroupRoleFormState
             }
         },
         mounted() {
             this.$store.dispatch('getPayProductList');
+            this.$store.dispatch('getPayUrlList');
         }
     }
 </script>

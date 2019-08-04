@@ -28,6 +28,48 @@ export function renderTreeData(result) {
   return newResult;
 }
 
+
+export function payUrlTreeData(result) {
+  console.log("payUrlTreeData---->")
+  let treeData = result.docs;
+  let parent=[]
+  let tempData={}
+  let index=0;
+
+  for (let j = 0; j < treeData.length; j++) {
+      let treeItem = treeData[j];
+      let key=treeItem.tagPrice
+      if(treeItem.isAny){
+          if(!tempData.isAny){
+              tempData.isAny=index     
+              parent[index].children=[]
+              parent[index]._id=key
+              parent[index].tag=""
+              parent[index].price=key
+              parent[index].isAny=true
+              index++
+           }
+          let i=tempData.isAny
+          parent[i].children.push(treeItem)
+
+       }else{
+          if(!tempData[key]){
+            tempData[key]=index
+            parent[index].children=[]
+            parent[index]._id=key
+            parent[index].tag=""
+            parent[index].price=key
+            parent[index].isAny=false
+            index++
+          }
+          let i=tempData[key]
+          parent[i].children.push(treeItem)
+         } 
+    }
+     console.log(parent)
+  return parent;
+}
+
 const app = {
   state: {
     sidebar: {
@@ -478,6 +520,7 @@ const app = {
         pageInfo: {},
         docs: []
       },
+      payUrlTreeList:[],
       payUrl: {
         state: '',
         err: {}
@@ -959,6 +1002,7 @@ const app = {
 
     [types.PAYURL_LIST](state, payUrlList) {
       state.payUrl.payUrlList = payUrlList
+      state.payUrl.payUrlTreeData=payUrlTreeData(payUrlList)
     },
 
 

@@ -62,6 +62,7 @@ class PayUrl {
         // super()
     }
 
+
     async GetList(req, res, next) {
         try {
 
@@ -87,7 +88,7 @@ class PayUrl {
             }
 
             let data = await PayUrlModel.find(queryObj).sort({
-                price: -1
+                tagPrice: -1
             }).skip(Number(pageSize) * (Number(current) - 1)).limit(Number(pageSize));
             const totalItems = await PayUrlModel.count(queryObj);
 

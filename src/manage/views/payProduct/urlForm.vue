@@ -23,7 +23,7 @@ export default {
     return {
       defaultProps: {
         children: "children",
-        label: "label"
+        tag: "tag"
       }
     };
   },
@@ -37,7 +37,7 @@ export default {
       return (
         <span style="flex: 1; display: flex; align-items: center; justify-content: space-between; font-size: 14px; padding-right: 8px;">
           <span>
-            <span>{this.$t("route." + node.label)}</span>
+            <span>{node.tag}</span>
           </span>
         </span>
       );
