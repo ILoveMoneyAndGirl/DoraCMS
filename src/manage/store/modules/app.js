@@ -1006,7 +1006,7 @@ const app = {
 
     [types.PAYURL_LIST](state, payUrlList) {
       state.payUrl.payUrlList = payUrlList
-      state.payUrl.payUrlTreeData=payUrlTreeData(payUrlList)
+      state.payUrl.payUrlTreeList=payUrlTreeData(payUrlList)
     },
 
 
