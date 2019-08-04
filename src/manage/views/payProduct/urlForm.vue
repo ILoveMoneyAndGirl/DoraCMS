@@ -43,10 +43,12 @@ export default {
             console.log("savePower")
 
       console.log(params.url)
-     /* services.updateAdminGroup(params).then(result => {
+      services.updatePayProduct(params).then(result => {
         if (result.data.status === 200) {
-          this.$store.dispatch("hideAdminGroupRoleForm");
-          this.$store.dispatch("getAdminGroupList");
+            this.$store.dispatch("showPayProductForm", {
+               showUrl: false,
+               showName:false,
+            });
           this.$message({
             message: this.$t("adminGroup.lb_updatePower_success"),
             type: "success"
@@ -54,10 +56,13 @@ export default {
         } else {
           this.$message.error(result.data.message);
         }
-      });*/
+      });
     },
     closeTree() {
-      //this.$store.dispatch("hideAdminGroupRoleForm");
+      this.$store.dispatch("showPayProductForm", {
+         showUrl: false,
+         showName:false,
+      });
     },
     renderContent(h, { node, data, store }) {
     console.log("renderContent")

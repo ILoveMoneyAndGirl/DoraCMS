@@ -54,7 +54,7 @@ export function payUrlTreeData(result) {
               index++
            }
           let i=tempData.isAny
-          treeItem.lable="任意金额"
+          treeItem.lable="实际金额：任意 描述："+treeItem.tag
           parent[i].children.push(treeItem)
 
        }else{
