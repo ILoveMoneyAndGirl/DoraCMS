@@ -50,7 +50,7 @@
             urlList() {
             //有问题
                 return this.$store.getters.PayProductListFormState
-            }
+            },
 
             roleState() {
                 return this.$store.getters.adminGroupRoleFormState

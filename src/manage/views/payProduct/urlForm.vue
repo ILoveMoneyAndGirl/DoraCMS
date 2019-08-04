@@ -1,6 +1,6 @@
 <template>
-    <div class="dr-adminGroupForm">
-        <el-dialog :xs="20" :sm="20" :md="6" :lg="6" :xl="6" size="small" :title="$t('adminGroup.lb_give_power')" :visible.sync="dialogState.showName" :close-on-click-modal="false">
+    <div class="dr-payProductUrlForm">
+        <el-dialog :xs="20" :sm="20" :md="6" :lg="6" :xl="6" size="small" :title="$t('adminGroup.lb_give_power')" :visible.sync="dialogState.showUrl" :close-on-click-modal="false">
             <el-tree :data="treeData" show-checkbox node-key="_id" ref="tree" highlight-current :props="defaultProps" :render-content="renderContent">
             </el-tree>
             <span slot="footer" class="dialog-footer">
