@@ -29,11 +29,15 @@ export default {
   },
   methods: {
     savePower() {
-
+       console.log(this.treeData)
+        console.log("----->1")
+          console.log(this.dialogState)
     },
     closeTree() {
     },
     renderContent(h, { node, data, store }) {
+    console.log("renderContent")
+        console.log(node)
       return (
         <span style="flex: 1; display: flex; align-items: center; justify-content: space-between; font-size: 14px; padding-right: 8px;">
           <span>
