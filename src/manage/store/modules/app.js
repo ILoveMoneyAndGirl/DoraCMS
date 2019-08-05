@@ -42,19 +42,17 @@ export function payUrlTreeData(result) {
       if(treeItem.isAny){
           if(!tempData.isAny){
               tempData.isAny=index
-              
+
               let item={}
               item.children=[]
               item._id=key
               item.tag=""
               item.price=key
               item.isAny=true
-              item.lable="任意金额"
               parent[index]=item
               index++
            }
           let i=tempData.isAny
-          treeItem.lable="实际金额:<font color=‘#FF0000’>任意</font>描述:<font color=‘#FF0000’>"+treeItem.tag+"</font>"
           parent[i].children.push(treeItem)
 
        }else{
@@ -68,11 +66,9 @@ export function payUrlTreeData(result) {
             item.price=key
             item.isAny=false
             parent[index]=item
-            item.lable=key+"元"
             index++
           }
           let i=tempData[key]
-           treeItem.lable="实际金额:<font color=‘#FF0000’>"+treeItem.price+"元</font>   描述:<font color=‘#FF0000’>"+treeItem.tag+"</font>"
           parent[i].children.push(treeItem)
          } 
     }
