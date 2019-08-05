@@ -75,7 +75,6 @@ export default {
         </span>
       );
     },
-
     updated() {
       console.log("types.ADMINRESOURCE_LIST,updated")
        this.$refs.tree &&
