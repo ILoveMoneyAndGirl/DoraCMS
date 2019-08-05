@@ -40,9 +40,7 @@ export default {
 
       let params = this.dialogState.formData;
       params.url = currentArr;
-            console.log("savePower")
 
-      console.log(params.url)
       services.updatePayProduct(params).then(result => {
         if (result.data.status === 200) {
             this.$store.dispatch("showPayProductForm", {
@@ -55,8 +53,6 @@ export default {
             message: this.$t("com.update"),
             type: "success"
           });
-          console.log("-----------------------------------------------*****")
-             console.log(this.treeData)
         } else {
           this.$message.error(result.data.message);
         }
@@ -69,10 +65,7 @@ export default {
       });
     },
     renderContent(h, { node, data, store }) {
-    console.log("renderContent0")
-        console.log(node)
-          console.log(data)
-             console.log(store)
+
       return (
         <span style="flex: 1; display: flex; align-items: center; justify-content: space-between; font-size: 14px; padding-right: 8px;">
           <span>
@@ -85,8 +78,7 @@ export default {
 
   updated() {
     console.log("types.updated,updated0")
-          console.log(this.treeData)
-
+        console.log(this.dialogState.formData.url)
      this.$refs.tree &&
     this.$refs.tree.setCheckedKeys(this.dialogState.formData.url);
    }
