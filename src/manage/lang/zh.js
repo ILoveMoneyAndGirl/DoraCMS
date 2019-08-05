@@ -621,7 +621,7 @@ soft: {
     form_title: '填写二信息',
     url: '支付二维码',
     name: '名称',
-    _id: 'appID'
+    _id: 'appID',
     priceTree:"价格树 "
   },
 
