@@ -71,7 +71,7 @@ export default {
             return (
               <span style="flex: 1; display: flex; align-items: center; justify-content: space-between; font-size: 14px; padding-right: 8px;">
                 <span>
-                  <span>目标金额:任意</span>
+                  <span>任意</span>
                 </span>
               </span>
               );
@@ -79,7 +79,7 @@ export default {
             return (
                 <span style="flex: 1; display: flex; align-items: center; justify-content: space-between; font-size: 14px; padding-right: 8px;">
                   <span>
-                    <span>目标金额:{data.price}元</span>
+                    <span>{data.price}元</span>
                   </span>
                 </span>
               );
@@ -89,7 +89,7 @@ export default {
             return (
                 <span style="flex: 1; display: flex; align-items: center; justify-content: space-between; font-size: 14px; padding-right: 8px;">
                 <span>
-                  <span>描述:<font color="#FF0000">{data.tag}</font></span>
+                  <span>描述:&nbsp<font color="#FF0000">{data.tag}</font></span>
                 </span>
               </span>
             );
@@ -98,8 +98,8 @@ export default {
               return (
                 <span style="flex: 1; display: flex; align-items: center; justify-content: space-between; font-size: 14px; padding-right: 8px;">
                 <span>
-                  <span>实际金额:<font color="#FF0000">{data.price}</font></span>
-                  <span>描述:<font color="#FF0000">{data.tag}</font></span>
+                  <span>实际金额:&nbsp<font color="#FF0000">{data.price}</font></span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                  <span>描述:&nbsp<font color="#FF0000">{data.tag}</font></span>
                 </span>
               </span>
             );
