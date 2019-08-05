@@ -50,7 +50,7 @@ export default {
                showUrl: false,
                showName:false,
             });
-            this.$store.dispatch("getPayUrlList");
+            this.$store.dispatch("getPayProductList");
 
           this.$message({
             message: this.$t("com.update"),
