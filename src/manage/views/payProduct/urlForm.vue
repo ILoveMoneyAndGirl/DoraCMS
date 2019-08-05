@@ -40,6 +40,9 @@ export default {
 
       let params = this.dialogState.formData;
       params.url = currentArr;
+              console.log("params.url")
+
+        console.log(params.url)
 
       services.updatePayProduct(params).then(result => {
         if (result.data.status === 200) {
