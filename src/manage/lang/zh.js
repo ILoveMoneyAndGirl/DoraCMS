@@ -605,6 +605,8 @@ export default {
 com:
 {
     info:"详情",
+    update:"更新成功",
+    infoTree:"信息树 "
 },
 
 soft: {

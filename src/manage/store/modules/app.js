@@ -54,7 +54,7 @@ export function payUrlTreeData(result) {
               index++
            }
           let i=tempData.isAny
-          treeItem.lable="实际金额:<font color=‘#FF0000’>任意</font>   描述:<font color=‘#FF0000’>"+treeItem.tag+"</font>"
+          treeItem.lable="实际金额:<font color=‘#FF0000’>任意</font>描述:<font color=‘#FF0000’>"+treeItem.tag+"</font>"
           parent[i].children.push(treeItem)
 
        }else{

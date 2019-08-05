@@ -1,6 +1,6 @@
 <template>
     <div class="dr-payProductUrlForm">
-        <el-dialog :xs="20" :sm="20" :md="6" :lg="6" :xl="6" size="small" :title="$t('adminGroup.lb_give_power')" :visible.sync="dialogState.showUrl" :close-on-click-modal="false">
+        <el-dialog :xs="20" :sm="20" :md="6" :lg="6" :xl="6" size="small" :title="$t('com.infoTree')" :visible.sync="dialogState.showUrl" :close-on-click-modal="false">
             <el-tree :data="treeData" show-checkbox node-key="_id" ref="tree" highlight-current :props="defaultProps" :render-content="renderContent">
             </el-tree>
             <span slot="footer" class="dialog-footer">
@@ -50,9 +50,11 @@ export default {
                showName:false,
             });
           this.$message({
-            message: this.$t("adminGroup.lb_updatePower_success"),
+            message: this.$t("com.update"),
             type: "success"
           });
+          console.log("-----------------------------------------------*****")
+             console.log(this.treeData)
         } else {
           this.$message.error(result.data.message);
         }
@@ -70,7 +72,16 @@ export default {
       return (
         <span style="flex: 1; display: flex; align-items: center; justify-content: space-between; font-size: 14px; padding-right: 8px;">
           <span>
-            <span>{node.data.lable}</span>
+            <span>{if(node.data._id ==node.data.price)
+            {
+              if(node.data.isAny)
+                 return "任意金额"
+               else
+                  return node.data.price+"元"
+            }else
+            {
+              return "实际金额:"+node.data.price+"元   "+"描述："+"node.data.tag"
+            }</span>
           </span>
         </span>
       );
