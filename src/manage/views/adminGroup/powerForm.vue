@@ -56,6 +56,10 @@ export default {
       this.$store.dispatch("hideAdminGroupRoleForm");
     },
     renderContent(h, { node, data, store }) {
+      console.log("types.renderContent,renderContent")
+      console.log(node)
+       console.log(data)
+        console.log(store)
       return (
         <span style="flex: 1; display: flex; align-items: center; justify-content: space-between; font-size: 14px; padding-right: 8px;">
           <span>
@@ -67,6 +71,7 @@ export default {
   },
   updated() {
       console.log("types.ADMINRESOURCE_LIST,updated")
+      console.log(this.treeData)
     this.$refs.tree &&
       this.$refs.tree.setCheckedKeys(this.roleState.formData.power);
   }

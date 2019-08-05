@@ -49,6 +49,8 @@ export default {
                showUrl: false,
                showName:false,
             });
+            this.$store.dispatch("getPayUrlList");
+
           this.$message({
             message: this.$t("com.update"),
             type: "success"
@@ -67,27 +69,22 @@ export default {
       });
     },
     renderContent(h, { node, data, store }) {
-    console.log("renderContent")
+    console.log("renderContent0")
         console.log(node)
+          console.log(data)
+             console.log(store)
       return (
         <span style="flex: 1; display: flex; align-items: center; justify-content: space-between; font-size: 14px; padding-right: 8px;">
           <span>
-            <span>{if(node.data._id ==node.data.price)
-            {
-              if(node.data.isAny)
-                 return "任意金额"
-               else
-                  return node.data.price+"元"
-            }else
-            {
-              return "实际金额:"+node.data.price+"元   "+"描述："+"node.data.tag"
-            }</span>
+            <span>{node.data.lable}</span>
           </span>
         </span>
       );
     },
     updated() {
-      console.log("types.ADMINRESOURCE_LIST,updated")
+      console.log("types.updated,updated0")
+            console.log(this.treeData)
+
        this.$refs.tree &&
       this.$refs.tree.setCheckedKeys(this.dialogState.formData.url);
      }
