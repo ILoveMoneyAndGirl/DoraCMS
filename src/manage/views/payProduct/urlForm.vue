@@ -40,9 +40,6 @@ export default {
 
       let params = this.dialogState.formData;
       params.url = currentArr;
-              console.log("params.url")
-
-        console.log(params.url)
 
       services.updatePayProduct(params).then(result => {
         if (result.data.status === 200) {
@@ -69,19 +66,48 @@ export default {
     },
     renderContent(h, { node, data, store }) {
 
-      return (
-        <span style="flex: 1; display: flex; align-items: center; justify-content: space-between; font-size: 14px; padding-right: 8px;">
-          <span>
-            <span>{node.data.lable}</span>
-          </span>
-        </span>
-      );
+      if(data._id ==data.price){
+          if(data.isAny){
+            return (
+              <span style="flex: 1; display: flex; align-items: center; justify-content: space-between; font-size: 14px; padding-right: 8px;">
+                <span>
+                  <span>任意金额</span>
+                </span>
+              </span>
+              );
+          }else{
+            return (
+                <span style="flex: 1; display: flex; align-items: center; justify-content: space-between; font-size: 14px; padding-right: 8px;">
+                  <span>
+                    <span>{data.price}元</span>
+                  </span>
+                </span>
+              );
+          }
+      }else{
+        if(data.isAny){
+            return (
+                <span style="flex: 1; display: flex; align-items: center; justify-content: space-between; font-size: 14px; padding-right: 8px;">
+                <span>
+                  <span>描述:<font color="#FF0000">{data.tag}</font></span>
+                </span>
+              </span>
+            );
+        }else
+        {
+              return (
+                <span style="flex: 1; display: flex; align-items: center; justify-content: space-between; font-size: 14px; padding-right: 8px;">
+                <span>
+                  <span>实际金额:<font color="#FF0000">{data.price}</font>描述:<font color="#FF0000">{data.tag}</font></span>
+                </span>
+              </span>
+            );
+        }
+      }
     },
   },
 
   updated() {
-    console.log("types.updated,updated0")
-        console.log(this.dialogState.formData.url)
      this.$refs.tree &&
     this.$refs.tree.setCheckedKeys(this.dialogState.formData.url);
    }

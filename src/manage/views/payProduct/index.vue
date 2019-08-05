@@ -45,10 +45,6 @@
                 'PayUrlTreeList'
             ]),
             formState() {
-
-            console.log("formState")
-             console.log(this.$store.getters.PayProductListFormState.formData.url)
-
                 return this.$store.getters.PayProductListFormState
             }
         },

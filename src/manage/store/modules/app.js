@@ -42,8 +42,8 @@ export function payUrlTreeData(result) {
       if(treeItem.isAny){
           if(!tempData.isAny){
               tempData.isAny=index
+              
               let item={}
-
               item.children=[]
               item._id=key
               item.tag=""
@@ -60,6 +60,8 @@ export function payUrlTreeData(result) {
        }else{
           if(!tempData[key]){
             tempData[key]=index
+
+            let item={}
             item.children=[]
             item._id=key
             item.tag=""
