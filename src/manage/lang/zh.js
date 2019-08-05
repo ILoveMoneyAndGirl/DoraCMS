@@ -606,7 +606,7 @@ com:
 {
     info:"详情",
     update:"更新成功",
-    infoTree:"信息树 "
+
 },
 
 soft: {
@@ -622,6 +622,7 @@ soft: {
     url: '支付二维码',
     name: '名称',
     _id: 'appID'
+    priceTree:"价格树 "
   },
 
 }
