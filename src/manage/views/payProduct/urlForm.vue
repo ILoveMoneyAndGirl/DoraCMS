@@ -81,14 +81,15 @@ export default {
         </span>
       );
     },
-    updated() {
-      console.log("types.updated,updated0")
-            console.log(this.treeData)
-
-       this.$refs.tree &&
-      this.$refs.tree.setCheckedKeys(this.dialogState.formData.url);
-     }
   },
+
+  updated() {
+    console.log("types.updated,updated0")
+          console.log(this.treeData)
+
+     this.$refs.tree &&
+    this.$refs.tree.setCheckedKeys(this.dialogState.formData.url);
+   }
 
 };
 </script>
