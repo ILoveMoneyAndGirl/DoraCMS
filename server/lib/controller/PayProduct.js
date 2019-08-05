@@ -71,8 +71,7 @@ class PayProduct {
             }).skip(Number(pageSize) * (Number(current) - 1)).limit(Number(pageSize));
             const totalItems = await PayProductModel.count(queryObj);
 
-            console.log("/////////------------",queryObj)
-            console.log("/////////------------",totalItems)
+    
 
 
             let sendData = {
@@ -92,6 +91,9 @@ class PayProduct {
 
                     res.send(siteFunc.renderApiData(req, res, 200, 'PayProduct', data));
                 } else {
+
+                    console.log("rendeData------------")
+                     console.log(rendeData)
                     res.send(rendeData);
                 }
 
