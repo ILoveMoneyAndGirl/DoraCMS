@@ -28,7 +28,7 @@ var PayProductSchema = new Schema({
 
     rate:{
          type: Number,
-         "default":0.03,
+         "default":settings.payRate,
     },
 
     url: [{

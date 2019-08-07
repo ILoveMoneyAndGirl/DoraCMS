@@ -4,7 +4,8 @@
  */
 
 module.exports = {
-    
+
+    payRate: 0.03, // 提成比例
     payApiRoute: 'www.baidu.com', // 支付调用端口
 
     session_secret: 'WebBackNew', // 务必修改
