@@ -26,6 +26,10 @@ var PayUrlSchema = new Schema({
         type: Number,
         'default': 15 //默认15分钟后失效
     },
+    channel:{
+       type:Number,
+       default:0
+    },//0 支付宝,1微信
 });
 
 

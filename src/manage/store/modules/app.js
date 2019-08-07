@@ -520,6 +520,7 @@ const app = {
           tag: '',
           isAny: false,
           timeOut:0,
+          channel:0,
 
         }
       },
@@ -584,6 +585,7 @@ const app = {
           name: 0,
           url: [],
           api:'',
+          rate:0,
         }
       },
       payProductList: {

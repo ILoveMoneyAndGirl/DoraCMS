@@ -26,6 +26,11 @@ var PayProductSchema = new Schema({
         'default': settings.payApiRoute
     },
 
+    rate:{
+         type: Number,
+         "default":0.03,
+    },
+
     url: [{
         type: String,
         ref: "PayUrl"

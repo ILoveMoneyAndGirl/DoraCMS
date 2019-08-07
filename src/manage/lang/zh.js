@@ -600,7 +600,8 @@ export default {
     price:'实际金额',
     tagPrice:'目标金额',
     qrCode:'二维码',
-    timeOut:"有效扫码时间(分钟)"
+    timeOut:"有效扫码时间(分钟)",
+    channel:"支付渠道"
   },
 
 com:
@@ -625,6 +626,7 @@ soft: {
     _id: 'appID',
     priceTree:"价格树 ",
     api:"调用地址",
+    rate:"提成率",
   },
 
 }
