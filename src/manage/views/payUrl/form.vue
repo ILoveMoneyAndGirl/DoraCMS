@@ -31,7 +31,7 @@
 
               <el-form-item :label="$t('payUrl.channel')" prop="channel">
                 <el-select size="small" v-model="dialogState.formData.channel" multiple filterable allow-create :placeholder="$t('validate.selectNull', {label: this.$t('payUrl.channel')})">
-                    <el-option v-for="item in coptions" :key="item.value" :label="item.label" :value="item.value">
+                    <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
                     </el-option>
                 </el-select>
               </el-form-item>

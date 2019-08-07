@@ -21,6 +21,10 @@
             <el-table-column prop="timeOut" :label="$t('payUrl.timeOut')">
             </el-table-column>
 
+            <el-table-column prop="channel" :label="$t('payUrl.channel')">
+             <template slot-scope="scope">{{scope.row.channel === 0?'支付宝':(scope.row.channel ===1?'微信':'其它')}}</template>
+            </el-table-column>
+
             <el-table-column  :label="$t('payUrl.isAny')" show-overflow-tooltip>
               <template slot-scope="scope">
                 <i
