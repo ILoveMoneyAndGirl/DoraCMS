@@ -7,6 +7,7 @@ var shortid = require('shortid');
 var Schema = mongoose.Schema;
 var AdminUser = require('./AdminUser');
 
+
 var PayUrlSchema = new Schema({
     _id: {
         type: String,
@@ -20,7 +21,11 @@ var PayUrlSchema = new Schema({
         ref: 'AdminUser'
     },
     tagPrice:Number,//目标价格
-    isAny:Boolean
+    isAny:Boolean,
+    timeOut:{
+        type: Number,
+        'default': 15 //默认15分钟后失效
+    },
 });
 
 

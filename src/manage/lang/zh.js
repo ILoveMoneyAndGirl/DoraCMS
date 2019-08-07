@@ -599,7 +599,8 @@ export default {
     isAny: '任意金额',
     price:'实际金额',
     tagPrice:'目标金额',
-    qrCode:'二维码'
+    qrCode:'二维码',
+    timeOut:"有效扫码时间(分钟)"
   },
 
 com:
@@ -622,7 +623,8 @@ soft: {
     url: '支付二维码',
     name: '名称',
     _id: 'appID',
-    priceTree:"价格树 "
+    priceTree:"价格树 ",
+    api:"调用地址",
   },
 
 }

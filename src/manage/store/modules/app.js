@@ -519,6 +519,7 @@ const app = {
           url: '',
           tag: '',
           isAny: false,
+          timeOut:0;
 
         }
       },
@@ -582,6 +583,7 @@ const app = {
         formData: {
           name: 0,
           url: [],
+          api:'',
         }
       },
       payProductList: {

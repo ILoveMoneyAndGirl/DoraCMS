@@ -2,6 +2,7 @@
 <template>
     <div>
         <el-table align="center" v-loading="loading" ref="multipleTable" :data="dataList" tooltip-effect="dark" style="width: 100%" @selection-change="handleSelectionChange">
+
             <el-table-column type="selection" width="55">
             </el-table-column>
 
@@ -9,6 +10,9 @@
             </el-table-column>
 
             <el-table-column prop="_id" :label="$t('payProduct._id')">
+            </el-table-column>
+
+            <el-table-column prop="api" :label="$t('payProduct.api')">
             </el-table-column>
 
 

@@ -1,12 +1,13 @@
 /**
  * Created by Administrator on 2017/4/15.
- * 二维码
+ * 产品
  */
 var mongoose = require('mongoose');
 var shortid = require('shortid');
 var Schema = mongoose.Schema;
 var AdminUser = require('./AdminUser');
 var PayUrl = require('./PayUrl');
+const settings = require('../../../configs/settings');
 
 
 var PayProductSchema = new Schema({
@@ -19,6 +20,12 @@ var PayProductSchema = new Schema({
         type: String,
         ref: 'AdminUser'
     },
+
+    api: {
+        type: String,
+        'default': settings.payApiRoute
+    },
+
     url: [{
         type: String,
         ref: "PayUrl"
@@ -28,5 +35,3 @@ var PayProductSchema = new Schema({
 
 var PayProduct = mongoose.model("PayProduct", PayProductSchema);
 module.exports = PayProduct;
-
-   

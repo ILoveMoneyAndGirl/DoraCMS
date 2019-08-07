@@ -4,6 +4,8 @@
  */
 
 module.exports = {
+    
+    payApiRoute: 'www.baidu.com', // 支付调用端口
 
     session_secret: 'WebBackNew', // 务必修改
     auth_cookie_name: 'WebBackNew',

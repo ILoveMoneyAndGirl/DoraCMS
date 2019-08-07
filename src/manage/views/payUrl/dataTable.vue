@@ -2,13 +2,13 @@
 <template>
     <div>
         <el-table align="center" v-loading="loading" ref="multipleTable" :data="dataList" tooltip-effect="dark" style="width: 100%" @selection-change="handleSelectionChange">
-            <el-table-column type="selection" width="55">
 
+            <el-table-column type="selection" width="55">
             </el-table-column>
+
             <el-table-column prop="price" :label="$t('payUrl.price')">
             </el-table-column>
 
-            </el-table-column>
             <el-table-column prop="tagPrice" :label="$t('payUrl.tagPrice')">
             </el-table-column>
 
@@ -18,7 +18,8 @@
             <el-table-column prop="tag" :label="$t('payUrl.tag')">
             </el-table-column>
 
-
+            <el-table-column prop="timeOut" :label="$t('payUrl.timeOut')">
+            </el-table-column>
 
             <el-table-column  :label="$t('payUrl.isAny')" show-overflow-tooltip>
               <template slot-scope="scope">
