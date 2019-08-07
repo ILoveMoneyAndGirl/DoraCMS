@@ -30,7 +30,6 @@ export function renderTreeData(result) {
 
 
 export function payUrlTreeData(result) {
-  console.log("payUrlTreeData---->")
   let treeData = result.docs;
   let parent=[]
   let tempData={}
@@ -72,7 +71,6 @@ export function payUrlTreeData(result) {
           parent[i].children.push(treeItem)
          } 
     }
-     console.log(parent)
   return parent;
 }
 
