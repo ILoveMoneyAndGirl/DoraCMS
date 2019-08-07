@@ -48,6 +48,14 @@ function checkFormData(req, res, fields) {
     }
 
 
+    if (!fields.channel) {
+        errMsg = res.__("validate_selectNull", {
+            label:  "二维码"
+        });
+    }
+
+
+
     if (errMsg) {
         throw new siteFunc.UserException(errMsg);
     }
@@ -140,7 +148,7 @@ class PayUrl {
                 url: fields.url,
                 isAny: fields.isAny,
                 tagPrice: fields.tagPrice,
-
+                channel:fields.channel,
             }
             const item_id = fields._id;
             try {

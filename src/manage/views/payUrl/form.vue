@@ -116,7 +116,14 @@ export default {
           }
         ],
 
-        
+        channel: [
+          {
+            required: true,
+            message: this.$t("validate.inputNull", {
+              label: this.$t("payUrl.channel")
+            }),
+            trigger: "blur"
+          }
       },
       green: { color: "#13CE66" },
       red: { color: "#FF4949" },
