@@ -25,7 +25,7 @@ var PayUrlSchema = new Schema({
     timeOut:{
         type: Number,
         'default': 15 //默认15分钟后失效
-    },
+    }, 
     channel:{
        type:Number,
        default:0

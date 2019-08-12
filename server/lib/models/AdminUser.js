@@ -43,12 +43,7 @@ var AdminUserSchema = new Schema({
     group: {
         type: String,
         ref: 'AdminGroup'
-    },
-    softs:[{
-        type: String,
-        ref: "Soft"
-    }]
-
+    }
 });
 
 AdminUserSchema.statics = {

@@ -595,12 +595,36 @@ const app = {
         err: {}
       }
     },
-
-
-
-
-
-
+    payRecord: {
+      formState: {
+        show: false,
+        formData: {
+          state: 0,
+          payUrl: "",
+          channel:'',
+          callBackUrl:"",
+          createDate:"",
+          flishDate:"",
+          price:"",
+          tagPrice:"",
+          transactionId:"",
+          timeOutDate:"",
+          appID:"",
+          appName:"",
+          rate:"",
+          takeOff:0,
+          comment:"",
+        }
+      },
+      payRecordList: {
+        pageInfo: {},
+        docs: []
+      },
+      payRecord: {
+        state: '',
+        err: {}
+      }
+    },
 
   },
   mutations: {
@@ -1069,6 +1093,32 @@ const app = {
 
     },
 
+//
+    [types.PAYRECORD_LIST](state, payRecordList) {
+      state.payRecord.payRecordList = payRecordList
+    },
+
+     [types.PAYRECORD_FORMSTATE]](state, formState) {
+      state.payRecord.formState.show = formState.show;
+      state.payRecord.formState.formData = Object.assign({
+          state: 0,
+          payUrl: "",
+          channel:'',
+          callBackUrl:"",
+          createDate:"",
+          flishDate:"",
+          price:"",
+          tagPrice:"",
+          transactionId:"",
+          timeOutDate:"",
+          appID:"",
+          appName:"",
+          rate:"",
+          takeOff:0,
+          comment:"",
+      }, formState.formData);
+
+    },
 
   },
   actions: {
@@ -1747,12 +1797,24 @@ const app = {
         formData: params.formData
       })
     },
-
-    hidePayProductForm: ({
+//
+    getPayRecordList({
       commit
+    }, params = {}) {
+      services.PayRecordList(params).then((result) => {
+        commit(types.PAYRECORD_LIST, result.data.data)
+      })
+    },
+
+    showPayRecordForm: ({
+      commit
+    }, params = {
+      show: false,
+      formData: {}
     }) => {
-      commit(types.PAYPRODUCT_FORMSTATE, {
-        show: false
+      commit(types.PAYRECORD_FORMSTATE, {
+        show: params.show,
+        formData: params.formData
       })
     },
 

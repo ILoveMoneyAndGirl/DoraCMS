@@ -89,7 +89,8 @@ export default {
             return (
                 <span style="flex: 1; display: flex; align-items: center; justify-content: space-between; font-size: 14px; padding-right: 8px;">
                 <span>
-                  <span>描述:&nbsp;<font color="#FF0000">{data.tag}</font></span>
+                  <span>描述:&nbsp;<font color="#FF0000">{data.tag}</font></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                   <span>渠道:&nbsp;<font color="#FF0000">{data.channel === 0?'支付宝':(data.channel ===1?'微信':'其它')}</font></span>
                 </span>
               </span>
             );

@@ -407,6 +407,20 @@ export default {
         return reqJsonData('manage/payProduct/add', params)
     },
 
+
+    payRecordList(params) {
+        return reqJsonData('manage/payRecord/getList', params, 'get')
+    },
+
+    updatePayRecord(params) {
+        return reqJsonData('manage/payRecord/updateOne', params)
+    },
+
+    deletePayRecord(params) {
+        return reqJsonData('manage/payRecord/delete', params, 'get')
+    },
+
+
 //     router.post('/softArg/get', authToken, authPower, HelloOperation.GetSetting);
 // router.post('/softArg/set', authToken, authPower, HelloOperation.UpdateSetting);
 

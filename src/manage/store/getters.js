@@ -82,6 +82,8 @@ const getters = {
     PayProductList: state => state.app.payProduct.payProductList,
     PayProductListFormState: state => state.app.payProduct.formState,
 
+    PayRecordList: state => state.app.payRecord.payRecordList,
+    PayRecordListFormState: state => state.app.payRecord.formState,
 
 
 

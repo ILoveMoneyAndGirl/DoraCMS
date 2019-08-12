@@ -10,6 +10,7 @@ var PayProduct = require('./PayProduct');
 var PayUrl = require('./PayUrl');
 
 
+
 var PayRecordSchema = new Schema({
     _id: {
         type: String,
@@ -18,15 +19,20 @@ var PayRecordSchema = new Schema({
     state: {
         type: Number,
         default: 0
-    }, // 0待完成 1自动完成 2手动完成
-    PayProduct: {
+    }, // 0待完成 1手动完成 2自动完成 
+    payProduct: {
         type: String,
         ref: 'PayProduct'
     },
-    PayUrl: {
+    payUrl: {
         type: String,
         ref: 'PayUrl'
     },
+    adminUser: {
+        type: String,
+        ref: 'AdminUser'
+    },
+
     callBackUrl:String,
     createDate: {
         type: Date,
@@ -36,13 +42,9 @@ var PayRecordSchema = new Schema({
         type: Date,
         default: Date.now
     },
-    tagPrice:Number,
-    price:Number,
-    timeOutDate: {
-        type: Date,
-        default: Date.now
-    }, //失效时间
     transactionId:String,
+    comment:String,
+    takeOff:Number,
 
 });
 
