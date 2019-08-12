@@ -1098,7 +1098,7 @@ const app = {
       state.payRecord.payRecordList = payRecordList
     },
 
-     [types.PAYRECORD_FORMSTATE]](state, formState) {
+     [types.PAYRECORD_FORMSTATE](state, formState) {
       state.payRecord.formState.show = formState.show;
       state.payRecord.formState.formData = Object.assign({
           state: 0,
