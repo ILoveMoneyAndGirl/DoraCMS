@@ -621,6 +621,7 @@ soft: {
 
    payProduct: {
     form_title: '填写二信息',
+    token:"私钥",
     url: '支付二维码',
     name: '名称',
     _id: 'appID',

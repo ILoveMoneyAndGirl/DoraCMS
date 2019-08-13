@@ -15,6 +15,10 @@ var PayProductSchema = new Schema({
         type: String,
         'default': shortid.generate
     },
+    token: {
+        type: String,
+        'default': shortid.generate
+    },
     name: String,//名称
     adminUser: {
         type: String,

@@ -8,12 +8,16 @@
 
             <el-table-column prop="_id" :label="$t('payProduct._id')">
             </el-table-column>
+            
+            <el-table-column prop="token" :label="$t('payProduct.token')">
+            </el-table-column>
 
             <el-table-column prop="api" :label="$t('payProduct.api')">
             </el-table-column>
 
             <el-table-column prop="rate" :label="$t('payProduct.rate')">
             </el-table-column>
+
 
 
             <el-table-column :label="$t('main.dataTableOptions')" width="150">

@@ -584,6 +584,7 @@ const app = {
           url: [],
           api:'',
           rate:0,
+          token:"",
         }
       },
       payProductList: {

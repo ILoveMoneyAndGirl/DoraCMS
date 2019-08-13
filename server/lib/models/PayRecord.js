@@ -42,10 +42,11 @@ var PayRecordSchema = new Schema({
         type: Date,
         default: Date.now
     },
-    transactionId:String,
-    comment:String,
-    takeOff:Number,
-
+    orderId:String,
+    takeOff:{
+        type: Date,
+        default: 0
+    },
 });
 
 
