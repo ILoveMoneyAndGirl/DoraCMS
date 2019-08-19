@@ -1716,6 +1716,8 @@ const app = {
     }, params = {}) {
       services.payUrlList(params).then((result) => {
           let treeData = renderTreeData(result.data.data);
+          print("xxxxxxxx")
+          print(treeData)
           commit(types.PAYURL_LIST, result.data.data)
       })
     },
