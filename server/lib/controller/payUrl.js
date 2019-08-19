@@ -109,7 +109,7 @@ class PayUrl {
             //     data[i]
             // }
 
-      
+
  
 
 
@@ -224,6 +224,8 @@ class PayUrl {
                 url: fields.url,
                 isAny: fields.isAny,
                 tagPrice: fields.tagPrice,
+                parentId: fields.parentId,
+                type: fields.parentId,
                 adminUser:req.session.adminUserInfo._id
             }
                 const newObj = new PayUrlModel(obj);

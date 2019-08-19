@@ -31,6 +31,7 @@ var PayUrlSchema = new Schema({
        default:0
     },//0 支付宝,1微信
     parentId: String,
+    type: String,
 });
 
 
