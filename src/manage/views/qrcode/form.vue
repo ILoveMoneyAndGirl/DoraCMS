@@ -58,15 +58,17 @@ export default {
   },
   data() {
     return {
-      rules: {
-
-        options: [{
+      options: [{
           value: 0,
           label: '支付宝'
         }, {
           value: 1,
           label: '微信'
         }],
+
+      rules: {
+
+
         tag: [
           {
             required: true,
