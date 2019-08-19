@@ -509,6 +509,7 @@ const app = {
 
     payUrl: {
       formState: {
+        type: 'root',
         show: false,
         edit: false,
         formData: {
@@ -519,19 +520,26 @@ const app = {
           isAny: false,
           timeOut:0,
           channel:0,
-
+          type:"",
+          lable:"",
+          parentId:0,
+          parent: {
+            id: '',
+            label: ''
+          }
         }
       },
       payUrlList: {
         pageInfo: {},
         docs: []
       },
-      payUrlTreeList:[],
       payUrl: {
         state: '',
         err: {}
       }
     },
+
+
 
 
     soft: {
@@ -748,10 +756,6 @@ const app = {
 
     },
     [types.ADMINRESOURCE_LIST](state, resourceList) {
-
-      console.log("types.ADMINRESOURCE_LIST")
-
-      console.log(resourceList)
       state.adminResource.resourceList = resourceList
     },
     [types.ADMINTEMPLATE_LIST](state, templateList) {
@@ -1034,19 +1038,32 @@ const app = {
 
 
     [types.PAYURL_LIST](state, payUrlList) {
-      state.payUrl.payUrlList = payUrlList
-      state.payUrl.payUrlTreeList=payUrlTreeData(payUrlList)
+     // state.payUrl.payUrlList = payUrlList
+      state.payUrl.payUrlTreeList=payUrlList
     },
 
 
     [types.PAYURL_FORMSTATE](state, formState) {
       state.payUrl.formState.show = formState.show;
       state.payUrl.formState.edit = formState.edit;
+      state.payUrl.formState.type = formState.type;
+
       state.payUrl.formState.formData = Object.assign({
-        price: '',
-        url: '',
-        tag: '',
-        isAny:false,
+          tagPrice:0,
+          price: 0,
+          url: '',
+          tag: '',
+          isAny: false,
+          timeOut:0,
+          channel:0,
+          type:"",
+          lable:"",
+          parentId:0,
+          parent: {
+            id: '',
+            label: ''
+          }
+
       }, formState.formData);
 
     },
@@ -1698,18 +1715,21 @@ const app = {
       commit
     }, params = {}) {
       services.payUrlList(params).then((result) => {
-        commit(types.PAYURL_LIST, result.data.data)
+          let treeData = renderTreeData(result.data.data);
+          commit(types.PAYURL_LIST, result.data.data)
       })
     },
 
     showPayUrlForm: ({
       commit
     }, params = {
+      type: 'root',
       edit: false,
       formData: {}
     }) => {
       commit(types.PAYURL_FORMSTATE, {
         show: true,
+        type: params.type,
         edit: params.edit,
         formData: params.formData
       })
@@ -1722,7 +1742,6 @@ const app = {
         show: false
       })
     },
-
 //
     getSoftList({
       commit

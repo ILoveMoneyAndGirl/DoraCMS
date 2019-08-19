@@ -4,7 +4,8 @@
  */
 
 module.exports = {
-
+    tryAmountMoney:100,//试用时间
+    tryMinute:0,//试用金额
     payRate: 0.03, // 提成比例
     payApiRoute: 'www.baidu.com', // 支付调用端口
 

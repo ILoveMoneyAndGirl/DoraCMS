@@ -1,6 +1,8 @@
 
 const BaseComponent = require('../prototype/baseComponent');
 const PayUrlModel = require("../models").PayUrl;
+const PayUrlTagModel = require("../models").PayUrlTag;
+
 const AdminUserModel = require("../models").AdminUser;
 
 
@@ -74,30 +76,71 @@ class PayUrl {
     async GetList(req, res, next) {
         try {
 
-            let modules = req.query.modules;
-            let current = req.query.current || 1;
-            let pageSize = req.query.pageSize || 10;
-            let model = req.query.model; // 查询模式 full/simple
-            let searchkey = req.query.searchkey,
-             queryObj = {};
-            let useClient = req.query.useClient;
+            // let modules = req.query.modules;
+            // let current = req.query.current || 1;
+            // let pageSize = req.query.pageSize || 10;
+            // let model = req.query.model; // 查询模式 full/simple
+            // let searchkey = req.query.searchkey,
+            //  queryObj = {};
+            // let useClient = req.query.useClient;
 
-            if (model === 'full') {
-                pageSize = 100;
-            }
+            // if (model === 'full') {
+            //     pageSize = 100;
+            // }
 
-            if (searchkey) {
-                let reKey = new RegExp(searchkey, 'i')
-                queryObj.tag = {
-                    $regex: reKey
-                }
-                queryObj.adminUser=req.session.adminUserInfo._id
+            // if (searchkey) {
+            //     let reKey = new RegExp(searchkey, 'i')
+            //     queryObj.tag = {
+            //         $regex: reKey
+            //     }
+            //     queryObj.adminUser=req.session.adminUserInfo._id
                 
+            // }
+
+            let tagInfo=await PayUrlTagModel.find({adminUser:req.session.adminUserInfo._id})
+
+            let data = await PayUrlModel.find({adminUser:req.session.adminUserInfo._id}).sort({
+                tagPrice: 1,price:1
+            })
+
+            // let tagPrice={}
+            // let tag={}
+            // for (var i = 0; i < data.length; i++) {
+            //     data[i]
+            // }
+
+            let tag={}
+ 
+
+
+
+            for (var i = 0; i < tagInfo.length; i++) {
+                tagInfo[i].type="tag"
+                tagInfo[i].lable=tagInfo[i].tag
+                tagInfo[i].children=[]
+              
+                for (var j = 0; j < 2; j++) {
+                    let t={}
+                    t.type="channel"
+                    t.lable=i
+                    t.channel=i
+                    t.children=[]
+                      tagInfo[i].children.push(t)
+                }
+
+                  tag[tagInfo[i].tag]=tagInfo[i]
+               
             }
 
-            let data = await PayUrlModel.find(queryObj).sort({
-                tagPrice: 1
-            }).skip(Number(pageSize) * (Number(current) - 1)).limit(Number(pageSize));
+            let tagPrice={}
+
+            for (var i = 0; i < data.length; i++) {
+                tag[data[i].tag].children[data[i].channel].push(data[i])
+            }
+
+   
+
+
             const totalItems = await PayUrlModel.count(queryObj);
 
 

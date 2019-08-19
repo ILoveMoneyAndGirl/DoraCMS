@@ -51,8 +51,8 @@
         </el-button>
       </div>
 
-        <div v-else-if="type === 'payUrl'">
-        <el-button size="small" type="primary" plain round @click="addPayUrl">
+        <div v-else-if="type === 'qrcode'">
+        <el-button size="small" type="primary" plain round @click="qrcode">
           <i class="fa fa-fw fa-plus" aria-hidden="true"></i>
         </el-button>
       </div>
@@ -593,9 +593,16 @@ export default {
 
     },
 
-    addPayUrl() {
+    qrcode() {
 
-      this.$store.dispatch("showPayUrlForm");
+
+      this.$store.dispatch("showPayUrlForm", {
+        type: "root",
+        formData: {
+          parentId: "0",
+          type:"tag"
+        }
+      });
     },
 
     addSoft() {

@@ -7,6 +7,10 @@ const SystemConfigModel = require("../models").SystemConfig;
 const SystemOptionLogModel = require("../models").SystemOptionLog;
 const UserNotifyModel = require("../models").UserNotify;
 const MessageModel = require("../models").Message;
+const AdminUserBalanceModel = require("../models").AdminUserBalance;
+
+
+
 const formidable = require('formidable');
 const shortid = require('shortid');
 const validator = require('validator')
@@ -350,6 +354,14 @@ class AdminUser {
                 } else {
                     const newAdminUser = new AdminUserModel(userObj);
                     await newAdminUser.save();
+
+                    const newObj={
+                        adminUser:newAdminUser._id
+                    }
+
+                    const adminUserBalance=new AdminUserBalanceModel(newObj)
+                    await adminUserBalance.save();
+
                     res.send(siteFunc.renderApiData(req, res, 200, 'adminUser', {
                         id: newAdminUser._id
                     }, 'save'))

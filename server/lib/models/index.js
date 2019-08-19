@@ -55,6 +55,9 @@ exports.VersionManage = require('./VersionManage');
 exports.Soft = require('./Soft');
 exports.PayUrl = require('./PayUrl');
 exports.PayProduct = require('./PayProduct');
+exports.PayUrlTag = require('./PayUrlTag');
+
+
 
 
 
