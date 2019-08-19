@@ -23,13 +23,13 @@ export default {
     append(store, data) {
       let formData = {};
 
-      dataType:{
+      let dataType={
           "root":"tag",     
           "tag":"channel",
           "channel":"tagPrice",
           "tagPrice":"price",
           "price":"",
-      },
+      }
 
       formData.parentId = data._id;
       formData.type=dataType[data.type]
@@ -90,13 +90,14 @@ export default {
 
     renderContent(h, { node, data, store }) {
 
-      dataType:{
+
+      let dataType={
           "root":"tag",     
           "tag":"channel",
           "channel":"tagPrice",
           "tagPrice":"price",
           "price":"",
-      },
+      }
      data.lable=data[data.type]
       if(data.type !="channel"){
         return (

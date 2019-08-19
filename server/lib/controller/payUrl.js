@@ -76,9 +76,9 @@ class PayUrl {
     async GetList(req, res, next) {
         try {
 
-            // let modules = req.query.modules;
-            // let current = req.query.current || 1;
-            // let pageSize = req.query.pageSize || 10;
+            let modules = req.query.modules;
+            let current = req.query.current || 1;
+            let pageSize = req.query.pageSize || 10;
             // let model = req.query.model; // 查询模式 full/simple
             // let searchkey = req.query.searchkey,
             //  queryObj = {};
@@ -97,7 +97,7 @@ class PayUrl {
                 
             // }
 
-            let tagInfo=await PayUrlTagModel.find({adminUser:req.session.adminUserInfo._id})
+            // let tagInfo=await PayUrlTagModel.find({adminUser:req.session.adminUserInfo._id})
 
             let data = await PayUrlModel.find({adminUser:req.session.adminUserInfo._id}).sort({
                 tagPrice: 1,price:1
@@ -109,34 +109,34 @@ class PayUrl {
             //     data[i]
             // }
 
-            let tag={}
+      
  
 
 
 
-            for (var i = 0; i < tagInfo.length; i++) {
-                tagInfo[i].type="tag"
-                tagInfo[i].lable=tagInfo[i].tag
-                tagInfo[i].children=[]
+            // for (var i = 0; i < tagInfo.length; i++) {
+            //     tagInfo[i].type="tag"
+            //     tagInfo[i].lable=tagInfo[i].tag
+            //     tagInfo[i].children=[]
               
-                for (var j = 0; j < 2; j++) {
-                    let t={}
-                    t.type="channel"
-                    t.lable=i
-                    t.channel=i
-                    t.children=[]
-                      tagInfo[i].children.push(t)
-                }
+            //     for (var j = 0; j < 2; j++) {
+            //         let t={}
+            //         t.type="channel"
+            //         t.lable=i
+            //         t.channel=i
+            //         t.children=[]
+            //           tagInfo[i].children.push(t)
+            //     }
 
-                  tag[tagInfo[i].tag]=tagInfo[i]
+            //       tag[tagInfo[i].tag]=tagInfo[i]
                
-            }
+            // }
 
-            let tagPrice={}
+            // let tagPrice={}
 
-            for (var i = 0; i < data.length; i++) {
-                tag[data[i].tag].children[data[i].channel].push(data[i])
-            }
+            // for (var i = 0; i < data.length; i++) {
+            //     tag[data[i].tag].children[data[i].channel].push(data[i])
+            // }
 
    
 
