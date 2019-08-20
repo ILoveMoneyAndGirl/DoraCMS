@@ -83,7 +83,7 @@ export default {
 
          url: [
           {
-            required: this.dialogState.formData.type==='price',
+            required: false,
             message: this.$t("validate.inputNull", {
               label: this.$t("payUrl.qrCode")
             }),
