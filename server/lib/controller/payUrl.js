@@ -156,15 +156,18 @@ class PayUrl {
                     count:totalItems,
                     current: Number(current) || 1,
                     pageSize: Number(pageSize) || 10,
-                    searchkey: searchkey || ''
                 }
             };
+
+                        console.log("XXXXXXXX0")
+
+            res.send(siteFunc.renderApiData(req, res, 200, 'PayUrl', renderData, 'getlist'))
 
             let d=siteFunc.renderApiData(req, res, 200, 'PayUrl', sendData, 'getlist')
             console.log("XXXXXXXX")
                  console.log(d)
 
-            res.send(d)
+        // res.send(d)
         } catch (err) {
 
 
