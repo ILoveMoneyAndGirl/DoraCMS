@@ -68,68 +68,59 @@ export default {
 
       rules: {
 
-
-        tag: [
-          {
-            required: true,
-            message: this.$t("validate.inputNull", {
-              label: this.$t("adminResource.lb_name")
-            }),
-            trigger: "blur"
-          },
-          {
-            validator: (rule, value, callback) => {
-              if (!validatorUtil.checkResourceName(value, 2, 30)) {
-                callback(
-                  new Error(
-                    this.$t("validate.rangelength", { min: 2, max: 30 })
-                  )
-                );
-              } else {
-                callback();
-              }
-            },
-            trigger: "blur"
-          }
-        ],
-        tagPrice: [
+         url: [
           {
             required: true,
             message: this.$t("validate.selectNull", {
-              label: this.$t("adminResource.lb_type")
+              label: this.$t("payUrl.qrCode")
             }),
-            trigger: "change"
-          }
-        ],
-        url: [
+            trigger: "blur"
+          }       
+          ],
+          tag: [
           {
             required: true,
             message: this.$t("validate.inputNull", {
-              label: this.$t("main.comments_label")
+              label: this.$t("payUrl.tag")
             }),
             trigger: "blur"
           },
           {
             min: 2,
-            max: 30,
-            message: this.$t("validate.ranglengthandnormal", {
-              min: 2,
-              max: 30
+            max: 50,
+            message: this.$t("validate.rangelength", { min: 1, max: 50 }),
+            trigger: "blur"
+          }
+        ],
+
+          price: [
+          {
+            required: true,
+            message: this.$t("validate.inputNull", {
+              label: this.$t("payUrl.price")
             }),
             trigger: "blur"
           }
-        ]
-      },
-      price: [
-        {
-          value: "0",
-          label: this.$t("adminResource.lb_base_menu")
-        },
-        {
-          value: "1",
-          label: this.$t("adminResource.lb_options")
-        }
-      ]
+        ],
+
+        tagPrice: [
+          {
+            required: true,
+            message: this.$t("validate.inputNull", {
+              label: this.$t("payUrl.price")
+            }),
+            trigger: "blur"
+          }
+        ],
+
+        channel: [
+          {
+            required: true,
+            message: this.$t("validate.inputNull", {
+              label: this.$t("payUrl.channel")
+            }),
+            trigger: "blur"
+          }],
     };
   },
   methods: {
