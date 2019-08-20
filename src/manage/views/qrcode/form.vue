@@ -83,7 +83,7 @@ export default {
 
          url: [
           {
-            required: dialogState.formData.type==='price',
+            required: this.dialogState.formData.type==='price',
             message: this.$t("validate.inputNull", {
               label: this.$t("payUrl.qrCode")
             }),
@@ -92,7 +92,7 @@ export default {
           ],
           tag: [
           {
-            required: dialogState.formData.type==='tag',
+            required: this.dialogState.formData.type==='tag',
             message: this.$t("validate.inputNull", {
               label: this.$t("payUrl.tag")
             }),
@@ -108,7 +108,7 @@ export default {
 
           price: [
           {
-            required: dialogState.formData.type==='price',
+            required: this.dialogState.formData.type==='price',
             message: this.$t("validate.inputNull", {
               label: this.$t("payUrl.price")
             }),
@@ -118,7 +118,7 @@ export default {
 
         tagPrice: [
           {
-            required: dialogState.formData.type==='tagPrice',
+            required: this.dialogState.formData.type==='tagPrice',
             message: this.$t("validate.inputNull", {
               label: this.$t("payUrl.price")
             }),
@@ -128,7 +128,7 @@ export default {
 
         channel: [
           {
-            required: dialogState.formData.type==='channel',
+            required: this.dialogState.formData.type==='channel',
             message: this.$t("validate.inputNull", {
               label: this.$t("payUrl.channel")
             }),
