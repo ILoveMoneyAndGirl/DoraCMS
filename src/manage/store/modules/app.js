@@ -1714,9 +1714,12 @@ const app = {
     getPayUrlList({
       commit
     }, params = {}) {
+                        print("xxxxxxxx0.0")
+
+      print(params)
+
       services.payUrlList(params).then((result) => {
                   print("xxxxxxxx0")
-print(result)
           let treeData = renderTreeData(result.data.data);
           print("xxxxxxxx")
           print(treeData)
