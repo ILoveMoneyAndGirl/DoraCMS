@@ -90,7 +90,8 @@ export default {
 
     renderContent(h, { node, data, store }) {
 
-
+     console.log("renderContentrenderContent...")
+      console.log(data)
       let dataType={
           "root":"tag",     
           "tag":"channel",

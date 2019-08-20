@@ -103,8 +103,6 @@ class PayUrl {
                 tagPrice: 1,price:1
             })
 
-            console.log("??????")
-            console.log(data)
 
             // let tagPrice={}
             // let tag={}
@@ -146,10 +144,6 @@ class PayUrl {
 
             const totalItems = await PayUrlModel.count({adminUser:req.session.adminUserInfo._id});
 
-
-                        console.log(totalItems)
-
-
             let sendData = {
                 docs: data,
                 pageInfo: {
@@ -158,17 +152,7 @@ class PayUrl {
                     pageSize: Number(pageSize) || 10,
                 }
             };
-
-                        console.log("XXXXXXXX0")
-                         console.log(sendData)
-
             res.send(siteFunc.renderApiData(req, res, 200, 'PayUrl', sendData, 'getlist'))
-
-            let d=siteFunc.renderApiData(req, res, 200, 'PayUrl', sendData, 'getlist')
-            console.log("XXXXXXXX")
-                 console.log(d)
-
-        // res.send(d)
         } catch (err) {
 
 
