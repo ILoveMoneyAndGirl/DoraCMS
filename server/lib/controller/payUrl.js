@@ -103,6 +103,9 @@ class PayUrl {
                 tagPrice: 1,price:1
             })
 
+            console.log("??????")
+            console.log(data)
+
             // let tagPrice={}
             // let tag={}
             // for (var i = 0; i < data.length; i++) {
@@ -142,6 +145,9 @@ class PayUrl {
 
 
             const totalItems = await PayUrlModel.count({adminUser:req.session.adminUserInfo._id});
+
+
+                        console.log(totalItems)
 
 
             let sendData = {
