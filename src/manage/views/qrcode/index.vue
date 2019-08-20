@@ -4,7 +4,7 @@
         <el-row class="dr-datatable">
             <el-col :span="24">
                 <TopBar type="qrcode"></TopBar>
-                <Tree :treeData="PayUrlList" pageType="qrcode"></Tree>
+                <Tree :treeData="PayUrlList.docs" pageType="qrcode"></Tree>
                 <el-tooltip placement="top" content="tooltip">
                     <back-to-top :custom-style="myBackToTopStyle" :visibility-height="300" :back-position="50" transition-name="fade"/>
                 </el-tooltip>
