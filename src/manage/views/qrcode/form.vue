@@ -4,8 +4,11 @@
             <el-form :model="dialogState.formData" :rules="rules" ref="ruleForm" label-width="120px" class="demo-ruleForm">
 
                 <el-form-item v-show="dialogState.formData.type==='tag'" :label="$t('payUrl.tag')" prop="tag">
-                    <el-input size="small" :disabled="true" v-model="dialogState.formData.tag"></el-input>
+                    <el-input size="small"  v-model="dialogState.formData.tag"></el-input>
                 </el-form-item>
+
+        
+
 
                 <el-form-item v-show="dialogState.formData.type==='channel'" :label="$t('payUrl.channel')" prop="channel">
                 <el-select size="small" v-model="dialogState.formData.channel" :placeholder="$t('validate.selectNull', {label: this.$t('payUrl.channel')})">
@@ -15,12 +18,12 @@
               </el-form-item>
 
                 <el-form-item v-show="dialogState.formData.type==='tagPrice'" :label="$t('payUrl.tagPrice')" prop="tagPrice">
-                    <el-input size="small" :disabled="true" v-model="dialogState.formData.tagPrice"></el-input>
+                    <el-input size="small"  v-model="dialogState.formData.tagPrice"></el-input>
                 </el-form-item>
 
 
                 <el-form-item v-show="dialogState.formData.type==='price'" :label="$t('payUrl.price')" prop="price">
-                    <el-input size="small" :disabled="true" v-model="dialogState.formData.price"></el-input>
+                    <el-input size="small"  v-model="dialogState.formData.price"></el-input>
                 </el-form-item>
 
 
