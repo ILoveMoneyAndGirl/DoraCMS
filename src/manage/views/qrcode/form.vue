@@ -47,8 +47,17 @@
                     v-model="dialogState.formData.isAny"
                   ></el-switch>
                 </el-form-item>
+
+
+                <el-form-item>
+                    <el-button size="medium" type="primary" @click="submitForm('ruleForm')">{{dialogState.edit ? $t('main.form_btnText_update') : $t('main.form_btnText_save')}}</el-button>
+                </el-form-item>
+
              
             </el-form>
+
+
+
         </el-dialog>
     </div>
 </template>
