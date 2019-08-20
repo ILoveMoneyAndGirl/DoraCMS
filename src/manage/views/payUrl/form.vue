@@ -74,7 +74,7 @@ export default {
           url: [
           {
             required: true,
-            message: this.$t("validate.selectNull", {
+            message: this.$t("validate.inputNull", {
               label: this.$t("payUrl.qrCode")
             }),
             trigger: "blur"

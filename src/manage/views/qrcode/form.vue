@@ -53,6 +53,7 @@
                     <el-button size="medium" type="primary" @click="submitForm('ruleForm')">{{dialogState.edit ? $t('main.form_btnText_update') : $t('main.form_btnText_save')}}</el-button>
                 </el-form-item>
 
+       
              
             </el-form>
 
@@ -83,7 +84,7 @@ export default {
          url: [
           {
             required: true,
-            message: this.$t("validate.selectNull", {
+            message: this.$t("validate.inputNull", {
               label: this.$t("payUrl.qrCode")
             }),
             trigger: "blur"
@@ -149,7 +150,7 @@ export default {
 
     submitForm(formName) {
       this.$refs[formName].validate(valid => {
-        if (valid) {
+        if (!valid) {
           let params = this.dialogState.formData;
           // 更新
           if (this.dialogState.edit) {
