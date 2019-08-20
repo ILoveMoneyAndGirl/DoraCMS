@@ -33,9 +33,15 @@ export default {
 
       formData.parentId = data._id;
       formData.type=dataType[data.type]
+
+        console.log("append append!!");
+         console.log(formData.type);
+
       formData.parent = {
         label: data[data.type]
       };
+
+      
       this.$store.dispatch("showPayUrlForm", {
         edit: false,
         type: "children",
@@ -54,7 +60,6 @@ export default {
     },
 
     remove(store, data) {
-        return 
       this.$confirm(
         this.$t("main.del_notice"),
         this.$t("main.scr_modal_title"),
@@ -65,13 +70,13 @@ export default {
         }
       )
         .then(() => {
-          return services.deleteAdminResource({
+          return services.deletePayUrl({
             ids: data._id
           });
         })
         .then(result => {
           if (result.data.status === 200) {
-            this.$store.dispatch("getAdminResourceList");
+            this.$store.dispatch("getPayUrlList");
             this.$message({
               message: this.$t("main.scr_modal_del_succes_info"),
               type: "success"
@@ -87,6 +92,9 @@ export default {
           });
         });
     },
+
+
+
 
     renderContent(h, { node, data, store }) {
 

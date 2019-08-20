@@ -522,9 +522,9 @@ const app = {
           channel:0,
           type:"",
           lable:"",
-          parentId:0,
+          parentId:"0",
           parent: {
-            id: '',
+            _id: '',
             label: ''
           }
         }
@@ -745,7 +745,7 @@ const app = {
         routePath: '',
         componentPath: '',
         enable: true,
-        parentId: '',
+        parentId: '0',
         sortId: 0,
         comments: '',
         parent: {
