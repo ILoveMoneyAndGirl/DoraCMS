@@ -93,13 +93,14 @@ export default {
      console.log("renderContentrenderContent...")
       console.log(data)
       let dataType={
-          "root":"tag",     
+          "0":"tag",     
           "tag":"channel",
           "channel":"tagPrice",
           "tagPrice":"price",
           "price":"",
       }
-     data.lable=data[data.type]
+     data.lable=data[dataType[data.type]]
+
       if(data.type !="channel"){
         return (
           <span style="flex: 1; display: flex; align-items: center; justify-content: space-between; font-size: 14px; padding-right: 8px;">
