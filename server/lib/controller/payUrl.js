@@ -161,6 +161,7 @@ class PayUrl {
             };
 
             let d=siteFunc.renderApiData(req, res, 200, 'PayUrl', sendData, 'getlist')
+            console.log("XXXXXXXX")
                  console.log(d)
 
             res.send(d)
