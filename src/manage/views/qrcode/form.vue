@@ -3,12 +3,14 @@
         <el-dialog :xs="20" :sm="20" :md="6" :lg="6" :xl="6" size="small" :title="$t('payUrl.form_title')" :visible.sync="dialogState.show" :close-on-click-modal="false">
             <el-form :model="dialogState.formData" :rules="rules" ref="ruleForm" label-width="120px" class="demo-ruleForm">
 
-                <el-form-item v-show="dialogState.formData.type==='tag'" :label="$t('payUrl.tag')" >
+                <el-form-item v-show="dialogState.formData.type==='tag'" :label="$t('payUrl.tag')" prop="tag">
                     <el-input size="small"  v-model="dialogState.formData.tag"></el-input>
                 </el-form-item>
 
-      
-                <el-form-item v-show="dialogState.formData.type==='channel'" :label="$t('payUrl.channel')">
+        
+
+
+                <el-form-item v-show="dialogState.formData.type==='channel'" :label="$t('payUrl.channel')" prop="channel">
                 <el-select size="small" v-model="dialogState.formData.channel" :placeholder="$t('validate.selectNull', {label: this.$t('payUrl.channel')})">
                     <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
                     </el-option>
@@ -20,12 +22,12 @@
                 </el-form-item>
 
 
-                <el-form-item v-show="dialogState.formData.type==='price'" :label="$t('payUrl.price')" >
+                <el-form-item v-show="dialogState.formData.type==='price'" :label="$t('payUrl.price')" prop="price">
                     <el-input size="small"  v-model="dialogState.formData.price"></el-input>
                 </el-form-item>
 
 
-                <el-form-item class="upSimg" v-show="dialogState.formData.type==='price'" :label="$t('payUrl.qrCode')">
+                <el-form-item class="upSimg" v-show="dialogState.formData.type==='price'" :label="$t('payUrl.qrCode')" prop="url">
                       <el-upload
                         class="avatar-uploader"
                         action="/api/v0/upload/files?type=images"
@@ -81,7 +83,7 @@ export default {
 
          url: [
           {
-            required: false,
+            required: this.dialogState.formData.type==='price',
             message: this.$t("validate.inputNull", {
               label: this.$t("payUrl.qrCode")
             }),

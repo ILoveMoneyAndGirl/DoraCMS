@@ -24,35 +24,35 @@ function checkFormData(req, res, fields) {
         errMsg = res.__("validate_error_params");
     }
 
-    if (!fields.tag) {
+    if (fields.type=="tag"&&(!fields.tag)) {
         errMsg = res.__("validate_selectNull", {
             label: "标记"
         });
     }
 
-    if (!fields.price) {
+    if (fields.type=="price"&&(!fields.price)) {
         errMsg = res.__("validate_selectNull", {
             label: "价格"
         });
     }
 
-    if (!fields.tagPrice) {
+    if (fields.type=="tagPrice"&&(!fields.tagPrice)) {
         errMsg = res.__("validate_selectNull", {
             label: "价格"
         });
     }
 
 
-    if (!fields.url) {
+    if (fields.type=="price"&&(!fields.url)) {
         errMsg = res.__("validate_selectNull", {
             label:  "二维码"
         });
     }
 
 
-    if (!fields.channel) {
+    if (fields.type=="channel"&&(!fields.channel)) {
         errMsg = res.__("validate_selectNull", {
-            label:  "二维码"
+            label:  "聚到"
         });
     }
 
