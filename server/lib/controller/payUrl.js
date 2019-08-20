@@ -141,7 +141,7 @@ class PayUrl {
    
 
 
-            const totalItems = await PayUrlModel.count(queryObj);
+            const totalItems = await PayUrlModel.count({adminUser:req.session.adminUserInfo._id});
 
 
             let sendData = {
@@ -153,19 +153,10 @@ class PayUrl {
                     searchkey: searchkey || ''
                 }
             };
-            let rendeData = siteFunc.renderApiData(req, res, 200, 'PayUrl', sendData);
-            if (modules && modules.length > 0) {
-                return rendeData.data;
-            } else {
-                if (useClient == '2') {
 
-                    res.send(siteFunc.renderApiData(req, res, 200, 'PayUrl', data));
-                } else {
-                    res.send(rendeData);
-                }
-
-            }
+            res.send(siteFunc.renderApiData(req, res, 200, 'PayUrl', sendData, 'getlist'))
         } catch (err) {
+
 
 
             res.send(siteFunc.renderApiErr(req, res, 500, err, 'getlist'))

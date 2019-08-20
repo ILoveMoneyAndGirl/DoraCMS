@@ -1720,7 +1720,7 @@ const app = {
           let treeData = renderTreeData(result.data.data);
           console.log("xxxxxxxx")
           console.log(treeData)
-          commit(types.PAYURL_LIST, result.data.data)
+          commit(types.PAYURL_LIST, treeData)
       })
     },
 
