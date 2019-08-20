@@ -83,7 +83,7 @@ export default {
 
          url: [
           {
-            required: true,
+            required: dialogState.formData.type==='price',
             message: this.$t("validate.inputNull", {
               label: this.$t("payUrl.qrCode")
             }),
@@ -92,7 +92,7 @@ export default {
           ],
           tag: [
           {
-            required: true,
+            required: dialogState.formData.type==='tag',
             message: this.$t("validate.inputNull", {
               label: this.$t("payUrl.tag")
             }),
@@ -108,7 +108,7 @@ export default {
 
           price: [
           {
-            required: true,
+            required: dialogState.formData.type==='price',
             message: this.$t("validate.inputNull", {
               label: this.$t("payUrl.price")
             }),
@@ -118,7 +118,7 @@ export default {
 
         tagPrice: [
           {
-            required: true,
+            required: dialogState.formData.type==='tagPrice',
             message: this.$t("validate.inputNull", {
               label: this.$t("payUrl.price")
             }),
@@ -128,7 +128,7 @@ export default {
 
         channel: [
           {
-            required: true,
+            required: dialogState.formData.type==='channel',
             message: this.$t("validate.inputNull", {
               label: this.$t("payUrl.channel")
             }),
@@ -150,7 +150,7 @@ export default {
 
     submitForm(formName) {
       this.$refs[formName].validate(valid => {
-        if (!valid) {
+        //if (!valid) {
           let params = this.dialogState.formData;
           // 更新
           if (this.dialogState.edit) {
@@ -181,10 +181,10 @@ export default {
               }
             });
           }
-        } else {
+        } /*else {
           console.log("error submit!!");
           return false;
-        }
+        }*/
       });
     },
 
