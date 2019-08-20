@@ -1714,15 +1714,12 @@ const app = {
     getPayUrlList({
       commit
     }, params = {}) {
-                        print("xxxxxxxx0.0")
-
-      print(params)
-
       services.payUrlList(params).then((result) => {
-                  print("xxxxxxxx0")
+                  console.log(result)
+
           let treeData = renderTreeData(result.data.data);
-          print("xxxxxxxx")
-          print(treeData)
+          console.log("xxxxxxxx")
+          console.log(treeData)
           commit(types.PAYURL_LIST, result.data.data)
       })
     },
