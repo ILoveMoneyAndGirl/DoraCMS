@@ -121,6 +121,9 @@ export default {
             }),
             trigger: "blur"
           }],
+      },
+      green: { color: "#13CE66" },
+      red: { color: "#FF4949" },
     };
   },
   methods: {
