@@ -65,6 +65,7 @@ export default {
     },
 
      findIds(obj,ids){
+       console.log("findIds........")
         ids.push(obj._id)
         if(obj.children){
             for(var i in obj.children){
@@ -88,6 +89,8 @@ export default {
         console.log("remove..........")
         console.log(data)
           let ids=[]
+                      console.log(0)
+
           ids=this.findIds(data,ids)
             console.log(ids)
           return 
