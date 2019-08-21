@@ -21,6 +21,10 @@ export default {
   },
   data() {
     return {
+      channel:{
+          0:"支付宝",
+          1:"微信",
+        },
       defaultProps: {
         children: "children",
         lable: "lable"
@@ -33,7 +37,7 @@ export default {
       let currentArr = [];
       currentNodes.length > 0 &&
         currentNodes.map((item, index) => {
-          if (item._id !=item.price) {
+          if (item.type =="price") {
             currentArr.push(item._id);
           }
         });
@@ -66,47 +70,21 @@ export default {
     },
     renderContent(h, { node, data, store }) {
 
-      if(data._id ==data.price){
-          if(data.isAny){
-            return (
-              <span style="flex: 1; display: flex; align-items: center; justify-content: space-between; font-size: 14px; padding-right: 8px;">
-                <span>
-                  <span>任意</span>
-                </span>
-              </span>
-              );
-          }else{
-            return (
-                <span style="flex: 1; display: flex; align-items: center; justify-content: space-between; font-size: 14px; padding-right: 8px;">
-                  <span>
-                    <span>{data.price}元</span>
-                  </span>
-                </span>
-              );
-          }
-      }else{
-        if(data.isAny){
-            return (
-                <span style="flex: 1; display: flex; align-items: center; justify-content: space-between; font-size: 14px; padding-right: 8px;">
-                <span>
-                  <span>描述:&nbsp;<font color="#FF0000">{data.tag}</font></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                   <span>渠道:&nbsp;<font color="#FF0000">{data.channel === 0?'支付宝':(data.channel ===1?'微信':'其它')}</font></span>
-                </span>
-              </span>
-            );
-        }else
-        {
-              return (
-                <span style="flex: 1; display: flex; align-items: center; justify-content: space-between; font-size: 14px; padding-right: 8px;">
-                <span>
-                  <span>实际金额:&nbsp;<font color="#FF0000">{data.price}</font></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                  <span>描述:&nbsp;<font color="#FF0000">{data.tag}</font></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                  <span>渠道:&nbsp;<font color="#FF0000">{data.channel === 0?'支付宝':(data.channel ===1?'微信':'其它')}</font></span>
-                </span>
-              </span>
-            );
+        if(data.type=="channel"){
+          data.lable=this.channel[data.channel]
+        }else if(data.type=="tagPrice"&&data.isAny){
+            data.lable="任意金额:("+data._id+")"
+        }else if(data.type=="price"&&data.isAny){
+          data.lable=data.url
         }
-      }
+
+        return (
+          <span style="flex: 1; display: flex; align-items: center; justify-content: space-between; font-size: 14px; padding-right: 8px;">
+            <span>
+              <span>{data.lable}</span>
+            </span>
+          </span>
+        );
     },
   },
 

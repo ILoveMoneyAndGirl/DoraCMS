@@ -118,15 +118,13 @@ export default {
 
     renderContent(h, { node, data, store }) {
 
-     console.log("renderContentrenderContent...")
-      console.log(data)
 
       if(data.type=="channel"){
         data.lable=this.channel[data.channel]
       }else if(data.type=="tagPrice"&&data.isAny){
           data.lable="任意金额:("+data._id+")"
-      }else{
-        data.lable=data[data.type]
+      }else if(data.type=="price"&&data.isAny){
+        data.lable=data.url
       }
 
       if(data.type !="price"){

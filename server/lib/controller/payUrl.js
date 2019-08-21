@@ -50,9 +50,9 @@ function checkFormData(req, res, fields) {
     }
 
 
-    if (fields.type=="channel"&&(!fields.channel)) {
+    if (fields.type=="channel"&&(fields.channel!=null)) {
         errMsg = res.__("validate_selectNull", {
-            label:  "聚到"
+            label:  "渠道"
         });
     }
 

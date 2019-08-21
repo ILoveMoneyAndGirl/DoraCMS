@@ -1,7 +1,7 @@
 <template>
     <div class="adminUser">
         <Form :dialogState="formState"></Form>
-        <UrlForm :dialogState="formState" :treeData="PayUrlTreeList"></UrlForm>
+        <UrlForm :dialogState="formState" :treeData="PayUrlList.docs"></UrlForm>
         <el-row class="dr-datatable">
             <el-col :span="24">
                 <TopBar type="payProduct" :pageInfo="PayProductList.pageInfo"></TopBar>
