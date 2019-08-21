@@ -77,6 +77,7 @@ export default {
         .then(() => {
         console.log("remove..........")
         console.log(data)
+          return
           return services.deletePayUrl({
             ids: data._id
           });
