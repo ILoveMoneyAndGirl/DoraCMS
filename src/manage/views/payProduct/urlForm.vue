@@ -70,13 +70,16 @@ export default {
     },
     renderContent(h, { node, data, store }) {
 
-        if(data.type=="channel"){
-          data.lable=this.channel[data.channel]
-        }else if(data.type=="tagPrice"&&data.isAny){
-            data.lable="任意金额:("+data._id+")"
-        }else if(data.type=="price"&&data.isAny){
-          data.lable=data.url
-        }
+
+      if(data.type=="channel"){
+        data.lable=this.channel[data.channel]
+      }else if(data.type=="tagPrice"&&data.isAny){
+          data.lable="任意金额:("+data._id+")"
+      }else if(data.type=="price"&&data.isAny){
+        data.lable=data.url
+      }else{
+        data.lable=data[data.type]
+      }
 
         return (
           <span style="flex: 1; display: flex; align-items: center; justify-content: space-between; font-size: 14px; padding-right: 8px;">

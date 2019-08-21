@@ -125,6 +125,8 @@ export default {
           data.lable="任意金额:("+data._id+")"
       }else if(data.type=="price"&&data.isAny){
         data.lable=data.url
+      }else{
+        data.lable=data[data.type]
       }
 
       if(data.type !="price"){
