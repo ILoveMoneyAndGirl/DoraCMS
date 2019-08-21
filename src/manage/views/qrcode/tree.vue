@@ -64,7 +64,7 @@ export default {
 
     },
 
-    function findIds(obj,ids){
+     findIds(obj,ids){
         ids.push(obj._id)
         if(obj.children){
             for(var i in obj.children){
