@@ -30,7 +30,7 @@ function checkFormData(req, res, fields) {
         });
     }
 
-    if (fields.type=="price"&&(!fields.price)) {
+    if (fields.type=="price"&&(!fields.price)&&(!fields.isAny)) {
         errMsg = res.__("validate_selectNull", {
             label: "价格"
         });
