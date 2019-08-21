@@ -593,9 +593,9 @@ export default {
   },
 
  payUrl: {
-    form_title: '填写二维码信息',
+    form_title: '扫描信息',
     url: '二维码地址',
-    tag: '描述',
+    tag: '分类名称',
     isAny: '任意金额',
     price:'实际金额',
     tagPrice:'目标金额',

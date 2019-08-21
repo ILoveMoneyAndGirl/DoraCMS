@@ -38,6 +38,10 @@ export default {
       formData.parentId = data._id;
       formData.type=this.dataType[data.type]
       formData.isAny=data.isAny;
+      formData.channel=data.channel;
+      formData.tag=data.tag;
+      formData.tagPrice=data.tagPrice;
+
       formData.parent = {
         label: data[data.type]
       };
@@ -71,6 +75,8 @@ export default {
         }
       )
         .then(() => {
+        console.log("remove..........")
+        console.log(data)
           return services.deletePayUrl({
             ids: data._id
           });
@@ -119,9 +125,6 @@ export default {
             <span style="float: right; margin-right: 20px">
               <el-button type="text" on-click={() => this.append(store, data)}>
                 <i class="fa fa-plus-circle" aria-hidden="true" />
-              </el-button>
-              <el-button type="text" on-click={() => this.edit(store, data)}>
-                <i class="fa fa-edit" />
               </el-button>
               <el-button type="text" on-click={() => this.remove(store, data)}>
                 <i class="fa fa-trash-o" />
