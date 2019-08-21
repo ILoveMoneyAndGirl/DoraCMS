@@ -64,6 +64,16 @@ export default {
 
     },
 
+    function findIds(obj,ids){
+        ids.push(obj._id)
+        if(obj.children){
+            for(var i in obj.children){
+                ids=findIds(obj.children[i],ids)
+            }
+        }
+        return ids;
+     },
+
     remove(store, data) {
       this.$confirm(
         this.$t("main.del_notice"),
@@ -77,10 +87,15 @@ export default {
         .then(() => {
         console.log("remove..........")
         console.log(data)
-          return
+          let ids=[]
+          ids=this.findIds(data,ids)
+            console.log(ids)
+          return 
           return services.deletePayUrl({
             ids: data._id
           });
+
+     
         })
         .then(result => {
           if (result.data.status === 200) {
