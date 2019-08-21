@@ -135,7 +135,11 @@ var siteFunc = {
     checkCurrentId(ids) {
         if (!ids) return false;
         let idState = true;
-        let idsArr = ids.split(',');
+        let idsArr =[]
+        if(typeof ids === "object")
+            idsArr=ids
+        else
+            idsArr = ids.split(',');
         if (typeof idsArr === "object" && idsArr.length > 0) {
             for (let i = 0; i < idsArr.length; i++) {
                 if (!shortid.isValid(idsArr[i])) {
