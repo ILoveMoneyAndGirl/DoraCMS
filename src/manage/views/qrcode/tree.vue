@@ -65,11 +65,9 @@ export default {
     },
 
      findIds(obj,ids){
-       console.log("findIds........")
         ids.push(obj._id)
         if(obj.children){
             for(var i in obj.children){
-               console.log(obj.children[i])
                 ids=this.findIds(obj.children[i],ids)
             }
         }
@@ -87,16 +85,11 @@ export default {
         }
       )
         .then(() => {
-        console.log("remove..........")
-        console.log(data)
           let ids=[]
-                      console.log(0)
-
           ids=this.findIds(data,ids)
             console.log(ids)
-          return 
           return services.deletePayUrl({
-            ids: data._id
+            ids:ids
           });
 
      
