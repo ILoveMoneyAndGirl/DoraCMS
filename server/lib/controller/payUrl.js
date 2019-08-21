@@ -238,7 +238,7 @@ class PayUrl {
         try {
             let errMsg = '';
             console.log("Delete....")
-            console.log(eq.query.ids)
+            console.log(req.query.ids)
             if (!siteFunc.checkCurrentId(req.query.ids)) {
                 errMsg = res.__("validate_error_params");
             }
