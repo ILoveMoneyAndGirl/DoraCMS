@@ -37,7 +37,7 @@ export default {
       console.log(this.dataType);
       formData.parentId = data._id;
       formData.type=this.dataType[data.type]
-
+      formData.isAny=data.isAny;
       formData.parent = {
         label: data[data.type]
       };
@@ -105,7 +105,7 @@ export default {
       if(data.type=="channel"){
         data.lable=this.channel[data.channel]
       }else if(data.type=="tagPrice"&&data.isAny){
-          data.lable="任意金额"
+          data.lable="任意金额:("+data._id+")"
       }else{
         data.lable=data[data.type]
       }
