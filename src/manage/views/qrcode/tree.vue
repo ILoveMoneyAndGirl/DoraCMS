@@ -69,7 +69,8 @@ export default {
         ids.push(obj._id)
         if(obj.children){
             for(var i in obj.children){
-                ids=findIds(obj.children[i],ids)
+               console.log(obj.children[i])
+                ids=this.findIds(obj.children[i],ids)
             }
         }
         return ids;
