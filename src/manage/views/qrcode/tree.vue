@@ -104,11 +104,13 @@ export default {
 
       if(data.type=="channel"){
         data.lable=this.channel[data.channel]
+      }else if(data.type=="tagPrice"&&data.isAny){
+          data.lable="任意金额"
       }else{
         data.lable=data[data.type]
       }
 
-    //  if(data.type !="channel"){
+      if(data.type !="price"){
         return (
           <span style="flex: 1; display: flex; align-items: center; justify-content: space-between; font-size: 14px; padding-right: 8px;">
             <span>
@@ -127,15 +129,24 @@ export default {
             </span>
           </span>
         );
-      /*}else {
-          return (
+      }else {
+        return (
           <span style="flex: 1; display: flex; align-items: center; justify-content: space-between; font-size: 14px; padding-right: 8px;">
             <span>
               <span>{data.lable}</span>
             </span>
+            <span style="float: right; margin-right: 20px">
+    
+              <el-button type="text" on-click={() => this.edit(store, data)}>
+                <i class="fa fa-edit" />
+              </el-button>
+              <el-button type="text" on-click={() => this.remove(store, data)}>
+                <i class="fa fa-trash-o" />
+              </el-button>
+            </span>
           </span>
         );
-      }*/
+      }
     }
   }
 };

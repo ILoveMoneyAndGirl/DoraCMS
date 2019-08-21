@@ -17,14 +17,31 @@
                 </el-select>
               </el-form-item>
 
-                <el-form-item v-show="dialogState.formData.type==='tagPrice'" :label="$t('payUrl.tagPrice')" prop="tagPrice">
+                <el-form-item v-show="dialogState.formData.type==='tagPrice'&& !dialogState.formData.isAny" :label="$t('payUrl.tagPrice')" prop="tagPrice">
                     <el-input size="small"  v-model="dialogState.formData.tagPrice"></el-input>
                 </el-form-item>
+
+
+
+                <el-form-item v-show="dialogState.formData.type==='tagPrice'" :label="$t('payUrl.isAny')">
+                  <el-switch
+                    :on-text="$t('main.radioOn')"
+                    :off-text="$t('main.radioOff')"
+                    v-model="dialogState.formData.isAny"
+                  ></el-switch>
+                </el-form-item>
+
+
 
 
                 <el-form-item v-show="dialogState.formData.type==='price'" :label="$t('payUrl.price')" prop="price">
                     <el-input size="small"  v-model="dialogState.formData.price"></el-input>
                 </el-form-item>
+
+
+
+   
+
 
 
                 <el-form-item class="upSimg" v-show="dialogState.formData.type==='price'" :label="$t('payUrl.qrCode')" prop="url">
@@ -40,13 +57,6 @@
                     </el-upload>
                  </el-form-item>
 
-                  <el-form-item v-show="dialogState.formData.type==='price'" :label="$t('payUrl.isAny')">
-                  <el-switch
-                    :on-text="$t('main.radioOn')"
-                    :off-text="$t('main.radioOff')"
-                    v-model="dialogState.formData.isAny"
-                  ></el-switch>
-                </el-form-item>
 
 
                 <el-form-item>
