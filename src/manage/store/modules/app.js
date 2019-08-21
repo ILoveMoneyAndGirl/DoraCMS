@@ -506,7 +506,6 @@ const app = {
         err: {}
       }
     },
-
     payUrl: {
       formState: {
         type: 'root',
@@ -538,10 +537,6 @@ const app = {
         err: {}
       }
     },
-
-
-
-
     soft: {
       formState: {
         show: false,
@@ -582,7 +577,6 @@ const app = {
         err: {}
       }
     },
-
     payProduct: {
       formState: {
         showUrl: false,
@@ -634,7 +628,6 @@ const app = {
         err: {}
       }
     },
-
   },
   mutations: {
     TOGGLE_SIDEBAR: state => {
@@ -1020,7 +1013,6 @@ const app = {
     //StoreAppMutations
 //------------------------------------------------------------------------------------------------------------------------
 //---------------------------------------------------------------------------------------------------------------------------
-
     [types.GOODS_LIST](state, goodsList) {
       state.goods.goodsList = goodsList
     },
@@ -1036,12 +1028,10 @@ const app = {
 
     },
 
-
     [types.PAYURL_LIST](state, payUrlList) {
      // state.payUrl.payUrlList = payUrlList
       state.payUrl.payUrlList=payUrlList
     },
-
 
     [types.PAYURL_FORMSTATE](state, formState) {
       state.payUrl.formState.show = formState.show;
@@ -1072,7 +1062,6 @@ const app = {
       state.soft.softList = softList
     },
 
-
     [types.SOFT_FORMSTATE](state, formState) {
       state.soft.formState.show = formState.show;
       state.soft.formState.edit = formState.edit;
@@ -1096,7 +1085,6 @@ const app = {
       state.softArg.formState.show = formState.show;
     },
 
-//
     [types.PAYPRODUCT_LIST](state, softList) {
       state.payProduct.payProductList = softList
     },
@@ -1111,7 +1099,6 @@ const app = {
 
     },
 
-//
     [types.PAYRECORD_LIST](state, payRecordList) {
       state.payRecord.payRecordList = payRecordList
     },
@@ -1676,11 +1663,8 @@ const app = {
     },
     //StoreAppActions
 
-
-
 //-------------------------------------------------------------------------------------------------------------------------------------
 //------------------------------------------------------------------------------------------------------------------------------------------------------------
-
     getGoodsList({
       commit
     }, params = {}) {
@@ -1710,7 +1694,6 @@ const app = {
       })
     },
 
-//
     getPayUrlList({
       commit
     }, params = {}) {
@@ -1841,7 +1824,6 @@ const app = {
         formData: params.formData
       })
     },
-
 
   }
 }

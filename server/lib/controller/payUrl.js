@@ -215,6 +215,7 @@ class PayUrl {
                 tagPrice: fields.tagPrice,
                 parentId: fields.parentId,
                 type:fields.type,
+                channel:fields.channel,
                 adminUser:req.session.adminUserInfo._id
             }
                 const newObj = new PayUrlModel(obj);
