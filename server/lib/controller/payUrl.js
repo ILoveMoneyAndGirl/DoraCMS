@@ -36,7 +36,7 @@ function checkFormData(req, res, fields) {
         });
     }
 
-    if (fields.type=="tagPrice"&&(!fields.tagPrice)) {
+    if (fields.type=="tagPrice"&&(!fields.tagPrice)&&(!fields.isAny)) {
         errMsg = res.__("validate_selectNull", {
             label: "价格"
         });
