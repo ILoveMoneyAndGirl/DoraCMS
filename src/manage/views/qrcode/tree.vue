@@ -12,6 +12,17 @@ export default {
   },
   data() {
     return {
+        channel:{
+          0:"支付宝",
+          1:"微信",
+        },
+        dataType:{
+          "tag":"channel",
+          "channel":"tagPrice",
+          "tagPrice":"price",
+          "price":"",
+        },
+
       defaultProps: {
         children: "children",
         label: "label"
@@ -23,19 +34,9 @@ export default {
     append(store, data) {
       let formData = {};
 
-      let dataType={
-          "root":"tag",     
-          "tag":"channel",
-          "channel":"tagPrice",
-          "tagPrice":"price",
-          "price":"",
-      }
-
+      console.log(this.dataType);
       formData.parentId = data._id;
-      formData.type=dataType[data.type]
-
-        console.log("append append!!");
-         console.log(formData.type);
+      formData.type=this.dataType[data.type]
 
       formData.parent = {
         label: data[data.type]
@@ -100,14 +101,12 @@ export default {
 
      console.log("renderContentrenderContent...")
       console.log(data)
-      let dataType={
-          "0":"tag",     
-          "tag":"channel",
-          "channel":"tagPrice",
-          "tagPrice":"price",
-          "price":"",
+
+      if(data.type=="channel"){
+        data.lable=this.channel[data.channel]
+      }else{
+        data.lable=data[data.type]
       }
-     data.lable=data[dataType[data.type]]
 
       if(data.type !="channel"){
         return (
