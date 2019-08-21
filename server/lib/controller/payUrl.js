@@ -181,6 +181,7 @@ class PayUrl {
                 isAny: fields.isAny,
                 tagPrice: fields.tagPrice,
                 channel:fields.channel,
+                type:fields.type,
             }
             const item_id = fields._id;
             try {
