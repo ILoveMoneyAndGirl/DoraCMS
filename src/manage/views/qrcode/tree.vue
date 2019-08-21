@@ -108,7 +108,7 @@ export default {
         data.lable=data[data.type]
       }
 
-      if(data.type !="channel"){
+    //  if(data.type !="channel"){
         return (
           <span style="flex: 1; display: flex; align-items: center; justify-content: space-between; font-size: 14px; padding-right: 8px;">
             <span>
@@ -127,7 +127,7 @@ export default {
             </span>
           </span>
         );
-      }else {
+      /*}else {
           return (
           <span style="flex: 1; display: flex; align-items: center; justify-content: space-between; font-size: 14px; padding-right: 8px;">
             <span>
@@ -135,7 +135,7 @@ export default {
             </span>
           </span>
         );
-      }
+      }*/
     }
   }
 };
