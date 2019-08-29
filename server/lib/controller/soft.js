@@ -218,22 +218,25 @@ class Soft {
 
     async Select(req, res, next) {
 
-        try {
-             const item =await SoftModel.findOne({
-                    _id: softId
-                });
+         const form = new formidable.IncomingForm();
+        form.parse(req, async (err, fields, files) => {
+            try {
+                 const item =await SoftModel.findOne({
+                        _id: fields.softId
+                    });
 
-             if(item){
-                req.session.vpnServer="http://"+item.ip+":"+item.port+setting.vpnPath
-                res.send(siteFunc.renderApiData(req, res, 200, 'soft', {}, 'Select'))
-             }else
-                 res.send(siteFunc.renderApiErr(req, res, 500, err, 'Select'));
-               
+                 if(item){
+                    req.session.vpnServer="http://"+item.ip+":"+item.port+setting.vpnPath
+                    res.send(siteFunc.renderApiData(req, res, 200, 'soft', {}, 'Select'))
+                 }else
+                     res.send(siteFunc.renderApiErr(req, res, 500, err, 'Select'));
+                   
 
-            } catch (err) {
-                res.send(siteFunc.renderApiErr(req, res, 500, err, 'Select'));
-            }
-
+                } catch (err) {
+                    res.send(siteFunc.renderApiErr(req, res, 500, err, 'Select'));
+                }
+        })
+        
     }
 
 
