@@ -23,7 +23,7 @@
             <el-table-column :label="$t('main.dataTableOptions')" width="150">
                 <template slot-scope="scope">
                     <el-button size="mini" type="primary" plain round @click="edit(scope.$index, dataList)"><i class="fa fa-edit"></i></el-button>
-                    <el-button size="mini" type="warning" plain round @click="editArg(scope.$index, dataList)"><i class="fa fa-superpowers"></i></el-button>
+                    <el-button size="mini" type="warning" plain round @click="select(scope.$index, dataList)"><i class="fa fa-superpowers"></i></el-button>
                     <el-button size="mini" type="danger" plain round icon="el-icon-delete" @click="deleteOne(scope.$index, dataList)"></el-button>
                 </template>
             </el-table-column>
@@ -65,12 +65,19 @@ export default {
         formData: rowData
       });
     },
-    editArg(index, rows)
+    select(index, rows)
     {
-        let rowData = rows[index];
-         console.log("editArg.....",{softId:rows[index]._id})
-         
-        this.$store.dispatch("getSoftArg",{softId:rows[index]._id});
+        services.selectSoft({softId:rows[index]._id}).then(result => {
+            if (result.data.status === 200) {
+              this.$message({
+                message: "切换成功！",
+                type: "success"
+              });
+            } else {
+              this.$message.error(result.data.message, result.message);
+            }
+          });
+
     },
 
     deleteOne(index, rows) {

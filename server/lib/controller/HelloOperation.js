@@ -11,10 +11,36 @@ const {
 } = require('../../../utils');
 const shortid = require('shortid');
 const validator = require('validator')
+const PostData=require('../tool/postData')
 
 function checkFormData(req, res, fields) {
+    let errMsg = '';
+
+    if (!fields.price) {
+        errMsg = res.__("validate_selectNull", {
+            label:  "价格"
+        });
+    }
 
 
+    if (!fields.days) {
+        errMsg = res.__("validate_selectNull", {
+            label:  "天数"
+        });
+    }
+
+
+    if (!fields.des) {
+        errMsg = res.__("validate_selectNull", {
+            label:  "描述"
+        });
+    }
+
+
+
+    if (errMsg) {
+        throw new siteFunc.UserException(errMsg);
+    }
 
 }
 
@@ -50,66 +76,44 @@ class HelloOperation {
                 }
             }
 
-            // let contentTags = await ContentTagModel.find(queryObj).sort({
-            //     date: -1
-            // }).skip(Number(pageSize) * (Number(current) - 1)).limit(Number(pageSize));
-            const totalItems = await ContentTagModel.count(queryObj);
-
-            // let userInfo = req.session.user || {};
-            // if (useClient == '2') {
-            //     contentTags = JSON.parse(JSON.stringify(contentTags));
-            //     for (const tagItem of contentTags) {
-            //         tagItem.hadWatched = false;
-            //         if (userInfo._id) {
-            //             let targetUser = await UserModel.findOne({
-            //                 _id: userInfo._id
-            //             }, siteFunc.getAuthUserFields('session'));
-            //             if (!_.isEmpty(targetUser)) {
-            //                 // 本人是否已添加该标签
-            //                 if (targetUser.watchTags && targetUser.watchTags.indexOf(tagItem._id) >= 0) {
-            //                     tagItem.hadWatched = true;
-            //                 }
-            //             }
-            //         }
-            //     }
-            // }
-
-            // let msg={
-            //     current:current,
-            //     queryObj:queryObj,
-            //     pageSize:pageSize,
-            // }
-
-            let data= [ { _id: 'HJ0aDsOhz',price: 10,days: 10,des: 'xx'}]
-
-
-            let tagsData = {
-                docs: data,
-                pageInfo: {
-                    count:1,
-                    current: Number(current) || 1,
-                    pageSize: Number(pageSize) || 10,
-                    searchkey: searchkey || ''
-                }
-            };
-            let renderGoodsData = siteFunc.renderApiData(req, res, 200, 'goods', tagsData);
-            if (modules && modules.length > 0) {
-                console.log("renderGoodsData.data--------->",renderGoodsData.data)
-                return renderGoodsData.data;
-            } else {
-                if (useClient == '2') {
-                console.log("res.send(siteFunc.renderApiData(req, res, 200--------->",data)
-
-                    res.send(siteFunc.renderApiData(req, res, 200, 'goods', data));
-                } else {
-                    res.send(renderGoodsData);
-                }
-
+            let data={
+                queryObj:queryObj,
+                pageSize:pageSize,
+                current:current,
+                pageSize:pageSize
             }
+            data.action="GetGoods"
+            PostData.PostDataByUrl(req.session.vpnServer,data,function(err,d)
+            {
+                if(err)
+                    res.send(siteFunc.renderApiErr(req, res, 500, err, 'getlist'))
+                else{
+                    let sendData = {
+                        docs: d.data,
+                        pageInfo: {
+                            count:d.totalItems,
+                            current: Number(current) || 1,
+                            pageSize: Number(pageSize) || 10,
+                            searchkey: searchkey || ''
+                        }
+                    };
+
+                     let rendeData = siteFunc.renderApiData(req, res, 200, 'getlist', sendData);
+                     if (modules && modules.length > 0) {
+                        return rendeData.data;
+                     } else {
+                         if (useClient == '2') {
+                             res.send(siteFunc.renderApiData(req, res, 200, 'getlist', data));
+                         } else {
+                             res.send(rendeData);
+                        }
+                    }
+                 }
+
+            })
+            
+
         } catch (err) {
-
-                            console.log("res.send(siteFunc.renderApiData(req, res, 500--------->")
-
             res.send(siteFunc.renderApiErr(req, res, 500, err, 'getlist'))
 
         }
@@ -117,59 +121,67 @@ class HelloOperation {
     }
 
     async UpdateGoods(req, res, next) {
-
-        // const form = new formidable.IncomingForm();
-        // form.parse(req, async (err, fields, files) => {
-        //     try {
-        //         checkFormData(req, res, fields);
-        //     } catch (err) {
-        //         console.log(err.message, err);
-        //         res.send(siteFunc.renderApiErr(req, res, 500, err, 'checkform'));
-        //     }
-
-        //     const userObj = {
-        //         name: fields.name,
-        //         alias: fields.alias,
-        //         comments: fields.comments
-        //     }
-        //     const item_id = fields._id;
-        //     try {
-        //         await ContentTagModel.findOneAndUpdate({
-        //             _id: item_id
-        //         }, {
-        //             $set: userObj
-        //         });
-        //         res.send(siteFunc.renderApiData(req, res, 200, 'contentTag', {}, 'update'))
-
-        //     } catch (err) {
-
-        //         res.send(siteFunc.renderApiErr(req, res, 500, err, 'update'));
-        //     }
-        // })
-
-         res.send(siteFunc.renderApiData(req, res, 200, 'contentTag', {}, 'update'))
-        
-    }
-    async AddGoods(req, res, next) {
-                        const form = new formidable.IncomingForm();
+        const form = new formidable.IncomingForm();
         form.parse(req, async (err, fields, files) => {
             try {
                 checkFormData(req, res, fields);
 
 
                 const tagObj = {
-                    name: fields.name,
-                    alias: fields.alias,
-                    comments: fields.comments
+                    price: fields.price,
+                    days: fields.days,
+                    des: fields.des
                 }
 
-                const newContentTag = new ContentTagModel(tagObj);
+                let sendData={}
+                sendData.action="UpdateGoods"
+                sendData.id=req.id
+                sendData.set=tagObj
+                PostData.PostDataByUrl(req.session.vpnServer,sendData,function(err,d)
+                {
+                    if(err)
+                        res.send(siteFunc.renderApiErr(req, res, 500, err, 'update'))
+                    else
+                        res.send(siteFunc.renderApiData(req, res, 200, 'Goods', {}, 'update'))
 
-                await newContentTag.save();
+                })
 
-                res.send(siteFunc.renderApiData(req, res, 200, 'contentTag', {
-                    id: newContentTag._id
-                }, 'save'))
+            } catch (err) {
+                res.send(siteFunc.renderApiErr(req, res, 500, err, 'update'))
+            }
+        })
+        
+    }
+
+
+
+
+    async AddGoods(req, res, next) {
+        const form = new formidable.IncomingForm();
+        form.parse(req, async (err, fields, files) => {
+            try {
+                checkFormData(req, res, fields);
+
+
+                const tagObj = {
+                    price: fields.price,
+                    days: fields.days,
+                    des: fields.des
+                }
+                let sendData={}
+                sendData.newData=tagObj
+                sendData.action="AddGoods"
+
+            PostData.PostDataByUrl(req.session.vpnServer,sendData,function(err,d)
+            {
+                if(err)
+                    res.send(siteFunc.renderApiErr(req, res, 500, err, 'save'))
+                else
+                     res.send(siteFunc.renderApiData(req, res, 200, 'goods', {
+                    id: d.id
+                    }, 'save'))
+
+            })
 
             } catch (err) {
 
@@ -181,27 +193,19 @@ class HelloOperation {
     }
     async DeleteGoods(req, res, next) {
 
+         try {
+         
+            PostData.PostDataByUrl(req.session.vpnServer,{id:req.query.ids,action:"deleteGoods"},function(err,d){
+            if(err)
+                    res.send(siteFunc.renderApiErr(req, res, 500, err, 'delete'))
+                else
+                      res.send(siteFunc.renderApiData(req, res, 200, 'goods', {}, 'delete'))
 
+            })
 
-        //         try {
-        //     let errMsg = '';
-        //     if (!siteFunc.checkCurrentId(req.query.ids)) {
-        //         errMsg = res.__("validate_error_params");
-        //     }
-        //     if (errMsg) {
-        //         throw new siteFunc.UserException(errMsg);
-        //     }
-        //     await ContentTagModel.remove({
-        //         _id: req.query.ids
-        //     });
-        //     res.send(siteFunc.renderApiData(req, res, 200, 'contentTag', {}, 'delete'))
-
-        // } catch (err) {
-
-        //     res.send(siteFunc.renderApiErr(req, res, 500, err, 'delete'));
-        // }
-
-        res.send(siteFunc.renderApiData(req, res, 200, 'contentTag', {}, 'delete'))
+        } catch (err) {
+            res.send(siteFunc.renderApiErr(req, res, 500, err, 'delete'));
+        }
     }
 
     async AddTime(req, res, next) {
@@ -213,9 +217,6 @@ class HelloOperation {
     // }
 
     async GetSetting(req, res, next) {
-
-
-
 
         console.log("GetSettingGetSetting.....",req.query.softId)
 

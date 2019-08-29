@@ -1,4 +1,5 @@
 const SoftModel = require("../models").Soft;
+const setting=require('../../../configs/settings')
 
 const formidable = require('formidable');
 const _ = require("lodash");
@@ -122,8 +123,6 @@ class Soft {
 
             }
         } catch (err) {
-
-
             res.send(siteFunc.renderApiErr(req, res, 500, err, 'getlist'))
 
         }
@@ -131,6 +130,9 @@ class Soft {
     }
 
     async Update(req, res, next) {
+
+
+        console.log("XXXXXXXXSOFT Update")
 
         const form = new formidable.IncomingForm();
         form.parse(req, async (err, fields, files) => {
@@ -158,9 +160,7 @@ class Soft {
                 res.send(siteFunc.renderApiData(req, res, 200, 'soft', {}, 'update'))
 
             } catch (err) {
-
                 res.send(siteFunc.renderApiErr(req, res, 500, err, 'update'));
-
             }
         })
     }
@@ -216,6 +216,28 @@ class Soft {
         }
     }
 
+    async Select(req, res, next) {
+
+        try {
+             const item =await SoftModel.findOne({
+                    _id: softId
+                });
+
+             if(item){
+                req.session.vpnServer="http://"+item.ip+":"+item.port+setting.vpnPath
+                res.send(siteFunc.renderApiData(req, res, 200, 'soft', {}, 'Select'))
+             }else
+                 res.send(siteFunc.renderApiErr(req, res, 500, err, 'Select'));
+               
+
+            } catch (err) {
+                res.send(siteFunc.renderApiErr(req, res, 500, err, 'Select'));
+            }
+
+    }
+
+
+    
 }
 
 module.exports = new Soft();

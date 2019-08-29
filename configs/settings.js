@@ -4,6 +4,9 @@
  */
 
 module.exports = {
+
+    vpnPath:"/setting",
+    //-------
     tryAmountMoney:100,//试用时间
     tryMinute:0,//试用金额
     payRate: 0.03, // 提成比例

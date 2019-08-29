@@ -380,6 +380,11 @@ export default {
         return reqJsonData('manage/soft/add', params)
     },
 
+    selectSoft(params) {
+        return reqJsonData('manage/soft/select', params)
+    },
+
+
 
     getSoftArg(params) {
         return reqJsonData('manage/softArg/get', params,'get')

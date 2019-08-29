@@ -330,11 +330,11 @@ router.get('/soft/getList', authToken, authPower, Soft.GetList);
 router.post('/soft/updateOne', authToken, authPower, Soft.Update);
 router.get('/soft/delete', authToken, authPower, Soft.Delete);
 router.post('/soft/add', authToken, authPower, Soft.Add);
+router.post('/soft/select', authToken, authPower, Soft.Select);
 
 //
 router.get('/softArg/get', authToken, authPower, HelloOperation.GetSetting);
 router.post('/softArg/set', authToken, authPower, HelloOperation.UpdateSetting);
-
 
 router.get('/payProduct/getList', authToken, authPower, PayProduct.GetList);
 router.post('/payProduct/updateOne', authToken, authPower, PayProduct.Update);
