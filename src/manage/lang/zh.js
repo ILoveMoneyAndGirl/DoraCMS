@@ -174,11 +174,12 @@ export default {
     updatePayUrl:"修改二维码",
     deletePayUrl:"删除二维码",
 
+    softManger:"vpn管理",
     softList:"产品列表",
     addSoft:"添加产品",
     updateSoft:"修改产品",
     deleteSoft:"删除产品",
-
+    selectSoft:"切换产品",
     getSoftArg:"获取参数",
     setSoftArg:"设置参数",
 
