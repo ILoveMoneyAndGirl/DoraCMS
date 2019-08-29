@@ -41,10 +41,10 @@ function PostData (data,host,port,path,protocol,callback){
         console.log("chunk")
         console.log(chunk)
         chunk=JSON.parse(chunk);
-		   		callBack(null,chunk)
+		   		callback(null,chunk)
 		    });
 		}else{
-			callBack(res.statusCode)
+			callback(res.statusCode)
 		}
 
 	});
