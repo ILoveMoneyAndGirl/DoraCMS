@@ -29,7 +29,7 @@ function PostData (data,host,port,path,protocol,callback){
     path: path,
     method: 'POST',
     headers: {
-       'Content-Type': 'application/x-www-form-urlencoded',
+       'Content-Type': 'application/json',
        'Content-Length': content.length
      }
   };
@@ -38,6 +38,9 @@ function PostData (data,host,port,path,protocol,callback){
 		if(res.statusCode==200){
 			res.setEncoding('utf8');
 			res.on('data', function (chunk) {
+        console.log("chunk")
+        console.log(chunk)
+        chunk=JSON.parse(chunk);
 		   		callBack(null,chunk)
 		    });
 		}else{
