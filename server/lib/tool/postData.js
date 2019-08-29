@@ -20,9 +20,9 @@ function PostData (data,host,port,path,protocol,callback){
     console.log("PostData:")
     console.log(data)
     console.log(JSON.stringify(data))
-  var content = querystring.stringify(data);
+  var content = JSON.stringify(data)
   console.log(content)
-  
+
   var options = {
     hostname: host,
     port: port,
