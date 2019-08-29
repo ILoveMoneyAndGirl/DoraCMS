@@ -17,7 +17,12 @@ exports.PostDataByUrl=function (notifyUrl,data,callback)
     PostData(data,serverInfo.hostname,port,serverInfo.path,protocol,callback)
 }
 function PostData (data,host,port,path,protocol,callback){
+    console.log("PostData:")
+    console.log(data)
+    console.log(JSON.stringify(data))
   var content = querystring.stringify(data);
+  console.log(content)
+  
   var options = {
     hostname: host,
     port: port,
