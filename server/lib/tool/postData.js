@@ -34,7 +34,6 @@ function PostData (data,host,port,path,protocol,callback){
     method: 'POST',
     headers: {
        'Content-Type': 'application/json;charset=utf8',
-       'Content-Length': content.length
      }
   };
 
