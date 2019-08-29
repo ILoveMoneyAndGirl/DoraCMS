@@ -165,7 +165,6 @@ export default {
 //------------------------------------------------------------------------------------------------------------------------
     productManage:"产品管理",
     productChange:"产品切换",
-    productGoods:"商品管理",
     productUser:"用户管理",
     productPay:"支付二维码管理",
     productList:"获取商品表",
@@ -188,6 +187,12 @@ export default {
     addPayProduct:"添加支付产品",
     updatePayProduct:"修改支付产品",
     deletePayProduct:"删除支付产品",
+
+    productGoods:"商品管理",
+    deleteGoods:"删除",
+    addGoods:"添加",
+    updateGoods:"修改",
+
     
   },
   navbar: {
