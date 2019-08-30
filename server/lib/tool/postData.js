@@ -17,16 +17,8 @@ exports.PostDataByUrl=function (notifyUrl,data,callback)
     PostData(data,serverInfo.hostname,port,serverInfo.path,protocol,callback)
 }
 function PostData (data,host,port,path,protocol,callback){
-    console.log("PostData:")
-    console.log(data)
-    console.log(JSON.stringify(data))
+  
   var content = JSON.stringify(data)
-
-  console.log("XXXXXXXXXXXXXX_______")
-  console.log(content)
-  console.log(content.length)
-
-
   var options = {
     hostname: host,
     port: port,
@@ -41,8 +33,6 @@ function PostData (data,host,port,path,protocol,callback){
 		if(res.statusCode==200){
 			res.setEncoding('utf8');
 			res.on('data', function (chunk) {
-        console.log("chunk")
-        console.log(chunk)
         chunk=JSON.parse(chunk);
 		   		callback(null,chunk)
 		    });

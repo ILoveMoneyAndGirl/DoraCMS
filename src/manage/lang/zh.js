@@ -595,7 +595,8 @@ export default {
     price: '价格',
     days: '天数',
     payUrls: '支付二维码',
-    des:'描述'
+    des:'描述',
+    id:'编号'
   },
 
  payUrl: {
