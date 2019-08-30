@@ -6,7 +6,7 @@
                     <el-input size="small" v-model="dialogState.formData.price"></el-input>
                 </el-form-item>
                 <el-form-item :label="$t('goods.days')" prop="days">
-                    <el-input size="small" type="textarea" v-model="dialogState.formData.days"></el-input>
+                    <el-input size="small"  v-model="dialogState.formData.days"></el-input>
                 </el-form-item>
                 <el-form-item :label="$t('goods.des')" >
                     <el-input size="small" type="textarea" v-model="dialogState.formData.des"></el-input>

@@ -1021,8 +1021,8 @@ const app = {
       state.goods.formState.show = formState.show;
       state.goods.formState.edit = formState.edit;
       state.goods.formState.formData = Object.assign({
-        price: 0,
-        days: 0,
+        price: '',
+        days: '',
         des: ''
       }, formState.formData);
 
