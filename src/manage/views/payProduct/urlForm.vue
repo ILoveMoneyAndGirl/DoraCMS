@@ -37,7 +37,7 @@ export default {
       let currentArr = [];
       currentNodes.length > 0 &&
         currentNodes.map((item, index) => {
-          if (item.type =="price") {
+          if (item.type =="price"||item.isAny) {
             currentArr.push(item._id);
           }
         });
