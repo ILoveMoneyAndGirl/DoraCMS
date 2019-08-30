@@ -83,11 +83,8 @@ class HelloOperation {
                 pageSize:pageSize
             }
             data.action="GetGoods"
-            console.log("request ............goods");
             PostData.PostDataByUrl(req.session.vpnServer,data,function(err,d)
             {
-                  console.log("request ............goods1");
-                  console.log(d)
                 if(err)
                     res.send(siteFunc.renderApiErr(req, res, 500, err, 'getlist'))
                 else{
@@ -140,14 +137,9 @@ class HelloOperation {
                 sendData.action="UpdateGoods"
                 sendData.id=req.id
                 sendData.set=tagObj
-                   console.log("request ............UpdateGoods add 0");
 
                 PostData.PostDataByUrl(req.session.vpnServer,sendData,function(err,d)
                 {
-                                       console.log("request ............UpdateGoods add 1");
-                                                         console.log(d)
-
-
                     if(err)
                         res.send(siteFunc.renderApiErr(req, res, 500, err, 'update'))
                     else
@@ -180,11 +172,8 @@ class HelloOperation {
                 let sendData={}
                 sendData.newData=tagObj
                 sendData.action="AddGoods"
-   console.log("request ............goods add 0");
             PostData.PostDataByUrl(req.session.vpnServer,sendData,function(err,d)
             {
-                   console.log("request ............goods add 1");
-                  console.log(d)
                 if(err)
                     res.send(siteFunc.renderApiErr(req, res, 500, err, 'save'))
                 else

@@ -50,7 +50,7 @@ export default {
           {
             required: true,
             message: this.$t("validate.inputNull", {
-              label: this.$t("main.comments_label")
+              label: this.$t("goods.days")
             }),
             trigger: "blur"
           },
