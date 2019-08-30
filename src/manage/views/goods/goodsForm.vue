@@ -56,11 +56,8 @@ export default {
           },
           {
             min: 1,
-            max: 10,
-            message: this.$t("validate.ranglengthandnormal", {
-              min: 1,
-              max: 10
-            }),
+            max: 10,  
+            message: this.$t("validate.rangelength", { min: 1, max: 12 }),
             trigger: "blur"
           }
         ]

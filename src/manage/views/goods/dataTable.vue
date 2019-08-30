@@ -59,7 +59,7 @@ export default {
       )
         .then(() => {
           return services.deleteGoods({
-            ids: rows[index]._id
+            ids: rows[index].id
           });
         })
         .then(result => {
