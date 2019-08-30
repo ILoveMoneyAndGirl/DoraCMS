@@ -135,7 +135,7 @@ class HelloOperation {
 
                 let sendData={}
                 sendData.action="UpdateGoods"
-                sendData.id=req.id
+                sendData.id=fields.id
                 sendData.set=tagObj
 
                 PostData.PostDataByUrl(req.session.vpnServer,sendData,function(err,d)
