@@ -44,7 +44,11 @@ var PayRecordSchema = new Schema({
     },
     orderId:String,
     takeOff:{
-        type: Date,
+        type: Number,
+        default: 0
+    },
+    income:{
+        type: Number,
         default: 0
     },
 });
