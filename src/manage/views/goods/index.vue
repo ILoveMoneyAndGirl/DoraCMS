@@ -12,6 +12,8 @@
 </template>
 <script>
     import GoodsForm from './goodsForm'
+    import AddTime from './addTime'
+
     import DataTable from './dataTable.vue';
     import TopBar from '../common/TopBar.vue';
     import Pagination from '../common/Pagination.vue';
@@ -31,7 +33,8 @@
             DataTable,
             TopBar,
             GoodsForm,
-            Pagination
+            Pagination,
+            AddTime
         },
         methods: mapActions([
 
