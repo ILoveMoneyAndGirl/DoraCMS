@@ -424,7 +424,7 @@ class HelloOperation {
 
         
     }
-    async DeleteGoods(req, res, next) {
+    async DeleteHost(req, res, next) {
 
          try {
          

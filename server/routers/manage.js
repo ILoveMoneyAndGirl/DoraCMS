@@ -318,7 +318,7 @@ router.get('/goods/getList', authToken, authPower, HelloOperation.GetGoods);
 router.post('/goods/updateOne', authToken, authPower, HelloOperation.UpdateGoods);
 router.get('/goods/delete', authToken, authPower, HelloOperation.DeleteGoods);
 router.post('/goods/add', authToken, authPower, HelloOperation.AddGoods);
-// router.post('/time/add', authToken, authPower, HelloOperation.AddTime);
+router.post('/time/add', authToken, authPower, HelloOperation.AddTime);
 
 
 
