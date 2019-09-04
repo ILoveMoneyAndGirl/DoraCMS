@@ -227,6 +227,7 @@ class Soft {
 
                  if(item){
                     req.session.vpnServer="http://"+item.ip+":"+item.port+setting.vpnPath
+                    req.session.vpnRate=item.rate
                     res.send(siteFunc.renderApiData(req, res, 200, 'soft', {}, 'Select'))
                  }else
                      res.send(siteFunc.renderApiErr(req, res, 500, err, 'Select'));

@@ -318,6 +318,15 @@ router.get('/goods/getList', authToken, authPower, HelloOperation.GetGoods);
 router.post('/goods/updateOne', authToken, authPower, HelloOperation.UpdateGoods);
 router.get('/goods/delete', authToken, authPower, HelloOperation.DeleteGoods);
 router.post('/goods/add', authToken, authPower, HelloOperation.AddGoods);
+router.post('/time/add', authToken, authPower, HelloOperation.AddTime);
+
+
+
+
+router.get('/host/getList', authToken, authPower, HelloOperation.GetHost);
+router.post('/host/updateOne', authToken, authPower, HelloOperation.UpdateHost);
+router.get('/host/delete', authToken, authPower, HelloOperation.DeleteHost);
+router.post('/host/add', authToken, authPower, HelloOperation.AddHost);
 
 //支付管理
 

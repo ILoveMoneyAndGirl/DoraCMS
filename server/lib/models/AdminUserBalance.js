@@ -26,7 +26,7 @@ var AdminUserBalanceSchema = new Schema({
         type: String,
         ref: 'AdminUser'
     },
-    tryMinute: {    //试用时间
+    tryDay: {    //试用时间
         type: Number,
         default: settings.tryMinute
     },

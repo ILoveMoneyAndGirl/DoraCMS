@@ -346,6 +346,32 @@ export default {
         return reqJsonData('manage/goods/add', params)
     },
 
+    addTime(params) {
+        return reqJsonData('manage/time/add', params)
+    },
+
+    
+
+    hostList(params) {
+        return reqJsonData('manage/host/getList', params, 'get')
+    },
+
+    updateHost(params) {
+        return reqJsonData('manage/host/updateOne', params)
+    },
+
+    deleteHost(params) {
+        return reqJsonData('manage/host/delete', params, 'get')
+    },
+
+    addHost(params) {
+        return reqJsonData('manage/host/add', params)
+    },
+
+
+
+
+
 
     payUrlList(params) {
         return reqJsonData('manage/payUrl/getList', params, 'get')

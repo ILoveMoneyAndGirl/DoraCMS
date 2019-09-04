@@ -51,6 +51,12 @@
         </el-button>
       </div>
 
+        <div v-else-if="type === 'host'">
+        <el-button size="small" type="primary" plain round @click="addHost">
+          <i class="fa fa-fw fa-plus" aria-hidden="true"></i>
+        </el-button>
+      </div>
+
         <div v-else-if="type === 'qrcode'">
         <el-button size="small" type="primary" plain round @click="qrcode">
           <i class="fa fa-fw fa-plus" aria-hidden="true"></i>
@@ -589,7 +595,19 @@ export default {
 
     addGoods() {
 
-      this.$store.dispatch("showGoodsForm");
+      this.$store.dispatch("showGoodsForm",{
+        show:true,
+        edit: false,
+      });
+
+    },
+
+    addHost() {
+
+      this.$store.dispatch("showHostForm",{
+          show:true,
+          edit:false
+      });
 
     },
 

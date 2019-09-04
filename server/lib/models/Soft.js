@@ -6,6 +6,7 @@ var mongoose = require('mongoose');
 var shortid = require('shortid');
 var Schema = mongoose.Schema;
 var AdminUser = require('./AdminUser');
+const settings = require('../../../configs/settings');
 
 var SoftSchema = new Schema({
     _id: {
@@ -20,6 +21,11 @@ var SoftSchema = new Schema({
     adminUser: {
         type: String,
         ref: 'AdminUser'
+    },
+
+    rate:{
+         type: Number,
+         "default":settings.vpnRate,
     },
 });
 

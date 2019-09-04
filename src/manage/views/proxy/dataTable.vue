@@ -2,22 +2,29 @@
     <div>
         <el-table align="center" v-loading="loading" ref="multipleTable" :data="dataList" tooltip-effect="dark" style="width: 100%" @selection-change="handleSelectionChange">
 
-            <el-table-column prop="id" :label="$t('goods.id')">
+            <el-table-column prop="head" :label="$t('host.head')">
             </el-table-column>
-            <el-table-column prop="price" :label="$t('goods.price')">
+
+            <el-table-column prop="host" :label="$t('host.host')">
             </el-table-column>
-            <el-table-column prop="days" :label="$t('goods.days')">
+
+            <el-table-column prop="port" :label="$t('host.port')">
             </el-table-column>
-              <el-table-column prop="des" :label="$t('goods.des')">
+
+            <el-table-column prop="type" :label="$t('host.type')">
+            </el-table-column>
+
+            <el-table-column prop="name" :label="$t('host.name')">
+            </el-table-column>
+
+            <el-table-column prop="status" :label="$t('host.status')">
             </el-table-column>
          
             
             <el-table-column :label="$t('main.dataTableOptions')" width="150">
                 <template slot-scope="scope">
-                    <el-button size="mini" type="primary" plain round @click="editGoods(scope.$index, dataList)"><i class="fa fa-edit"></i></el-button>
-                      <el-button size="mini" type="warning" plain round @click="addTime(scope.$index, dataList)"><i class="fa fa-superpowers"></i></el-button>
-                    <el-button size="mini" type="danger" plain round icon="el-icon-delete" @click="deleteGoods(scope.$index, dataList)"></el-button>
-
+                    <el-button size="mini" type="primary" plain round @click="edit(scope.$index, dataList)"><i class="fa fa-edit"></i></el-button>
+                    <el-button size="mini" type="danger" plain round icon="el-icon-delete" @click="delete(scope.$index, dataList)"></el-button>
                 </template>
             </el-table-column>
         </el-table>
@@ -42,28 +49,15 @@ export default {
     handleSelectionChange(val) {
       this.multipleSelection = val;
     },
-    editGoods(index, rows) {
+    edit(index, rows) {
       let rowData = rows[index];
-      this.$store.dispatch("showGoodsForm", {
-        show:true,
+      this.$store.dispatch("showHostForm", {
         edit: true,
+        show: true,
         formData: rowData
       });
     },
-
-    addTime(index, rows) {
-      let rowData = rows[index];
-      this.$store.dispatch("showGoodsForm", {
-        show:false,
-        edit: false,
-        addTime: true,
-        goodsId:rowData.id,
-        formData: rowData
-      });
-    },
-
-    
-    deleteGoods(index, rows) {
+    delete(index, rows) {
       this.$confirm(
         this.$t("main.del_notice"),
         this.$t("main.scr_modal_title"),
@@ -74,13 +68,13 @@ export default {
         }
       )
         .then(() => {
-          return services.deleteGoods({
+          return services.deleteHost({
             ids: rows[index].id
           });
         })
         .then(result => {
           if (result.data.status === 200) {
-            this.$store.dispatch("getGoodsList", this.pageInfo);
+            this.$store.dispatch("getHostList", this.pageInfo);
             this.$message({
               message: this.$t("main.scr_modal_del_succes_info"),
               type: "success"

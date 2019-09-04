@@ -85,7 +85,8 @@ const getters = {
     PayRecordList: state => state.app.payRecord.payRecordList,
     PayRecordListFormState: state => state.app.payRecord.formState,
 
-
+    HostList: state => state.app.host.hostList,
+    HostListFormState: state => state.app.host.formState,
 
 
 

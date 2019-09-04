@@ -491,6 +491,9 @@ const app = {
       formState: {
         show: false,
         edit: false,
+        addTime:false,
+        goodsId:"",
+        userName:"",
         formData: {
           price: 0,
           days: 0,
@@ -624,6 +627,29 @@ const app = {
         docs: []
       },
       payRecord: {
+        state: '',
+        err: {}
+      }
+    },
+
+    host: {
+      formState: {
+        show: false,
+        edit: false,
+        formData: {
+          head: '',
+          host: '',
+          port:'',
+          type:0,
+          name:"",
+          status:""
+        }
+      },
+      hostList: {
+        pageInfo: {},
+        docs: []
+      },
+      host: {
         state: '',
         err: {}
       }
@@ -1124,6 +1150,26 @@ const app = {
       }, formState.formData);
 
     },
+
+
+    [types.HOST_LIST](state, list) {
+      state.host.hostList = list
+    },
+
+     [types.HOST_FORMSTATE](state, formState) {
+      state.host.formState.show = formState.show;
+      state.host.formState.edit = formState.edit;
+      state.host.formState.formData = Object.assign({
+          head: '',
+          host: '',
+          port:'',
+          type:0,
+          name:"",
+          status:""
+      }, formState.formData);
+
+    },
+
 
   },
   actions: {
@@ -1680,8 +1726,11 @@ const app = {
       formData: {}
     }) => {
       commit(types.GOODS_FORMSTATE, {
-        show: true,
+        show: params.show,
         edit: params.edit,
+        addTime:params.addTime,
+        userName:params.userName,
+        goodsId:params.goodsId
         formData: params.formData
       })
     },
@@ -1691,6 +1740,10 @@ const app = {
     }) => {
       commit(types.GOODS_FORMSTATE, {
         show: false
+        edit:false,
+        addTime:false,
+        goodId:"",
+        userName:"",
       })
     },
 
@@ -1701,8 +1754,7 @@ const app = {
                   console.log(result)
 
           let treeData = renderTreeData(result.data.data);
-          console.log("xxxxxxxx")
-          console.log(treeData)
+
           commit(types.PAYURL_LIST, treeData)
       })
     },
@@ -1821,6 +1873,29 @@ const app = {
     }) => {
       commit(types.PAYRECORD_FORMSTATE, {
         show: params.show,
+        formData: params.formData
+      })
+    },
+
+
+
+    getHostList({
+      commit
+    }, params = {}) {
+      services.hostList(params).then((result) => {
+         commit(types.HOST_LIST, result.data.data)
+      })
+    },
+
+    showHostForm: ({
+      commit
+    }, params = {
+      show: false,
+      formData: {}
+    }) => {
+      commit(types.HOST_FORMSTATE, {
+        show: params.show,
+        edit: params.edit,
         formData: params.formData
       })
     },

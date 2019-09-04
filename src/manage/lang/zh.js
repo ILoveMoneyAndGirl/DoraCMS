@@ -596,7 +596,8 @@ export default {
     days: '天数',
     payUrls: '支付二维码',
     des:'描述',
-    id:'编号'
+    id:'编号',
+    userName:"用户名"
   },
 
  payUrl: {
@@ -636,5 +637,14 @@ soft: {
     api:"调用地址",
     rate:"提成率",
   },
+
+  host:{
+    head:"协议",
+    host:"主机地址",
+    port:"端口",
+    type:"类型",
+    name:"别名",
+    status:"状态"
+  }
 
 }

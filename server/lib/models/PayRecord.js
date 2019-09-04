@@ -19,7 +19,7 @@ var PayRecordSchema = new Schema({
     state: {
         type: Number,
         default: 0
-    }, // 0待完成 1手动完成 2自动完成 
+    }, // 0待完成 1手动完成 2自动完成,3自充
     payProduct: {
         type: String,
         ref: 'PayProduct'
@@ -50,6 +50,13 @@ var PayRecordSchema = new Schema({
     income:{
         type: Number,
         default: 0
+    },
+    uId:String,
+    goodsName:String,
+    appToken:String,
+    channel: {
+        type: Number,
+        'default': 3
     },
 });
 
