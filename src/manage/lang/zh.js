@@ -198,7 +198,7 @@ export default {
     delete:"删除",
     update:"修改",
     select:"查询",
-    host:"节点"
+    host:"节点管理"
 
 
     
