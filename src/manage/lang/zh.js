@@ -192,6 +192,14 @@ export default {
     deleteGoods:"删除",
     addGoods:"添加",
     updateGoods:"修改",
+    addTime:"添加时间",
+
+    add:"增加",
+    delete:"删除",
+    update:"修改",
+    select:"查询",
+    host:"节点"
+
 
     
   },

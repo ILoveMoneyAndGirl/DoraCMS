@@ -1046,6 +1046,9 @@ const app = {
     [types.GOODS_FORMSTATE](state, formState) {
       state.goods.formState.show = formState.show;
       state.goods.formState.edit = formState.edit;
+      state.goods.formState.addTime=formState.addTime;
+      state.goods.formState.userName=formState.userName;
+      state.goods.formState.goodsId=formState.goodsId;
       state.goods.formState.formData = Object.assign({
         price: '',
         days: '',
