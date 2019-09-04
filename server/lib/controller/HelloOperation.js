@@ -447,12 +447,10 @@ class HelloOperation {
         form.parse(req, async (err, fields, files) => {
             try {
                     checkFormAddTime(req, res, fields);
-                    const tagObj = {
-                        goodsId: fields.goodsId,
-                        userName: fields.userName,
-                    }
+
                     let sendData={}
-                    sendData.newData=tagObj
+                    sendData.goodsId=fields.goodsId
+                     sendData.userName=fields.userName
                     sendData.action="addUserTime"
 
                     // let userInfo=await AdminUserBalance.findOne({adminUser:req.session.adminUserInfo._id})
