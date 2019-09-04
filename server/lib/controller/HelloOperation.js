@@ -442,73 +442,73 @@ class HelloOperation {
     }
 
 
-    async AddTime(req, res, next) {
-        const form = new formidable.IncomingForm();
-        form.parse(req, async (err, fields, files) => {
-            try {
-                    checkFormAddTime(req, res, fields);
-                    const tagObj = {
-                        goodsId: fields.goodsId,
-                        userName: fields.userName,
-                    }
-                    let sendData={}
-                    sendData.newData=tagObj
-                    sendData.action="addUserTime"
+    // async AddTime(req, res, next) {
+    //     const form = new formidable.IncomingForm();
+    //     form.parse(req, async (err, fields, files) => {
+    //         try {
+    //                 checkFormAddTime(req, res, fields);
+    //                 const tagObj = {
+    //                     goodsId: fields.goodsId,
+    //                     userName: fields.userName,
+    //                 }
+    //                 let sendData={}
+    //                 sendData.newData=tagObj
+    //                 sendData.action="addUserTime"
 
-                    let userInfo=await AdminUserBalance.findOne({adminUser:req.session.adminUserInfo._id})
+    //                 let userInfo=await AdminUserBalance.findOne({adminUser:req.session.adminUserInfo._id})
 
-                    if(userInfo.state==1)
-                    {
-                        let now=new Date()
-                        let deadLine=userInfo.createDate
-                        deadLine.setDate(deadLine.getDate()+userInfo.tryDay);
-                        if((now-deadLine)>0&&(userInfo.money<-userInfo.tryAmountMoney))
-                        {
-                            res.send(siteFunc.renderApiErr(req, res, 500, err, 'Add'));
-                            return 
-                        }
-                    }
+    //                 if(userInfo.state==1)
+    //                 {
+    //                     let now=new Date()
+    //                     let deadLine=userInfo.createDate
+    //                     deadLine.setDate(deadLine.getDate()+userInfo.tryDay);
+    //                     if((now-deadLine)>0&&(userInfo.money<-userInfo.tryAmountMoney))
+    //                     {
+    //                         res.send(siteFunc.renderApiErr(req, res, 500, err, 'Add'));
+    //                         return 
+    //                     }
+    //                 }
 
-                    PostData.PostDataByUrl(req.session.vpnServer,sendData,function(err,d)
-                    {
+    //                 PostData.PostDataByUrl(req.session.vpnServer,sendData,function(err,d)
+    //                 {
 
-                        if(err)
-                            res.send(siteFunc.renderApiErr(req, res, 500, err, 'Add'))
-                        else
-                        {
-                            let takeOff=d.price*req.session.vpnRate
-                            takeOff=parseFloat(takeOff).toFixed(3)
+    //                     if(err)
+    //                         res.send(siteFunc.renderApiErr(req, res, 500, err, 'Add'))
+    //                     else
+    //                     {
+    //                         let takeOff=d.price*req.session.vpnRate
+    //                         takeOff=parseFloat(takeOff).toFixed(3)
 
-                         //  await AdminUserBalance.findOneAndUpdate({adminUser:req.session.adminUserInfo._id},{"$inc":{"money":-takeOff}})
-                            const obj = {
-                                  state: 3,
-                                  payProduct:req.session.vpnServer,
-                                  payUrl: "",
-                                  adminUser: req.session.adminUserInfo._id,
-                                  callBackUrl:"",
-                                  orderId: "",
-                                  income:d.price,
-                                  takeOff:takeOff,
-                                  goodsName:fields.goodsId,
-                                  uId:fields.userName,
-                                  appToken:"",
-                              }
-                             const newObj = new PayRecord(obj)
-                             // let info= await newObj.save()
+    //                      //  await AdminUserBalance.findOneAndUpdate({adminUser:req.session.adminUserInfo._id},{"$inc":{"money":-takeOff}})
+    //                         const obj = {
+    //                               state: 3,
+    //                               payProduct:req.session.vpnServer,
+    //                               payUrl: "",
+    //                               adminUser: req.session.adminUserInfo._id,
+    //                               callBackUrl:"",
+    //                               orderId: "",
+    //                               income:d.price,
+    //                               takeOff:takeOff,
+    //                               goodsName:fields.goodsId,
+    //                               uId:fields.userName,
+    //                               appToken:"",
+    //                           }
+    //                          const newObj = new PayRecord(obj)
+    //                          // let info= await newObj.save()
 
-                             res.send(siteFunc.renderApiData(req, res, 200, 'addTime', {
-                                id: "info._id"
-                                }, 'Add'))
-                         }
+    //                          res.send(siteFunc.renderApiData(req, res, 200, 'addTime', {
+    //                             id: "info._id"
+    //                             }, 'Add'))
+    //                      }
 
-                    })
+    //                 })
 
-                } catch (err) {
+    //             } catch (err) {
 
-                    res.send(siteFunc.renderApiErr(req, res, 500, err, 'Add'));
-                }
-        })
-    }
+    //                 res.send(siteFunc.renderApiErr(req, res, 500, err, 'Add'));
+    //             }
+    //     })
+    // }
 
     async GetSetting(req, res, next) {
 
