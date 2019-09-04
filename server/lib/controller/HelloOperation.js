@@ -455,22 +455,29 @@ class HelloOperation {
                     sendData.newData=tagObj
                     sendData.action="addUserTime"
 
-                    let userInfo=await AdminUserBalance.findOne({adminUser:req.session.adminUserInfo._id})
+                    // let userInfo=await AdminUserBalance.findOne({adminUser:req.session.adminUserInfo._id})
 
-                    console.log("______________")
-                                        console.log(userInfo)
+                    // console.log("______________")
+                    //                     console.log(userInfo)
 
-                    if(userInfo.state==1)
-                    {
-                        let now=new Date()
-                        let deadLine=userInfo.createDate
-                        deadLine.setDate(deadLine.getDate()+userInfo.tryDay);
-                        if((now-deadLine)>0&&(userInfo.money<-userInfo.tryAmountMoney))
-                        {
-                            res.send(siteFunc.renderApiErr(req, res, 500, err, 'Add'));
-                            return 
-                        }
-                    }
+                    // if(!userInfo)
+                    // {
+                    //     res.send(siteFunc.renderApiErr(req, res, 500, err, 'Add'));
+                    //       return 
+                    // }
+
+
+                    // if(userInfo.state==1)
+                    // {
+                    //     let now=new Date()
+                    //     let deadLine=userInfo.createDate
+                    //     deadLine.setDate(deadLine.getDate()+userInfo.tryDay);
+                    //     if((now-deadLine)>0&&(userInfo.money<-userInfo.tryAmountMoney))
+                    //     {
+                    //         res.send(siteFunc.renderApiErr(req, res, 500, err, 'Add'));
+                    //         return 
+                    //     }
+                    // }
 
                     PostData.PostDataByUrl(req.session.vpnServer,sendData,async function(err,d)
                     {
