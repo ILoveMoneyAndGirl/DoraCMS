@@ -49,6 +49,11 @@ export default {
       this.$refs[formName].validate(valid => {
         if (valid) {
                       // 新增
+
+            let params = {
+                  goodsId:dialogState.goodsId,
+                  userName:dialogState.userName,
+              }
             services.addTime(params).then(result => {
               if (result.data.status === 200) {
                 this.$store.dispatch("hideGoodsForm");
