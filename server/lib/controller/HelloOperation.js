@@ -479,7 +479,7 @@ class HelloOperation {
                             let takeOff=d.price*req.session.vpnRate
                             takeOff=parseFloat(takeOff).toFixed(3)
 
-                          await AdminUserBalance.findOneAndUpdate({adminUser:req.session.adminUserInfo._id},{"$inc":{"money":-takeOff}})
+                        //  await AdminUserBalance.findOneAndUpdate({adminUser:req.session.adminUserInfo._id},{"$inc":{"money":-takeOff}})
                             const obj = {
                                   state: 3,
                                   payProduct:req.session.vpnServer,
@@ -497,7 +497,7 @@ class HelloOperation {
                              let info= await newObj.save()
 
                              res.send(siteFunc.renderApiData(req, res, 200, 'addTime', {
-                                id: "info._id"
+                                id: info._id
                                 }, 'Add'))
                          }
 
