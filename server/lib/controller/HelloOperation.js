@@ -445,68 +445,68 @@ class HelloOperation {
     async AddTime(req, res, next) {
         const form = new formidable.IncomingForm();
         form.parse(req, async (err, fields, files) => {
-        try {
-                checkFormAddTime(req, res, fields);
-                const tagObj = {
-                    goodsId: fields.goodsId,
-                    userName: fields.userName,
-                }
-                let sendData={}
-                sendData.newData=tagObj
-                sendData.action="addUserTime"
-
-                let userInfo=await AdminUserBalance.findOne({adminUser:req.session.adminUserInfo._id})
-
-                if(userInfo.state==1)
-                {
-                    let now=new Date()
-                    let deadLine=userInfo.createDate
-                    deadLine.setDate(deadLine.getDate()+userInfo.tryDay);
-                    if((now-deadLine)>0&&(userInfo.money<-userInfo.tryAmountMoney))
-                    {
-                        res.send(siteFunc.renderApiErr(req, res, 500, err, 'Add'));
-                        return 
+            try {
+                    checkFormAddTime(req, res, fields);
+                    const tagObj = {
+                        goodsId: fields.goodsId,
+                        userName: fields.userName,
                     }
-                }
+                    let sendData={}
+                    sendData.newData=tagObj
+                    sendData.action="addUserTime"
 
-                PostData.PostDataByUrl(req.session.vpnServer,sendData,function(err,d)
-                {
+                    let userInfo=await AdminUserBalance.findOne({adminUser:req.session.adminUserInfo._id})
 
-                    if(err)
-                        res.send(siteFunc.renderApiErr(req, res, 500, err, 'Add'))
-                    else
+                    if(userInfo.state==1)
                     {
-                        let takeOff=d.price*req.session.vpnRate
-                        takeOff=parseFloat(takeOff).toFixed(3)
+                        let now=new Date()
+                        let deadLine=userInfo.createDate
+                        deadLine.setDate(deadLine.getDate()+userInfo.tryDay);
+                        if((now-deadLine)>0&&(userInfo.money<-userInfo.tryAmountMoney))
+                        {
+                            res.send(siteFunc.renderApiErr(req, res, 500, err, 'Add'));
+                            return 
+                        }
+                    }
 
-                       await AdminUserBalance.findOneAndUpdate({adminUser:req.session.adminUserInfo._id},{$inc:{money:-takeOff}})
-                        const obj = {
-                              state: 3,
-                              payProduct:req.session.vpnServer,
-                              payUrl: "",
-                              adminUser: req.session.adminUserInfo._id,
-                              callBackUrl:"",
-                              orderId: "",
-                              income:d.price,
-                              takeOff:takeOff,
-                              goodsName:fields.goodsId,
-                              uId:fields.userName,
-                              appToken:"",
-                          }
-                         const newObj = new PayRecord(obj)
-                         let info= await newObj.save()
+                    PostData.PostDataByUrl(req.session.vpnServer,sendData,function(err,d)
+                    {
 
-                         res.send(siteFunc.renderApiData(req, res, 200, 'addTime', {
-                            id: info._id
-                            }, 'Add'))
-                     }
+                        if(err)
+                            res.send(siteFunc.renderApiErr(req, res, 500, err, 'Add'))
+                        else
+                        {
+                            let takeOff=d.price*req.session.vpnRate
+                            takeOff=parseFloat(takeOff).toFixed(3)
 
-                })
+                           await AdminUserBalance.findOneAndUpdate({adminUser:req.session.adminUserInfo._id},{"$inc":{"money":-takeOff}})
+                            const obj = {
+                                  state: 3,
+                                  payProduct:req.session.vpnServer,
+                                  payUrl: "",
+                                  adminUser: req.session.adminUserInfo._id,
+                                  callBackUrl:"",
+                                  orderId: "",
+                                  income:d.price,
+                                  takeOff:takeOff,
+                                  goodsName:fields.goodsId,
+                                  uId:fields.userName,
+                                  appToken:"",
+                              }
+                             const newObj = new PayRecord(obj)
+                             let info= await newObj.save()
 
-            } catch (err) {
+                             res.send(siteFunc.renderApiData(req, res, 200, 'addTime', {
+                                id: info._id
+                                }, 'Add'))
+                         }
 
-                res.send(siteFunc.renderApiErr(req, res, 500, err, 'Add'));
-            }
+                    })
+
+                } catch (err) {
+
+                    res.send(siteFunc.renderApiErr(req, res, 500, err, 'Add'));
+                }
         })
     }
 
