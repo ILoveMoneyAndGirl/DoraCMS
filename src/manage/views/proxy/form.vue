@@ -72,7 +72,7 @@ export default {
             message: this.$t("validate.rangelength", { min: 1, max: 12 }),
             trigger: "blur"
           }
-        ]
+        ],
           port: [
           {
             required: true,
