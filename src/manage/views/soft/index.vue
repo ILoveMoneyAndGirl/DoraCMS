@@ -14,8 +14,8 @@
     </div>
 </template>
 <script>
-    import Form from './form'
-    import ArgForm from './argForm'
+    import Form from './form.vue'
+    import ArgForm from './argForm.vue'
 
 
     import DataTable from './dataTable.vue';

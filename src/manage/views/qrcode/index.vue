@@ -13,8 +13,8 @@
     </div>
 </template>
 <script>
-import Form from "./form";
-import Tree from "./tree";
+import Form from "./form.vue";
+import Tree from "./tree.vue";
 import TopBar from "../common/TopBar.vue";
 import BackToTop from "@/components/BackToTop";
 import { mapGetters, mapActions } from "vuex";

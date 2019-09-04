@@ -11,8 +11,8 @@
     </div>
 </template>
 <script>
-    import GoodsForm from './goodsForm'
-    import AddTime from './addTime'
+    import GoodsForm from './goodsForm.vue'
+    import AddTime from './addTime.vue'
 
     import DataTable from './dataTable.vue';
     import TopBar from '../common/TopBar.vue';
