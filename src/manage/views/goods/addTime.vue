@@ -2,11 +2,11 @@
     <div class="dr-addTimeForm">
         <el-dialog :xs="20" :sm="20" :md="6" :lg="6" :xl="6" size="small" :title="$t('goods.userName')" :visible.sync="dialogState.addTime" :close-on-click-modal="false">
             <el-form :model="dialogState.formData" :rules="rules" ref="ruleForm" label-width="120px" class="demo-ruleForm">
-                <el-form-item :label="$t('goods.userName')" prop="userName">
+                <el-form-item :label="$t('goods.userName')" >
                     <el-input size="small" v-model="dialogState.userName"></el-input>
                 </el-form-item>
                 <el-form-item>
-                    <el-button size="medium" type="primary" @click="submitForm('ruleForm')">{$t('main.form_btnText_save')}</el-button>
+                    <el-button size="medium" type="primary" @click="submitForm('ruleForm')">{{$t('main.form_btnText_save')}}</el-button>
                 </el-form-item>
             </el-form>
         </el-dialog>
