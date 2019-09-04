@@ -496,9 +496,9 @@ class HelloOperation {
                              const newObj = new PayRecord(obj)
                              // let info= await newObj.save()
 
-                             // res.send(siteFunc.renderApiData(req, res, 200, 'addTime', {
-                             //    id: info._id
-                             //    }, 'Add'))
+                             res.send(siteFunc.renderApiData(req, res, 200, 'addTime', {
+                                id: "info._id"
+                                }, 'Add'))
                          }
 
                     })
