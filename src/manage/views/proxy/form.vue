@@ -21,6 +21,10 @@
                     <el-input size="small" v-model="dialogState.formData.type"></el-input>
                 </el-form-item>
 
+               <el-form-item :label="$t('host.status')" prop="status">
+                    <el-input size="small" v-model="dialogState.formData.status"></el-input>
+                </el-form-item>
+
                 <el-form-item :label="$t('host.name')" prop="name">
                     <el-input size="small" v-model="dialogState.formData.name"></el-input>
                 </el-form-item>
@@ -104,6 +108,23 @@ export default {
             trigger: "blur"
           }
         ],
+
+            status: [
+          {
+            required: true,
+            message: this.$t("validate.inputNull", {
+              label: this.$t("host.status")
+            }),
+            trigger: "blur"
+          },
+          {
+            min: 1,
+            max: 10,  
+            message: this.$t("validate.rangelength", { min: 1, max: 12 }),
+            trigger: "blur"
+          }
+        ],
+
           name: [
           {
             required: true,
