@@ -457,6 +457,9 @@ class HelloOperation {
 
                     let userInfo=await AdminUserBalance.findOne({adminUser:req.session.adminUserInfo._id})
 
+                    console.log("______________")
+                                        console.log(userInfo)
+
                     if(userInfo.state==1)
                     {
                         let now=new Date()
