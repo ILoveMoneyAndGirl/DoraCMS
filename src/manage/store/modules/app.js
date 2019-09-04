@@ -1730,7 +1730,7 @@ const app = {
         edit: params.edit,
         addTime:params.addTime,
         userName:params.userName,
-        goodsId:params.goodsId
+        goodsId:params.goodsId,
         formData: params.formData
       })
     },
