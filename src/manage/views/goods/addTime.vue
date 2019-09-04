@@ -51,8 +51,8 @@ export default {
                       // 新增
 
             let params = {
-                  goodsId:dialogState.goodsId,
-                  userName:dialogState.userName,
+                  goodsId:this.dialogState.goodsId,
+                  userName:this.dialogState.userName,
               }
             services.addTime(params).then(result => {
               if (result.data.status === 200) {
