@@ -6,7 +6,7 @@
                     <el-input size="small" v-model="dialogState.userName"></el-input>
                 </el-form-item>
                 <el-form-item>
-                    <el-button size="medium" type="primary" @click="submitForm('ruleForm')">{$t('main.form_btnText_save')}}</el-button>
+                    <el-button size="medium" type="primary" @click="submitForm('ruleForm')">{$t('main.form_btnText_save')}</el-button>
                 </el-form-item>
             </el-form>
         </el-dialog>
@@ -27,7 +27,7 @@ export default {
           {
             required: true,
             message: this.$t("validate.inputNull", {
-              label: this.$t("goods.price")
+              label: this.$t("goods.userName")
             }),
             trigger: "blur"
           },
