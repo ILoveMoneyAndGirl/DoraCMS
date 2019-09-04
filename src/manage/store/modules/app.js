@@ -1739,7 +1739,7 @@ const app = {
       commit
     }) => {
       commit(types.GOODS_FORMSTATE, {
-        show: false
+        show: false,
         edit:false,
         addTime:false,
         goodId:"",
