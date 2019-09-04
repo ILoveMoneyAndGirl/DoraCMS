@@ -155,7 +155,7 @@ export default {
           if (this.dialogState.edit) {
             services.updateHost(params).then(result => {
               if (result.data.status === 200) {
-                this.$store.dispatch("hideHostForm",{
+                this.$store.dispatch("showHostForm",{
                     show:false,
                     edit:false,
                 });
@@ -172,7 +172,7 @@ export default {
             // 新增
             services.addHost(params).then(result => {
               if (result.data.status === 200) {
-              this.$store.dispatch("hideHostForm",{
+              this.$store.dispatch("showHostForm",{
                     show:false,
                     edit:false,
                 });                
