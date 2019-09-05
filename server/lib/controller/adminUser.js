@@ -10,7 +10,6 @@ const MessageModel = require("../models").Message;
 const AdminUserBalanceModel = require("../models").AdminUserBalance;
 
 
-
 const formidable = require('formidable');
 const shortid = require('shortid');
 const validator = require('validator')

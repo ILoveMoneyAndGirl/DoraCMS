@@ -5,6 +5,7 @@
 
 module.exports = {
 
+    defaultAdminGroup:"",
     vpnPath:"/setting",
     //-------
     tryAmountMoney:100,//试用时间

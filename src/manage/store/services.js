@@ -412,6 +412,20 @@ export default {
 
 
 
+    adminUserBalanceList(params) {
+        return reqJsonData('manage/adminUserBalance/getList', params, 'get')
+    },
+
+    updateAdminUserBalance(params) {
+        return reqJsonData('manage/adminUserBalance/updateOne', params)
+    },
+
+    deleteAdminUserBalance(params) {
+        return reqJsonData('manage/adminUserBalance/delete', params, 'get')
+    },
+
+
+
     getSoftArg(params) {
         return reqJsonData('manage/softArg/get', params,'get')
     },

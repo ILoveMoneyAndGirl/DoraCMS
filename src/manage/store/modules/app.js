@@ -563,6 +563,31 @@ const app = {
       }
     },
 
+
+    adminUserBalance: {
+      formState: {
+        show: false,
+        edit: false,
+        formData: {
+          _id:'',
+          money: '',
+          createDate: '',
+          userName: '',
+          tryDay: 0,
+          tryAmountMoney:0,
+          state:0
+        }
+      },
+      adminUserBalanceList: {
+        pageInfo: {},
+        docs: []
+      },
+      adminUserBalance: {
+        state: '',
+        err: {}
+      }
+    },
+
     softArg: {
       formState: {
         show: false,
@@ -1103,6 +1128,26 @@ const app = {
       }, formState.formData);
 
     },
+
+    [types.ADMINUSERBALANCE_LIST](state, list) {
+      state.adminUserBalance.adminUserBalanceList = list
+    },
+
+    [types.ADMINUSERBALANCE_FORMSTATE](state, formState) {
+      state.adminUserBalance.formState.show = formState.show;
+      state.adminUserBalance.formState.edit = formState.edit;
+      state.adminUserBalance.formState.formData = Object.assign({
+        _id: '',
+        money: '',
+        createDate: '',
+        userName: '',
+        tryDay:0,
+        tryAmountMoney:0,
+        state:0,
+      }, formState.formData);
+
+    },
+
 
     [types.SOFTARG](state, formState) {
       state.softArg.formState.show = formState.show;
@@ -1813,6 +1858,29 @@ const app = {
         show: false
       })
     },
+
+
+    getAdminUserBalanceList({
+      commit
+    }, params = {}) {
+      services.softList(params).then((result) => {
+        commit(types.ADMINUSERBALANCE_LIST, result.data.data)
+      })
+    },
+
+    showAdminUserBalanceForm: ({
+      commit
+    }, params = {
+      edit: false,
+      formData: {}
+    }) => {
+      commit(types.ADMINUSERBALANCE_FORMSTATE, {
+        show: params.show,
+        edit: params.edit,
+        formData: params.formData
+      })
+    },
+
 
 //
     getSoftArg({

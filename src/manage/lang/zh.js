@@ -198,9 +198,9 @@ export default {
     delete:"删除",
     update:"修改",
     select:"查询",
-    host:"节点管理"
+    host:"节点管理",
 
-
+    AdminUserBalance:"支付产品用户管理"
     
   },
   navbar: {
@@ -653,6 +653,14 @@ soft: {
     type:"类型",
     name:"别名",
     status:"状态"
+  },
+  adminUserBalance{
+      money: '余额',
+      createDate: '创建时间',
+      userName: '用户名',
+      tryDay: "试用天数",
+      tryAmountMoney:"试用流水",
+      state:"状态"
   }
 
 }
