@@ -654,7 +654,7 @@ soft: {
     name:"别名",
     status:"状态"
   },
-  adminUserBalance{
+  adminUserBalance:{
       money: '余额',
       createDate: '创建时间',
       userName: '用户名',
