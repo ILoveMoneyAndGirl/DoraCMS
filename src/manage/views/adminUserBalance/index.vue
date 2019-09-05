@@ -49,6 +49,7 @@
             this.$store.dispatch('getAdminUserBalanceList');
         }
     }
+    }
 </script>
 
 <style lang="">
