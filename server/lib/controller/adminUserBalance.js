@@ -61,7 +61,7 @@ function getCacheValueByKey(key) {
     })
 }
 
-class Soft {
+class AdminUserBalance {
     constructor() {
         // super()
     }
@@ -184,9 +184,6 @@ class Soft {
     }
 
 
-
-
-    
 }
 
 module.exports = new AdminUserBalance();
