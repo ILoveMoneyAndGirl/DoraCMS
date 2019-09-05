@@ -89,7 +89,8 @@ const getters = {
     HostListFormState: state => state.app.host.formState,
 
 
-
+    AdminUserBalanceList: state => state.app.adminUserBalance.adminUserBalanceList,
+    AdminUserBalanceListFormState: state => state.app.adminUserBalance.formState,
 
   
   //StoreGetterEnd
