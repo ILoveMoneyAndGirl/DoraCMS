@@ -55,7 +55,7 @@ export default {
         }, {
           value: 1,
           label: '普通会员'
-        },
+        },{
           value: 3,
           label: '冻结'
           },
