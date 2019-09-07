@@ -1,7 +1,7 @@
 #重启
 cd /root/
 
-/usr/local/mongodb/bin/mongorestore  -h 127.0.0.1:27017 -d WebBackUserDB --drop /root/DoraCMS/baseData
+# /usr/local/mongodb/bin/mongorestore  -h 127.0.0.1:27017 -d WebBackUserDB --drop /root/DoraCMS/baseData
 
 /usr/local/mongodb/bin/mongod -shutdown  -dbpath=/usr/local/mongodb/data
 

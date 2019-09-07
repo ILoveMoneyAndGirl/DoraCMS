@@ -15,3 +15,4 @@ sudo apt-get install libcurl4-openssl-dev
 
 /usr/local/mongodb/bin/mongod -dbpath=/usr/local/mongodb/data -logpath=/usr/local/mongodb/log/mongodb.log -fork
 
+/usr/local/mongodb/bin/mongorestore -h 127.0.0.1:27017 -d WebBackUserDB --drop /root/initDBData/baseData

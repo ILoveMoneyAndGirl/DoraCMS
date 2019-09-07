@@ -34,9 +34,9 @@ module.exports = {
 // # db.createUser( { user: "RootUser", pwd: "WebBackUserDB_Root.c.c", roles: [ { role: "readWrite", db: "WebBackUserDB" }, ] } )
 
     //    数据库配置
-    URL: 'mongodb://127.0.0.1:27017/doracms2',
+    URL: 'mongodb://139.162.40.184:27017/doracms2',
     DB: 'WebBackUserDB',
-    HOST: '127.0.0.1',
+    HOST: '139.162.40.184',
     PORT: 27017,
     USERNAME: 'RootUser',
     PASSWORD: 'WebBackUserDB_Root.c.c',

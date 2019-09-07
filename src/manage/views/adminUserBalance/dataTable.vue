@@ -22,10 +22,6 @@
             </el-table-column>
 
             <el-table-column prop="state" :label="$t('adminUserBalance.state')">
-            </el-table-column>
-
-
-            <el-table-column prop="state" :label="$t('adminUserBalance.state')">
              <template slot-scope="scope">{{scope.row.state === 0?'永久免费':(scope.row.channel ===1?'普通会员':'冻结')}}</template>
             </el-table-column>
 
