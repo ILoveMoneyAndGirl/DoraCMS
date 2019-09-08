@@ -16,6 +16,9 @@ const PostData=require('../tool/postData')
 const AdminUserBalance = require("../models").AdminUserBalance;
 const PayRecord = require("../models").PayRecord;
 
+var urlencode = require('urlencode');
+
+
 function checkFormData(req, res, fields) {
     let errMsg = '';
 
@@ -542,9 +545,9 @@ class HelloOperation {
         
     }
     async UpdateSetting(req, res, next) {
-            console.log("SetSettingSetSetting.....",req.session.vpnServer,req.config)
+            console.log("SetSettingSetSetting.....",req.session.vpnServer,urlencode(req.config))
          try {
-                PostData.PostDataByUrl(req.session.vpnServer,{action:"setSysArg",config:req.config},function(err,d)
+                PostData.PostDataByUrl(req.session.vpnServer,{action:"setSysArg",config:urlencode(req.config)},function(err,d)
                 {
                     if(err)
                           res.send(siteFunc.renderApiErr(req, res, 500, err, 'setArg'))
