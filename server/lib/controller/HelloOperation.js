@@ -545,12 +545,12 @@ class HelloOperation {
         
     }
     async UpdateSetting(req, res, next) {
-                    console.log(req.config)
+                    console.log(req.query.config)
 
-            console.log("SetSettingSetSetting.....",req.session.vpnServer,urlencode.decode(req.config))
-            console.log(decodeURI(req.config))
+            console.log("SetSettingSetSetting.....",req.session.vpnServer,urlencode.decode(req.query.config))
+            console.log(decodeURI(req.query.config))
          try {
-                PostData.PostDataByUrl(req.session.vpnServer,{action:"setSysArg",config:urlencode.decode(req.config)},function(err,d)
+                PostData.PostDataByUrl(req.session.vpnServer,{action:"setSysArg",config:urlencode.decode(req.query.config)},function(err,d)
                 {
                     if(err)
                           res.send(siteFunc.renderApiErr(req, res, 500, err, 'setArg'))
