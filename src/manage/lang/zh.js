@@ -633,6 +633,7 @@ soft: {
     port: '端口',
     comments: '描述',
     type:'类型',
+    config:"配置",
   },
 
    payProduct: {

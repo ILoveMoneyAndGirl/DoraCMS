@@ -342,6 +342,10 @@ router.get('/soft/delete', authToken, authPower, Soft.Delete);
 router.post('/soft/add', authToken, authPower, Soft.Add);
 router.post('/soft/select', authToken, authPower, Soft.Select);
 
+router.get('/soft/setArg', authToken, authPower, Soft.GetSetting);
+router.get('/soft/getArg', authToken, authPower, Soft.UpdateSetting);
+
+
 
 router.get('/adminUserBalance/getList', authToken, authPower, AdminUserBalance.GetList);
 router.post('/adminUserBalance/updateOne', authToken, authPower, AdminUserBalance.Update);

@@ -560,7 +560,11 @@ const app = {
       soft: {
         state: '',
         err: {}
-      }
+      },
+      setting:{
+        show:false,
+        config:"",
+      },
     },
 
 
@@ -1128,6 +1132,15 @@ const app = {
       }, formState.formData);
 
     },
+
+    [types.SOFT_SETTING](state, formState) {
+      state.soft.setting.show = formState.show;
+      state.soft.setting.config = formState.config;
+    },
+
+
+
+
 
     [types.ADMINUSERBALANCE_LIST](state, list) {
       state.adminUserBalance.adminUserBalanceList = list
@@ -1857,6 +1870,20 @@ const app = {
       commit(types.SOFT_FORMSTATE, {
         show: false
       })
+    },
+
+    showSoftSettingForm: ({
+      commit
+    }) => {
+      services.softGetArg().then((result) => {
+          commit(types.SOFT_SETTING,{show:true,config:result.data.data})
+      })
+    },
+
+    hideSoftSettingForm: ({
+      commit
+    }) => {
+      commit(types.SOFT_SETTING,{show:false,config:""})
     },
 
 

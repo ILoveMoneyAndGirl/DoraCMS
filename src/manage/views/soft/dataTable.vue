@@ -25,6 +25,7 @@
                     <el-button size="mini" type="primary" plain round @click="edit(scope.$index, dataList)"><i class="fa fa-edit"></i></el-button>
                     <el-button size="mini" type="warning" plain round @click="select(scope.$index, dataList)"><i class="fa fa-superpowers"></i></el-button>
                     <el-button size="mini" type="danger" plain round icon="el-icon-delete" @click="deleteOne(scope.$index, dataList)"></el-button>
+                    <el-button size="mini" type="warning" plain round @click="setting(scope.$index, dataList)"><i class="fa fa-superpowers"></i></el-button>
                 </template>
             </el-table-column>
             
@@ -78,6 +79,11 @@ export default {
             }
           });
 
+    },
+    
+    setting(index, rows)
+    {
+        this.$store.dispatch("showSoftSettingForm");
     },
 
     deleteOne(index, rows) {

@@ -2,6 +2,7 @@
     <div class="adminUser">
         <Form :dialogState="formState"></Form>
         <ArgForm :dialogState="softArgFormState"></ArgForm>
+        <SetForm :dialogState="setState"></SetForm>
 
 
         <el-row class="dr-datatable">
@@ -16,6 +17,7 @@
 <script>
     import Form from './form.vue'
     import ArgForm from './argForm.vue'
+    import SetForm from './setForm.vue'
 
 
     import DataTable from './dataTable.vue';
@@ -39,6 +41,7 @@
             Form,
             Pagination,
             ArgForm,
+            SetForm,
         },
         methods: mapActions([
 
@@ -52,6 +55,9 @@
             },
             softArgFormState() {
                 return this.$store.getters.SoftArgFormState
+            },
+            setState() {
+                return this.$store.getters.SoftSetting
             }
         },
         mounted() {

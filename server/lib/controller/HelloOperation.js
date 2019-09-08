@@ -520,59 +520,45 @@ class HelloOperation {
 
     async GetSetting(req, res, next) {
 
-        console.log("GetSettingGetSetting.....",req.query.softId)
+        console.log("GetSettingGetSetting.....")
 
          try {
-                const totalItems = await ContentTagModel.count();
-                let tagsData = {
-                    name: "test1",
-                    port: 8888,
-                    comments:"test1_comments",
-                    type:0,
-                    ip:"123.123.123.11"
-                };
-                 res.send(siteFunc.renderApiData(req, res, 200, 'softArg', tagsData));
+                PostData.PostDataByUrl(req.session.vpnServer,{action:"getSysArg"},function(err,d)
+                {
+                    if(err)
+                          res.send(siteFunc.renderApiErr(req, res, 500, err, 'getArg'))
+                    else
+                        res.send(siteFunc.renderApiData(req, res, 200, 'getArg', {
+                                config: d
+                                }, 'Add'))
+                }
 
              } catch (err) {
 
-                res.send(siteFunc.renderApiErr(req, res, 500, err, 'softArg'))
+                res.send(siteFunc.renderApiErr(req, res, 500, err, 'getArg'))
 
             }
 
         
     }
     async UpdateSetting(req, res, next) {
+            console.log("SetSettingSetSetting.....")
+         try {
+                PostData.PostDataByUrl(req.session.vpnServer,{action:"setSysArg",config:req.config},function(err,d)
+                {
+                    if(err)
+                          res.send(siteFunc.renderApiErr(req, res, 500, err, 'setArg'))
+                    else
+                        res.send(siteFunc.renderApiData(req, res, 200, 'setArg', {
+                                config: d
+                                }, 'Add'))
+                }
 
-        const form = new formidable.IncomingForm();
-        form.parse(req, async (err, fields, files) => {
-            try {
-                checkFormData(req, res, fields);
-            } catch (err) {
-                console.log(err.message, err);
-                res.send(siteFunc.renderApiErr(req, res, 500, err, 'checkform'));
+             } catch (err) {
+
+                res.send(siteFunc.renderApiErr(req, res, 500, err, 'setArg'))
+
             }
-
-            // const userObj = {
-            //     name: fields.name,
-            //     alias: fields.alias,
-            //     comments: fields.comments
-            // }
-            // const item_id = fields._id;
-             const totalItems = await ContentTagModel.count();
-             
-            try {
-                // await ContentTagModel.findOneAndUpdate({
-                //     _id: item_id
-                // }, {
-                //     $set: userObj
-                // });
-                res.send(siteFunc.renderApiData(req, res, 200, 'softArg', {}, 'update'))
-
-            } catch (err) {
-
-                res.send(siteFunc.renderApiErr(req, res, 500, err, 'update'));
-            }
-        })
         
     }
 

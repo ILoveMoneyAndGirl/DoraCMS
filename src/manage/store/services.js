@@ -410,6 +410,15 @@ export default {
         return reqJsonData('manage/soft/select', params)
     },
 
+    softSetArg(params) {
+        return reqJsonData('manage/soft/setArg', params,'get')
+    },
+
+    softGetArg(params) {
+        return reqJsonData('manage/soft/getArg', params,'get')
+    },
+
+
 
 
     adminUserBalanceList(params) {
