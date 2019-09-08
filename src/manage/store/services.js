@@ -411,7 +411,6 @@ export default {
     },
 
     softSetArg(params) {
-        console.log("softSetArg------------>",params)
         return reqJsonData('manage/soft/setArg', params,'get')
     },
 
