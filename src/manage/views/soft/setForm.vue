@@ -35,24 +35,17 @@ export default {
       this.$store.dispatch("hideSoftSettingForm");
     },
     submitForm(formName) {
-      this.$refs[formName].validate(valid => {
-        if (valid) {
-          services.softSetArg({config:this.dialogState.config}).then(result => {
-              if (result.data.status === 200) {
-                this.$store.dispatch("hideSoftSettingForm");
-                this.$message({
-                  message: this.$t("main.addSuccess"),
-                  type: "success"
-                });
-              } else {
-                this.$message.error(result.data.message);
-              }
+      services.softSetArg({config:this.dialogState.config}).then(result => {
+          if (result.data.status === 200) {
+            this.$store.dispatch("hideSoftSettingForm");
+            this.$message({
+              message: this.$t("main.addSuccess"),
+              type: "success"
             });
-        } else {
-          console.log("error submit!!");
-          return false;
-        }
-      });
+          } else {
+            this.$message.error(result.data.message);
+          }
+        });
     },
   }
 };
