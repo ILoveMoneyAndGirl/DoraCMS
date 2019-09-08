@@ -42,7 +42,7 @@
             formState() {
                 return this.$store.getters.AdminUserBalanceListFormState
             },
-        }
+        },
     
         mounted() {
             this.$store.dispatch('getAdminUserBalanceList');
