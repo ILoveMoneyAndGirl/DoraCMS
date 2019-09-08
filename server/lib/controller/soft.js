@@ -86,15 +86,16 @@ class Soft {
                 pageSize = 100;
             }
 
-            if (searchkey) {
-                let reKey = new RegExp(searchkey, 'i')
-                queryObj.name = {
-                    $regex: reKey
-                }
+            // if (searchkey) {
+            //     let reKey = new RegExp(searchkey, 'i')
+            //     queryObj.name = {
+            //         $regex: reKey
+            //     }
                 
-            }
+            // }
 
             queryObj.adminUser=req.session.adminUserInfo._id
+            console.log("??????_>",req.session.adminUserInfo._id)
 
             let data = await SoftModel.find(queryObj).sort({
                 price: -1
