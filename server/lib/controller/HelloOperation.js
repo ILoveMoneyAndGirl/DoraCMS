@@ -550,7 +550,7 @@ class HelloOperation {
                           res.send(siteFunc.renderApiErr(req, res, 500, err, 'setArg'))
                     else
                         res.send(siteFunc.renderApiData(req, res, 200, 'setArg', {
-                                config: d
+                                config: JSON.stringify(d)
                                 }, 'Add'))
                 })
 
