@@ -62,9 +62,10 @@ class PayProduct {
                 queryObj.name = {
                     $regex: reKey
                 }
-                queryObj.adminUser=req.session.adminUserInfo._id
                 
             }
+
+            queryObj.adminUser=req.session.adminUserInfo._id
 
             let data = await PayProductModel.find(queryObj).sort({
                 price: -1
@@ -91,16 +92,11 @@ class PayProduct {
 
                     res.send(siteFunc.renderApiData(req, res, 200, 'PayProduct', data));
                 } else {
-
-                    console.log("rendeData------------")
-                     console.log(rendeData)
                     res.send(rendeData);
                 }
 
             }
         } catch (err) {
-
-
             res.send(siteFunc.renderApiErr(req, res, 500, err, 'getlist'))
 
         }

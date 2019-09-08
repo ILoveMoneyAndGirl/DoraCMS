@@ -520,7 +520,7 @@ class HelloOperation {
 
     async GetSetting(req, res, next) {
 
-        console.log("GetSettingGetSetting.....")
+        console.log("GetSettingGetSetting.....",req.session.vpnServer)
 
          try {
                 PostData.PostDataByUrl(req.session.vpnServer,{action:"getSysArg"},function(err,d)
@@ -542,7 +542,7 @@ class HelloOperation {
         
     }
     async UpdateSetting(req, res, next) {
-            console.log("SetSettingSetSetting.....")
+            console.log("SetSettingSetSetting.....",req.session.vpnServer,req.config)
          try {
                 PostData.PostDataByUrl(req.session.vpnServer,{action:"setSysArg",config:req.config},function(err,d)
                 {
