@@ -1554,8 +1554,6 @@ const app = {
       services.contentTagList(params).then((result) => {
         commit(types.CONTENTTAG_LIST, result.data.data)
 
-                console.log("??????getContentTagList????",result);
-                console.log(result)
       })
     },
     showContentMessageForm: ({
@@ -1812,7 +1810,6 @@ const app = {
       commit
     }, params = {}) {
       services.payUrlList(params).then((result) => {
-                  console.log(result)
 
           let treeData = renderTreeData(result.data.data);
 
@@ -1876,7 +1873,6 @@ const app = {
       commit
     }) => {
       services.softGetArg().then((result) => {
-        console.log(result)
           commit(types.SOFT_SETTING,{show:true,config:result.data.data.config})
       })
     },
@@ -1891,7 +1887,8 @@ const app = {
     getAdminUserBalanceList({
       commit
     }, params = {}) {
-      services.softList(params).then((result) => {
+      services.adminUserBalanceList(params).then((result) => {
+        console.log(result)
         commit(types.ADMINUSERBALANCE_LIST, result.data.data)
       })
     },
@@ -1915,7 +1912,6 @@ const app = {
       commit
     }, params = {}) {
       services.getSoftArg(params).then((result) => {
-        console.log("services.getSoftArg---",result)
         commit(types.SOFTARG, {
           show: true,
           edit:true,

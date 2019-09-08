@@ -116,7 +116,7 @@ export default {
           let params = this.dialogState.formData;
           // 更新
           if (this.dialogState.edit) {
-            services.updateSoft(params).then(result => {
+            services.updateAdminUserBalance(params).then(result => {
               if (result.data.status === 200) {
                 this.$store.dispatch("showAdminUserBalanceForm",{
                   show:false,
