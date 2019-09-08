@@ -342,8 +342,8 @@ router.get('/soft/delete', authToken, authPower, Soft.Delete);
 router.post('/soft/add', authToken, authPower, Soft.Add);
 router.post('/soft/select', authToken, authPower, Soft.Select);
 
-router.get('/soft/setArg', authToken, authPower, HelloOperation.GetSetting);
-router.get('/soft/getArg', authToken, authPower, HelloOperation.UpdateSetting);
+router.get('/soft/setArg', authToken, authPower, HelloOperation.UpdateSetting);
+router.get('/soft/getArg', authToken, authPower, HelloOperation.GetSetting);
 
 
 
