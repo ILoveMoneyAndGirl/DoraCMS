@@ -531,7 +531,7 @@ class HelloOperation {
                         res.send(siteFunc.renderApiData(req, res, 200, 'getArg', {
                                 config: d
                                 }, 'Add'))
-                }
+                })
 
              } catch (err) {
 
@@ -552,7 +552,7 @@ class HelloOperation {
                         res.send(siteFunc.renderApiData(req, res, 200, 'setArg', {
                                 config: d
                                 }, 'Add'))
-                }
+                })
 
              } catch (err) {
 
