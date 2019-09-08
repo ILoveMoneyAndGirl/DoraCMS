@@ -199,6 +199,7 @@ export default {
     update:"修改",
     select:"查询",
     host:"节点管理",
+    list:"列表",
 
     AdminUserBalance:"支付产品用户管理"
     
