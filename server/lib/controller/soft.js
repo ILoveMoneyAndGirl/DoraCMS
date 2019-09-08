@@ -91,9 +91,10 @@ class Soft {
                 queryObj.name = {
                     $regex: reKey
                 }
-                queryObj.adminUser=req.session.adminUserInfo._id
                 
             }
+
+            queryObj.adminUser=req.session.adminUserInfo._id
 
             let data = await SoftModel.find(queryObj).sort({
                 price: -1

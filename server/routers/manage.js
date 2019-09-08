@@ -352,8 +352,8 @@ router.post('/adminUserBalance/updateOne', authToken, authPower, AdminUserBalanc
 router.get('/adminUserBalance/delete', authToken, authPower, AdminUserBalance.Delete);
 
 //
-router.get('/softArg/get', authToken, authPower, HelloOperation.GetSetting);
-router.post('/softArg/set', authToken, authPower, HelloOperation.UpdateSetting);
+// router.get('/softArg/get', authToken, authPower, HelloOperation.GetSetting);
+// router.post('/softArg/set', authToken, authPower, HelloOperation.UpdateSetting);
 
 router.get('/payProduct/getList', authToken, authPower, PayProduct.GetList);
 router.post('/payProduct/updateOne', authToken, authPower, PayProduct.Update);
