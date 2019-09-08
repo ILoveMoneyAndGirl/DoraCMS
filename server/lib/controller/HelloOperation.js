@@ -545,7 +545,10 @@ class HelloOperation {
         
     }
     async UpdateSetting(req, res, next) {
+                    console.log(req.config)
+
             console.log("SetSettingSetSetting.....",req.session.vpnServer,urlencode.decode(req.config))
+            console.log(decodeURI(req.config))
          try {
                 PostData.PostDataByUrl(req.session.vpnServer,{action:"setSysArg",config:urlencode.decode(req.config)},function(err,d)
                 {
