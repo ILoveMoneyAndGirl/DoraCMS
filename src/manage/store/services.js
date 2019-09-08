@@ -422,6 +422,8 @@ export default {
 
 
     adminUserBalanceList(params) {
+                console.log("adminUserBalanceList")
+
         return reqJsonData('manage/adminUserBalance/getList', params, 'get')
     },
 
