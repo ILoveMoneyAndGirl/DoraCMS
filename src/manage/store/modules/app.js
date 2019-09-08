@@ -1876,6 +1876,7 @@ const app = {
       commit
     }) => {
       services.softGetArg().then((result) => {
+        console.log(result)
           commit(types.SOFT_SETTING,{show:true,config:result.data.data})
       })
     },
