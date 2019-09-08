@@ -1,8 +1,6 @@
 <template>
     <div class="adminUser">
         <Form :dialogState="formState"></Form>
-
-
         <el-row class="dr-datatable">
             <el-col :span="24">
                 <DataTable :pageInfo="AdminUserBalanceList.pageInfo" :dataList="AdminUserBalanceList.docs"></DataTable>
@@ -44,11 +42,12 @@
             formState() {
                 return this.$store.getters.AdminUserBalanceListFormState
             },
+        }
     
         mounted() {
             this.$store.dispatch('getAdminUserBalanceList');
         }
-    }
+    
     }
 </script>
 
