@@ -20,6 +20,7 @@
     "build": "npm run static && npm run build:client && npm run renderCdn && npm run adminStatic && npm run makePrdDoc",
     "build:client": "cross-env NODE_ENV=production webpack --config build/webpack.client.config.js --progress --hide-modules",
     "static": "node ./build/copy",
+    "start0":"npm run static && cross-env NODE_ENV=development MICRO_CACHE=true",
     "renderCdn": "node ./build/renderCdn",
     "adminStatic": "node ./build/copyAdminTemp",
     "makePrdDoc": "apidoc -i server/routers/restApi/ -o public/apidoc/ && npm run modifyPrdDoc",
