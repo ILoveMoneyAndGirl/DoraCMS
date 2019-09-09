@@ -574,7 +574,7 @@ const app = {
         edit: false,
         formData: {
           _id:'',
-          money: '',
+          money: 0,
           createDate: '',
           userName: '',
           tryDay: 0,
@@ -1151,7 +1151,7 @@ const app = {
       state.adminUserBalance.formState.edit = formState.edit;
       state.adminUserBalance.formState.formData = Object.assign({
         _id: '',
-        money: '',
+        money: 0,
         createDate: '',
         userName: '',
         tryDay:0,
