@@ -6,7 +6,7 @@
             <el-table-column type="selection" width="55">
             </el-table-column>
 
-            <el-table-column prop="userName" :label="$t('adminUserBalance.userName')">
+            <el-table-column prop="adminUser.userName" :label="$t('adminUserBalance.userName')">
             </el-table-column>
 
             <el-table-column  prop="money":label="$t('adminUserBalance.money')">
@@ -22,7 +22,7 @@
             </el-table-column>
 
             <el-table-column prop="state" :label="$t('adminUserBalance.state')">
-             <template slot-scope="scope">{{scope.row.state === 0?'永久免费':(scope.row.channel ===1?'普通会员':'冻结')}}</template>
+             <template slot-scope="scope">{{scope.row.state === 0?'永久免费':(scope.row.state ===1?'普通会员':'冻结')}}</template>
             </el-table-column>
 
             <el-table-column :label="$t('main.dataTableOptions')" width="150">
