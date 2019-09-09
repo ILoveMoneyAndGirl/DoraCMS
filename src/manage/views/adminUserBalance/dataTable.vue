@@ -65,7 +65,7 @@ export default {
     edit(index, rows) {
       let rowData = rows[index];
       this.$store.dispatch("showAdminUserBalanceForm", {
-        edit: true,
+        show: true,
         formData: rowData
       });
     },
