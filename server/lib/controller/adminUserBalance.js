@@ -38,7 +38,7 @@ function checkFormData(req, res, fields) {
         });
     }
 
-    if (!fields.state) {
+    if (fields.state==null) {
         errMsg = res.__("validate_selectNull", {
             label: "状态"
         });
