@@ -65,7 +65,7 @@ export default {
           {
             required: true,
             message: this.$t("validate.inputNull", {
-              label: this.$t("AdminUserBalance.money")
+              label: this.$t("adminUserBalance.money")
             }),
             trigger: "blur"
           }       
@@ -74,7 +74,7 @@ export default {
           {
             required: true,
             message: this.$t("validate.inputNull", {
-              label: this.$t("AdminUserBalance.tryDay")
+              label: this.$t("adminUserBalance.tryDay")
             }),
             trigger: "blur"
           }
@@ -84,20 +84,12 @@ export default {
           {
             required: true,
             message: this.$t("validate.inputNull", {
-              label: this.$t("AdminUserBalance.tryAmountMoney")
+              label: this.$t("adminUserBalance.tryAmountMoney")
             }),
             trigger: "blur"
           }
         ],
-        state: [
-          {
-            required: true,
-            message: this.$t("validate.inputNull", {
-              label: this.$t("AdminUserBalance.state")
-            }),
-            trigger: "blur"
-          }
-        ],
+
       },
       green: { color: "#13CE66" },
       red: { color: "#FF4949" },
