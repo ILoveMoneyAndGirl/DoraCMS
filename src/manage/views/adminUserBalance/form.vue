@@ -8,25 +8,25 @@
             
 
 
-                <el-form-item :label="$t('AdminUserBalance.money')" prop="money">
+                <el-form-item :label="$t('adminUserBalance.money')" prop="money">
                     <el-input size="small" type="textarea" v-model="dialogState.formData.money"></el-input>
                 </el-form-item>
 
 
-                <el-form-item :label="$t('AdminUserBalance.tryDay')" prop="tryDay">
+                <el-form-item :label="$t('adminUserBalance.tryDay')" prop="tryDay">
                     <el-input size="small" type="textarea" v-model="dialogState.formData.tryDay"></el-input>
                 </el-form-item>
 
          
 
 
-                <el-form-item :label="$t('AdminUserBalance.tryAmountMoney')" >
+                <el-form-item :label="$t('adminUserBalance.tryAmountMoney')" >
                     <el-input size="small" type="textarea" v-model="dialogState.formData.tryAmountMoney"></el-input>
                 </el-form-item>
 
 
-                <el-form-item :label="$t('AdminUserBalance.state')" prop="state">
-                <el-select size="small" v-model="dialogState.formData.state" :placeholder="$t('validate.selectNull', {label: this.$t('AdminUserBalance.state')})">
+                <el-form-item :label="$t('adminUserBalance.state')" prop="state">
+                <el-select size="small" v-model="dialogState.formData.state" :placeholder="$t('validate.selectNull', {label: this.$t('adminUserBalance.state')})">
                     <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
                     </el-option>
                 </el-select>
@@ -115,8 +115,7 @@ export default {
         if (valid) {
           let params = this.dialogState.formData;
           // 更新
-          if (this.dialogState.edit) {
-            services.updateAdminUserBalance(params).then(result => {
+              services.updateAdminUserBalance(params).then(result => {
               if (result.data.status === 200) {
                 this.$store.dispatch("showAdminUserBalanceForm",{
                   show:false,
@@ -131,7 +130,6 @@ export default {
                 this.$message.error(result.data.message);
               }
             });
-          } 
         } else {
           console.log("error submit!!");
           return false;
