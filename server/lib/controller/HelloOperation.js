@@ -135,7 +135,71 @@ class HelloOperation {
     constructor() {
         // super()
     }
+    async GetUser(req, res, next) {
+        try {
 
+            let modules = req.query.modules;
+            let current = req.query.current || 1;
+            let pageSize = req.query.pageSize || 10;
+            let model = req.query.model; // 查询模式 full/simple
+            let searchkey = req.query.searchkey,
+             queryObj = {};
+            let useClient = req.query.useClient;
+
+            if (model === 'full') {
+                pageSize = 100;
+            }
+
+            if (searchkey) {
+                let reKey = new RegExp(searchkey, 'i')
+                queryObj.name = {
+                    $regex: reKey
+                }
+            }
+
+            let data={
+                queryObj:queryObj,
+                pageSize:pageSize,
+                current:current,
+                pageSize:pageSize
+            }
+            data.action="GetUser"
+            PostData.PostDataByUrl(req.session.vpnServer,data,function(err,d)
+            {
+                if(err)
+                    res.send(siteFunc.renderApiErr(req, res, 500, err, 'getlist'))
+                else{
+                    let sendData = {
+                        docs: d.data,
+                        pageInfo: {
+                            count:d.totalItems,
+                            current: Number(current) || 1,
+                            pageSize: Number(pageSize) || 10,
+                            searchkey: searchkey || ''
+                        }
+                    };
+
+                     let rendeData = siteFunc.renderApiData(req, res, 200, 'getlist', sendData);
+                     if (modules && modules.length > 0) {
+                        return rendeData.data;
+                     } else {
+                         if (useClient == '2') {
+                             res.send(siteFunc.renderApiData(req, res, 200, 'getlist', data));
+                         } else {
+                             res.send(rendeData);
+                        }
+                    }
+                 }
+
+            })
+            
+
+        } catch (err) {
+            res.send(siteFunc.renderApiErr(req, res, 500, err, 'getlist'))
+
+        }
+        
+    }
     async GetGoods(req, res, next) {
         try {
 

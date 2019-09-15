@@ -67,6 +67,10 @@ const getters = {
 
 
   //------------------------------------------
+
+    UserList: state => state.app.user.userList,
+
+
     GoodsList: state => state.app.goods.goodsList,
     GoodsListFormState: state => state.app.goods.formState,
 

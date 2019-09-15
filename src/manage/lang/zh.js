@@ -663,6 +663,13 @@ soft: {
       tryDay: "试用天数",
       tryAmountMoney:"试用流水",
       state:"状态"
+  },
+  user:{
+    userName:"用户名",
+    password:"密码",
+    bornDate:"出生日期",
+    deadLine:"截止日期",
+    enable:"状态",
   }
 
 }

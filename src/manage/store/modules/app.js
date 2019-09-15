@@ -683,6 +683,17 @@ const app = {
         err: {}
       }
     },
+
+    user: {
+      userList: {
+        pageInfo: {},
+        docs: []
+      },
+      user: {
+        state: '',
+        err: {}
+      }
+    },
   },
   mutations: {
     TOGGLE_SIDEBAR: state => {
@@ -1071,6 +1082,12 @@ const app = {
     [types.GOODS_LIST](state, goodsList) {
       state.goods.goodsList = goodsList
     },
+
+    [types.USER_LIST](state, userlist) {
+      state.user.userList = userlist
+    },
+
+
 
     [types.GOODS_FORMSTATE](state, formState) {
       state.goods.formState.show = formState.show;
@@ -1775,6 +1792,15 @@ const app = {
     }, params = {}) {
       services.goodsList(params).then((result) => {
         commit(types.GOODS_LIST, result.data.data)
+      })
+    },
+
+
+    getUserList({
+      commit
+    }, params = {}) {
+      services.userList(params).then((result) => {
+        commit(types.USER_LIST, result.data.data)
       })
     },
 

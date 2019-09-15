@@ -330,6 +330,12 @@ export default {
 
 
 //----------------------------------------------------------------------------------
+
+
+
+    userList(params) {
+        return reqJsonData('manage/user/getList', params, 'get')
+    },
     goodsList(params) {
         return reqJsonData('manage/goods/getList', params, 'get')
     },

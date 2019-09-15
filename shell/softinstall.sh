@@ -56,7 +56,7 @@ auth=true
 fork=true
 
 ./bin/mongod --config /usr/local/mongodb/mongodb.conf
-
+ # netstat -tunlp | grep 3128
 # netstat -ap | grep 27017
 ./bin/mongod -dbpath=/usr/local/mongodb/data -logpath=/usr/local/mongodb/log/mongodb.log -fork
 
