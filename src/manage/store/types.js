@@ -70,7 +70,7 @@ export const  ADMINUSERBALANCE_FORMSTATE = 'ADMINUSERBALANCE_FORMSTATE';
 
 export const  SOFT_SETTING = 'SOFT_SETTING';
 
-export const  GOODS_LIST = 'GOODS_LIST';
+export const  USER_LIST = 'USER_LIST';
 
 
 
