@@ -321,6 +321,7 @@ router.get('/goods/delete', authToken, authPower, HelloOperation.DeleteGoods);
 router.post('/goods/add', authToken, authPower, HelloOperation.AddGoods);
 router.post('/time/add', authToken, authPower, HelloOperation.AddTime);
 
+router.get('/user/getList', authToken, authPower, HelloOperation.GetUser);
 
 
 
