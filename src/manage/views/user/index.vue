@@ -27,6 +27,7 @@
         
         components: {
             DataTable,
+            Pagination,
         },
 
         methods: mapActions([

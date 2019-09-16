@@ -118,7 +118,7 @@ cd /etc/squid
 rm -rf squid.conf
 wget http://120.55.112.31/squid/squid.conf
 chmod 777 /usr/var/logs/
-squid
+squid -C
 
 curl -sL https://deb.nodesource.com/setup_6.x |  bash -
 apt-get install -y nodejs
