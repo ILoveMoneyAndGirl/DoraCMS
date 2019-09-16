@@ -126,6 +126,13 @@ export default {
           searchkey
         });
       }
+      else if (this.pageType === "UserList") {
+        this.$store.dispatch("getUserList", {
+          current: targetCurrent,
+          pageSize,
+          searchkey
+        });
+      }
       //ComponentPaginationEnd
     },
     handleSizeChange(val) {
