@@ -350,6 +350,23 @@ class HelloOperation {
         }
     }
 
+        async DeleteUser(req, res, next) {
+
+         try {
+         
+            PostData.PostDataByUrl(req.session.vpnServer,{id:req.query.ids,action:"deleteUser"},function(err,d){
+            if(err)
+                    res.send(siteFunc.renderApiErr(req, res, 500, err, 'delete'))
+                else
+                      res.send(siteFunc.renderApiData(req, res, 200, 'user', {}, 'delete'))
+
+            })
+
+        } catch (err) {
+            res.send(siteFunc.renderApiErr(req, res, 500, err, 'delete'));
+        }
+    }
+
 
 
 

@@ -356,6 +356,9 @@ export default {
         return reqJsonData('manage/time/add', params)
     },
 
+    deleteUser(params) {
+        return reqJsonData('manage/user/delete', params, 'get')
+    },
     
 
     hostList(params) {

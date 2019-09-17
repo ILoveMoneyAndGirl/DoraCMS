@@ -318,7 +318,10 @@ router.post('/versionManage/updateOne', authToken, authPower, VersionManage.upda
 router.get('/goods/getList', authToken, authPower, HelloOperation.GetGoods);
 router.post('/goods/updateOne', authToken, authPower, HelloOperation.UpdateGoods);
 router.get('/goods/delete', authToken, authPower, HelloOperation.DeleteGoods);
+
 router.post('/goods/add', authToken, authPower, HelloOperation.AddGoods);
+router.get('/user/delete', authToken, authPower, HelloOperation.DeleteUser);
+
 router.post('/time/add', authToken, authPower, HelloOperation.AddTime);
 
 router.get('/user/getList', authToken, authPower, HelloOperation.GetUser);

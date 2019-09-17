@@ -12,8 +12,16 @@
             </el-table-column>
               <el-table-column prop="enable" :label="$t('user.enable')">
             </el-table-column>
+              <el-table-column prop="ip" :label="$t('user.ip')">
+            </el-table-column>
 
-        
+               <el-table-column :label="$t('main.dataTableOptions')" width="150">
+                <template slot-scope="scope">
+                    <el-button size="mini" type="danger" plain round icon="el-icon-delete" @click="delete(scope.$index, dataList)"></el-button>
+
+                </template>
+            </el-table-column>
+
         </el-table>
     </div>
 </template>
@@ -33,7 +41,39 @@ export default {
   },
 
   methods: {
-
+      delete(index, rows) {
+      this.$confirm(
+        this.$t("main.del_notice"),
+        this.$t("main.scr_modal_title"),
+        {
+          confirmButtonText: this.$t("main.confirmBtnText"),
+          cancelButtonText: this.$t("main.cancelBtnText"),
+          type: "warning"
+        }
+      )
+        .then(() => {
+          return services.deleteUser({
+            ids: rows[index].id
+          });
+        })
+        .then(result => {
+          if (result.data.status === 200) {
+            this.$store.dispatch("getUserList", this.pageInfo);
+            this.$message({
+              message: this.$t("main.scr_modal_del_succes_info"),
+              type: "success"
+            });
+          } else {
+            this.$message.error(result.data.message);
+          }
+        })
+        .catch(() => {
+          this.$message({
+            type: "info",
+            message: this.$t("main.scr_modal_del_error_info")
+          });
+        });
+    }
   }
 };
 </script>
