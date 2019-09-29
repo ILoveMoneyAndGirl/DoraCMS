@@ -40,7 +40,7 @@ export default {
   },
 
   methods: {
-    delete(index, rows) {
+    delete() {
        console.log("///////////------------------>")
        console.log(index,rows)
       this.$confirm(
