@@ -41,8 +41,6 @@ export default {
 
   methods: {
     deleteOne(index, rows) {
-       console.log("///////////------------------>")
-       console.log(index,rows)
       this.$confirm(
         this.$t("main.del_notice"),
         this.$t("main.scr_modal_title"),

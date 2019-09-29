@@ -351,12 +351,17 @@ class HelloOperation {
     }
 
         async DeleteUser(req, res, next) {
+            console.log("XXXXXXXXX",req.query)
 
          try {
-         
+                     console.log("XXXXXXXXX",req.query.ids)
+
             PostData.PostDataByUrl(req.session.vpnServer,{id:req.query.ids,action:"deleteUser"},function(err,d){
             if(err)
+            {
+                   console.log("XXXXXXXXX",err)
                     res.send(siteFunc.renderApiErr(req, res, 500, err, 'delete'))
+            }
                 else
                       res.send(siteFunc.renderApiData(req, res, 200, 'user', {}, 'delete'))
 
