@@ -15,6 +15,12 @@
               <el-table-column prop="ip" :label="$t('user.ip')">
             </el-table-column>
 
+            <el-table-column :label="$t('main.dataTableOptions')" width="150">
+                <template slot-scope="scope">
+                    <el-button size="mini" type="danger" plain round icon="el-icon-delete" @click="delete()"></el-button>
+                </template>
+            </el-table-column>
+
         </el-table>
     </div>
 </template>
