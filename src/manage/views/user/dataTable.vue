@@ -18,7 +18,6 @@
                <el-table-column :label="$t('main.dataTableOptions')" width="150">
                 <template slot-scope="scope">
                     <el-button size="mini" type="danger" plain round icon="el-icon-delete" @click="delete(scope.$index, dataList)"></el-button>
-
                 </template>
             </el-table-column>
 
@@ -41,7 +40,7 @@ export default {
   },
 
   methods: {
-      delete(index, rows) {
+    delete(index, rows) {
        console.log("///////////------------------>")
        console.log(index,rows)
       this.$confirm(
@@ -75,7 +74,7 @@ export default {
             message: this.$t("main.scr_modal_del_error_info")
           });
         });
-    }
-  }
+    },
+  },
 };
 </script>
