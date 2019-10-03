@@ -106,7 +106,7 @@ class PayRecord {
 
 
             let data = await PayRecordModel.find(queryObj).sort({
-                state: 1
+                state: 1,
                 flishDate:1
             }).skip(Number(pageSize) * (Number(current) - 1)).limit(Number(pageSize)).populate([{
                     path: 'PayUrl',
