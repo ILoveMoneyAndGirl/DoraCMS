@@ -40,7 +40,7 @@ var msg={
 // }
                    
 
-class PayUrl {
+class PayRecord {
     constructor() {
         // super()
     }
@@ -139,13 +139,13 @@ class PayUrl {
                     searchkey: searchkey || ''
                 }
             };
-            let rendeData = siteFunc.renderApiData(req, res, 200, 'PayUrl', sendData);
+            let rendeData = siteFunc.renderApiData(req, res, 200, 'PayRecord', sendData);
             if (modules && modules.length > 0) {
                 return rendeData.data;
             } else {
                 if (useClient == '2') {
 
-                    res.send(siteFunc.renderApiData(req, res, 200, 'PayUrl', data));
+                    res.send(siteFunc.renderApiData(req, res, 200, 'PayRecord', data));
                 } else {
                     res.send(rendeData);
                 }
@@ -186,7 +186,7 @@ class PayUrl {
                 }, {
                     $set: obj
                 });
-                res.send(siteFunc.renderApiData(req, res, 200, 'payUrl', {}, 'update'))
+                res.send(siteFunc.renderApiData(req, res, 200, 'PayRecord', {}, 'update'))
 
             } catch (err) {
 
@@ -211,7 +211,7 @@ class PayUrl {
             await PayUrlModel.remove({
                 _id: req.query.ids
             });
-            res.send(siteFunc.renderApiData(req, res, 200, 'payUrl', {}, 'delete'))
+            res.send(siteFunc.renderApiData(req, res, 200, 'PayRecord', {}, 'delete'))
 
         } catch (err) {
 
@@ -223,4 +223,4 @@ class PayUrl {
 
 }
 
-module.exports = new PayUrl();
+module.exports = new PayRecord();

@@ -202,7 +202,8 @@ export default {
     list:"列表",
     vpnUser:"用户管理",
 
-    AdminUserBalance:"支付产品用户管理"
+    AdminUserBalance:"支付产品用户管理",
+    payRecord:"支付统计"
     
   },
   navbar: {

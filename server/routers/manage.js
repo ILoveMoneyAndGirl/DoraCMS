@@ -340,6 +340,13 @@ router.post('/payUrl/updateOne', authToken, authPower, PayUrl.Update);
 router.get('/payUrl/delete', authToken, authPower, PayUrl.Delete);
 router.post('/payUrl/add', authToken, authPower, PayUrl.Add);
 
+
+router.get('/payRecord/getList', authToken, authPower, PayRecord.GetList);
+router.post('/payRecord/updateOne', authToken, authPower, PayRecord.Update);
+router.get('/payRecord/delete', authToken, authPower, PayRecord.Delete);
+
+
+
 router.get('/soft/getList', authToken, authPower, Soft.GetList);
 router.post('/soft/updateOne', authToken, authPower, Soft.Update);
 router.get('/soft/delete', authToken, authPower, Soft.Delete);
