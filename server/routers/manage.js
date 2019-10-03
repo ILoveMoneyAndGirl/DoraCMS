@@ -26,6 +26,7 @@ const {
   Soft,
   PayProduct,
   AdminUserBalance,
+  PayRecord,
 
   //MgRoutersController
 } = require('../lib/controller');
