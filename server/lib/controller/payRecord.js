@@ -69,7 +69,9 @@ class PayRecord {
                 queryObj.adminUser=req.session.adminUserInfo._id
                 
             }
+            console.log("________________")
 
+            console.log(queryObj)
 
 
             // <el-table-column prop="_id" :label="$t('payRecord._id')">
@@ -111,6 +113,8 @@ class PayRecord {
             }).skip(Number(pageSize) * (Number(current) - 1)).limit(Number(pageSize));
             const totalItems = await PayUrlModel.count(queryObj);
 
+
+                        console.log(data)
 
             let sendData = {
                 docs: data,
