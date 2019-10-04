@@ -86,10 +86,26 @@ export default {
     },
     edit(index, rows) {
       let rowData = rows[index];
-      this.$store.dispatch("showPayUrlForm", {
-        edit: true,
-        formData: rowData
-      });
+      services.updatePayRecord( {
+        _id: rows[index]._id,
+        state: 2
+      }).then(result => {
+          if (result.data.status === 200) {
+            this.$store.dispatch("getPayRecordList", this.pageInfo);
+            this.$message({
+              message: this.$t("main.scr_modal_del_succes_info"),
+              type: "success"
+            });
+          } else {
+            this.$message.error(result.data.message);
+          }
+        })
+        .catch(() => {
+          this.$message({
+            type: "info",
+            message: this.$t("main.scr_modal_del_error_info")
+          });
+        });
     },
     deleteOne(index, rows) {
       console.log("delete")
@@ -103,15 +119,14 @@ export default {
         }
       )
         .then(() => {
-              console.log("then")
 
-          return services.deletePayUrl({
+          return services.getPayRecordList({
             ids: rows[index]._id
           });
         })
         .then(result => {
           if (result.data.status === 200) {
-            this.$store.dispatch("getPayUrlList", this.pageInfo);
+            this.$store.dispatch("getPayRecordList", this.pageInfo);
             this.$message({
               message: this.$t("main.scr_modal_del_succes_info"),
               type: "success"
