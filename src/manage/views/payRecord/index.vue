@@ -2,8 +2,8 @@
     <div class="adminUser">
         <el-row class="dr-datatable">
             <el-col :span="24">
-                <DataTable :pageInfo="payRecordList.pageInfo" :dataList="payRecordList.docs"></DataTable>
-                <Pagination :pageInfo="payRecordList.pageInfo" pageType="payRecordList"></Pagination>
+                <DataTable :pageInfo="PayRecordList.pageInfo" :dataList="PayRecordList.docs"></DataTable>
+                <Pagination :pageInfo="PayRecordList.pageInfo" pageType="PayRecordList"></Pagination>
             </el-col>
         </el-row>
     </div>
