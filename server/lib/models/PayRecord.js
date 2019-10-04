@@ -16,6 +16,7 @@ var PayRecordSchema = new Schema({
         type: String,
         'default': shortid.generate
     },
+    
     state: {
         type: Number,
         default: 0

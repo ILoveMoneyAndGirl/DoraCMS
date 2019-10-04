@@ -76,8 +76,6 @@ class PayRecord {
                 flishDate:1
             }).skip(Number(pageSize) * (Number(current) - 1)).limit(Number(pageSize));
 
-                                    console.log(data)
-
 
             const totalItems = await PayRecordModel.count(queryObj);
 
@@ -124,9 +122,6 @@ class PayRecord {
             //     res.send(siteFunc.renderApiErr(req, res, 500, err, 'checkform'));
             // }
 
-                        console.log("------------>")
-
-            console.log(fields)
 
             const obj = {
                 state: fields.state

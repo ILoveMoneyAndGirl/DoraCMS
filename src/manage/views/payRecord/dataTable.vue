@@ -88,7 +88,7 @@ export default {
       let rowData = rows[index];
       services.updatePayRecord( {
         _id: rows[index]._id,
-        state: 2
+        state: 1
       }).then(result => {
           if (result.data.status === 200) {
             this.$store.dispatch("getPayRecordList", this.pageInfo);
