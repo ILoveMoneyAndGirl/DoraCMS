@@ -673,6 +673,26 @@ soft: {
     deadLine:"截止日期",
     enable:"状态",
     ip:"ip地址"
-  }
+  },
+
+ payRecord:{
+    state:"状态",
+    _id:"订单id",
+    payProduct:"产品id",
+    tagPrice:"目标价格",
+    price:"实际价格",
+    rate:"费率",
+    takeOff:"扣除费用",
+    channel:"渠道",
+    payUrl:"二维码urlID",
+    callBackUrl:"回掉url",
+    orderId:"订单号",
+    goodsName:"商品名",
+    createDate:"创建日期",
+    flishDate:"完成日期",
+    timeOutDate:"超时日期",
+    income:"收入",
+    uId:"用户id",
+ }
 
 }

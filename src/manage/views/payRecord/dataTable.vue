@@ -2,44 +2,50 @@
     <div>
         <el-table align="center" v-loading="loading" ref="multipleTable" :data="dataList" tooltip-effect="dark" style="width: 100%" @selection-change="handleSelectionChange">
 
-            <el-table-column type="selection" width="55">
+            <el-table-column prop="_id" :label="$t('payRecord._id')">
             </el-table-column>
 
             <el-table-column prop="state" :label="$t('payRecord.state')">
               <template slot-scope="scope">{{scope.row.state === 0?'过期待处理':(scope.row.state ===1?'手动完成':'自调完成')}}</template>
             </el-table-column>
 
-            <el-table-column prop="_id" :label="$t('payRecord._id')">
-            </el-table-column>
-             <el-table-column prop="appID" :label="$t('payRecord.appID')">
+        
+             <el-table-column prop="payProduct" :label="$t('payRecord.payProduct')">
             </el-table-column>
 
-            <el-table-column prop="tagPrice" :label="$t('payRecord.tagPrice')">
+            <el-table-column prop="payUrl" :label="$t('payRecord.payUrl')">
             </el-table-column>
-            <el-table-column prop="price" :label="$t('payRecord.price')">
+
+            <el-table-column prop="callBackUrl" :label="$t('payRecord.callBackUrl')">
             </el-table-column>
-            <el-table-column prop="rate" :label="$t('payRecord.rate')">
+
+            <el-table-column prop="orderId" :label="$t('payRecord.orderId')">
             </el-table-column>
+
             <el-table-column prop="takeOff" :label="$t('payRecord.takeOff')">
             </el-table-column>
+
+            <el-table-column prop="income" :label="$t('payRecord.income')">
+            </el-table-column>
+               <el-table-column prop="uId" :label="$t('payRecord.uId')">
+            </el-table-column>
+
+                   <el-table-column prop="goodsName" :label="$t('payRecord.goodsName')">
+            </el-table-column>
+
             <el-table-column prop="channel" :label="$t('payRecord.channel')">
              <template slot-scope="scope">{{scope.row.channel === 0?'支付宝':(scope.row.channel ===1?'微信':'其它')}}</template>
             </el-table-column>
-            <el-table-column prop="payUrl" :label="$t('payRecord.payUrl')">
-            </el-table-column>
-            <el-table-column prop="callBackUrl" :label="$t('payRecord.callBackUrl')">
-            </el-table-column>
-            <el-table-column prop="transactionId" :label="$t('payRecord.transactionId')">
-            </el-table-column>
-            <el-table-column prop="comment" :label="$t('payRecord.comment')">
-            </el-table-column>
+        
 
             <el-table-column prop="createDate" :label="$t('payRecord.createDate')">
             </el-table-column>
             <el-table-column prop="flishDate" :label="$t('payRecord.flishDate')">
             </el-table-column>
-            <el-table-column prop="timeOutDate" :label="$t('payRecord.timeOutDate')">
-            </el-table-column>
+    
+     
+
+            
 
             <el-table-column :label="$t('main.dataTableOptions')" width="150" fixed="right">
                 <template slot-scope="scope">

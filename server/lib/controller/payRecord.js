@@ -63,7 +63,7 @@ class PayRecord {
 
             if (searchkey) {
                 let reKey = new RegExp(searchkey, 'i')
-                queryObj.tag = {
+                queryObj.orderId = {
                     $regex: reKey
                 }
                 queryObj.adminUser=req.session.adminUserInfo._id
@@ -108,25 +108,7 @@ class PayRecord {
             let data = await PayRecordModel.find(queryObj).sort({
                 state: 1,
                 flishDate:1
-            }).skip(Number(pageSize) * (Number(current) - 1)).limit(Number(pageSize)).populate([{
-                    path: 'PayUrl',
-                    select: 'url name rate '
-                },
-                {
-                    path: 'PayProduct',
-                    select: 'userName name logo _id group',
-                    $match: {
-                        group: '1'
-                    }
-                },
-                {
-                    path: 'categories',
-                    select: 'name _id defaultUrl'
-                }, {
-                    path: 'tags',
-                    select: 'name _id'
-                }
-            ]).exec();;
+            }).skip(Number(pageSize) * (Number(current) - 1)).limit(Number(pageSize));
             const totalItems = await PayUrlModel.count(queryObj);
 
 
