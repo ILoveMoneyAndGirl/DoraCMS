@@ -55,7 +55,7 @@ class PayRecord {
             let model = req.query.model; // 查询模式 full/simple
             let searchkey = req.query.searchkey,
              queryObj = {};
-                          queryObj.adminUser=req.session.adminUserInfo._id
+             queryObj.adminUser=req.session.adminUserInfo._id
 
             let useClient = req.query.useClient;
 
@@ -69,49 +69,7 @@ class PayRecord {
                     $regex: reKey
                 }
             }
-            console.log("________________")
-
-            console.log(queryObj)
-
-
-            // <el-table-column prop="_id" :label="$t('payRecord._id')">
-            // </el-table-column>
-            //  <el-table-column prop="appID" :label="$t('payRecord.appID')">
-            // </el-table-column>
-
-            // <el-table-column prop="tagPrice" :label="$t('payRecord.tagPrice')">
-            // </el-table-column>
-            // <el-table-column prop="price" :label="$t('payRecord.price')">
-            // </el-table-column>
-            // <el-table-column prop="rate" :label="$t('payRecord.rate')">
-            // </el-table-column>
-            // <el-table-column prop="takeOff" :label="$t('payRecord.takeOff')">
-            // </el-table-column>
-            // <el-table-column prop="channel" :label="$t('payRecord.channel')">
-            //  <template slot-scope="scope">{{scope.row.channel === 0?'支付宝':(scope.row.channel ===1?'微信':'其它')}}</template>
-            // </el-table-column>
-            // <el-table-column prop="payUrl" :label="$t('payRecord.payUrl')">
-            // </el-table-column>
-            // <el-table-column prop="callBackUrl" :label="$t('payRecord.callBackUrl')">
-            // </el-table-column>
-            // <el-table-column prop="transactionId" :label="$t('payRecord.transactionId')">
-            // </el-table-column>
-            // <el-table-column prop="comment" :label="$t('payRecord.comment')">
-            // </el-table-column>
-
-            // <el-table-column prop="createDate" :label="$t('payRecord.createDate')">
-            // </el-table-column>
-            // <el-table-column prop="flishDate" :label="$t('payRecord.flishDate')">
-            // </el-table-column>
-            // <el-table-column prop="timeOutDate" :label="$t('payRecord.timeOutDate')">
-            // </el-table-column>
-            // let aa=await PayRecordModel.find()
-            //  console.log(aa)
-
-            console.log(queryObj)
-            console.log(pageSize)
-             console.log(current)
-             console.log(pageSize)
+          
 
             let data = await PayRecordModel.find(queryObj).sort({
                 state: 1,

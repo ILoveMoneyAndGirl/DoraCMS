@@ -1,7 +1,8 @@
 <template>
     <div>
         <el-table align="center" v-loading="loading" ref="multipleTable" :data="dataList" tooltip-effect="dark" style="width: 100%">
-
+            <el-table-column prop="id" :label="$t('user.id')">
+            </el-table-column>
             <el-table-column prop="userName" :label="$t('user.userName')">
             </el-table-column>
             <el-table-column prop="password" :label="$t('user.password')">

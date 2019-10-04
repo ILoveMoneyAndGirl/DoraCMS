@@ -672,7 +672,8 @@ soft: {
     bornDate:"出生日期",
     deadLine:"截止日期",
     enable:"状态",
-    ip:"ip地址"
+    ip:"ip地址",
+    id:"id号"
   },
 
  payRecord:{

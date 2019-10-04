@@ -1,5 +1,5 @@
 <template>
-    <div class="adminUser">
+    <div class="payRecord">
         <el-row class="dr-datatable">
             <el-col :span="24">
                 <DataTable :pageInfo="PayRecordList.pageInfo" :dataList="PayRecordList.docs"></DataTable>

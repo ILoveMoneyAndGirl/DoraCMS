@@ -133,6 +133,15 @@ export default {
           searchkey
         });
       }
+
+        else if (this.pageType === "payRecord") {
+        this.$store.dispatch("getPayRecordList", {
+          current: targetCurrent,
+          pageSize,
+          searchkey
+        });
+      }
+
       //ComponentPaginationEnd
     },
     handleSizeChange(val) {
