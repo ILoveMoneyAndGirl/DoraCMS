@@ -481,7 +481,7 @@ export default {
         return reqJsonData('manage/payRecord/updateOne', params)
     },
 
-    deletePayRecord(params) {
+    getPayRecordList(params) {
         return reqJsonData('manage/payRecord/delete', params, 'get')
     },
 

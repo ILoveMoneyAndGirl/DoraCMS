@@ -125,16 +125,11 @@ class PayRecord {
             }
 
             const obj = {
-                price: fields.price,
-                tag: fields.tag,
-                url: fields.url,
-                isAny: fields.isAny,
-                tagPrice: fields.tagPrice,
-                channel:fields.channel,
+                state: fields.state
             }
             const item_id = fields._id;
             try {
-                await PayUrlModel.findOneAndUpdate({
+                await PayRecordModel.findOneAndUpdate({
                     _id: item_id
                 }, {
                     $set: obj
@@ -161,7 +156,7 @@ class PayRecord {
             if (errMsg) {
                 throw new siteFunc.UserException(errMsg);
             }
-            await PayUrlModel.remove({
+            await PayRecordModel.remove({
                 _id: req.query.ids
             });
             res.send(siteFunc.renderApiData(req, res, 200, 'PayRecord', {}, 'delete'))
