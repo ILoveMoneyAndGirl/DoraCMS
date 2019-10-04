@@ -2,12 +2,17 @@
     <div class="payRecord">
         <el-row class="dr-datatable">
             <el-col :span="24">
-                <DataTable :pageInfo="PayRecordList.pageInfo" :dataList="PayRecordList.docs"></DataTable>
+                 <TopBar type="payRecord" :ids="selectlist" :pageInfo="PayRecordList.pageInfo"></TopBar>
+                <DataTable :pageInfo="PayRecordList.pageInfo" :dataList="PayRecordList.docs"  @changeContentSelectList="changeSelect"></DataTable>
                 <Pagination :pageInfo="PayRecordList.pageInfo" pageType="PayRecordList"></Pagination>
             </el-col>
         </el-row>
     </div>
 </template>
+
+
+
+
 <script>
     import DataTable from './dataTable.vue';
     import Pagination from '../common/Pagination.vue';
@@ -20,19 +25,20 @@
         name: 'index',
         data() {
             return {
-
-            }
+              selectlist: []
+            };
         },
         components: {
             DataTable,
             Pagination
         },
-        methods: mapActions([
-
-        ]),
-        computed: {
+         methods: {
+            changeSelect(ids) {
+                this.selectlist = ids;
+            }
+        },        computed: {
             ...mapGetters([
-                'PayRecordList'
+                'PayRecordList','PayRecordListFormState'
             ]),
             formState() {
                 return this.$store.getters.PayRecordListFormState

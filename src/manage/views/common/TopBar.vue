@@ -76,6 +76,14 @@
       </div>
 
 
+      <div v-else-if="type === 'payRecord'">
+
+        <el-button size="small" type="danger" plain round @click="branchDelete('payRecord')">
+          <i class="fa fa-fw fa-trash-o"></i>
+        </el-button>
+
+      </div>
+
       <div v-else-if="type === 'regUser'">
         <el-button size="small" type="danger" plain round @click="branchDelete('user')">
           <i class="fa fa-fw fa-trash-o"></i>
@@ -484,6 +492,11 @@ export default {
               ids
             });
           }
+           else if (target === "payRecord") {
+            return services.deletePayRecordList({
+              ids
+            });
+          }
         })
         .then(result => {
           if (result.data.status === 200) {
@@ -497,6 +510,9 @@ export default {
               this.$store.dispatch("getSystemNotifyList");
             } else if (target === "content") {
               this.$store.dispatch("getContentList");
+            }
+             else if (target === "payRecord") {
+              this.$store.dispatch("payRecordList");
             }
             this.$message({
               message: `${this.$t("main.scr_modal_del_succes_info")}`,
