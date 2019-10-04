@@ -117,12 +117,16 @@ class PayRecord {
 
         const form = new formidable.IncomingForm();
         form.parse(req, async (err, fields, files) => {
-            try {
-                checkFormData(req, res, fields);
-            } catch (err) {
-                console.log(err.message, err);
-                res.send(siteFunc.renderApiErr(req, res, 500, err, 'checkform'));
-            }
+            // try {
+            //     checkFormData(req, res, fields);
+            // } catch (err) {
+            //     console.log(err.message, err);
+            //     res.send(siteFunc.renderApiErr(req, res, 500, err, 'checkform'));
+            // }
+
+                        console.log("------------>")
+
+            console.log(fields)
 
             const obj = {
                 state: fields.state
