@@ -1981,7 +1981,7 @@ const app = {
     getPayRecordList({
       commit
     }, params = {}) {
-      services.PayRecordList(params).then((result) => {
+      services.payRecordList(params).then((result) => {
         commit(types.PAYRECORD_LIST, result.data.data)
       })
     },

@@ -32,14 +32,14 @@
         ]),
         computed: {
             ...mapGetters([
-                'payRecordList'
+                'PayRecordList'
             ]),
             formState() {
                 return this.$store.getters.PayRecordListFormState
             }
         },
         mounted() {
-            this.$store.dispatch('payRecordList');
+            this.$store.dispatch('getPayRecordList');
         }
     }
 </script>
