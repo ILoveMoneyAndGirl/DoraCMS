@@ -105,7 +105,8 @@ class PayRecord {
             // </el-table-column>
             // <el-table-column prop="timeOutDate" :label="$t('payRecord.timeOutDate')">
             // </el-table-column>
-
+            let aa=await PayRecordModel.find()
+             console.log(aa)
 
             let data = await PayRecordModel.find(queryObj).sort({
                 state: 1,
