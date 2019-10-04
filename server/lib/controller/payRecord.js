@@ -55,6 +55,8 @@ class PayRecord {
             let model = req.query.model; // 查询模式 full/simple
             let searchkey = req.query.searchkey,
              queryObj = {};
+                          queryObj.adminUser=req.session.adminUserInfo._id
+
             let useClient = req.query.useClient;
 
             if (model === 'full') {
@@ -66,8 +68,6 @@ class PayRecord {
                 queryObj.orderId = {
                     $regex: reKey
                 }
-                queryObj.adminUser=req.session.adminUserInfo._id
-                
             }
             console.log("________________")
 
