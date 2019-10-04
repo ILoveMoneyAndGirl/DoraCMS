@@ -93,7 +93,7 @@ export default {
           if (result.data.status === 200) {
             this.$store.dispatch("getPayRecordList", this.pageInfo);
             this.$message({
-              message: this.$t("main.scr_modal_del_succes_info"),
+              message: this.$t("main.updateSuccess"),
               type: "success"
             });
           } else {
