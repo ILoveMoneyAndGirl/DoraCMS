@@ -117,10 +117,13 @@ class PayRecord {
                 state: 1,
                 flishDate:1
             }).skip(Number(pageSize) * (Number(current) - 1)).limit(Number(pageSize));
-            const totalItems = await PayUrlModel.count(queryObj);
+
+                                    console.log(data)
 
 
-                        console.log(data)
+            const totalItems = await PayRecordModel.count(queryObj);
+
+
 
             let sendData = {
                 docs: data,
