@@ -134,7 +134,7 @@ export default {
         });
       }
 
-        else if (this.pageType === "payRecord") {
+        else if (this.pageType === "PayRecordList") {
         this.$store.dispatch("getPayRecordList", {
           current: targetCurrent,
           pageSize,
