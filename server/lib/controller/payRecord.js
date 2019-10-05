@@ -160,7 +160,7 @@ class PayRecord {
             //     _id: req.query.ids
             // });
 
-            await ContentModel.remove({
+            await PayRecordModel.remove({
                 '_id': {
                     $in: req.query.ids
                 }
