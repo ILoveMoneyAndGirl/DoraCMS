@@ -149,20 +149,24 @@ class PayRecord {
 
         try {
             let errMsg = '';
-            if (!siteFunc.checkCurrentId(req.query.ids)) {
+            let ids = req.query.ids;
+            if (!siteFunc.checkCurrentId(ids)) {
                 errMsg = res.__("validate_error_params");
+            } else {
+                ids = ids.split(',');
             }
+
             if (errMsg) {
                 throw new siteFunc.UserException(errMsg);
             }
-            console.log(req.query.ids)
+            // console.log(req.query.ids)
             // await PayRecordModel.remove({
             //     _id: req.query.ids
             // });
 
             await PayRecordModel.remove({
-                '_id': {
-                    $in: req.query.ids
+                _id: {
+                    $in: ids
                 }
             });
 
