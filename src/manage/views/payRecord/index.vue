@@ -2,7 +2,7 @@
     <div class="payRecord">
         <el-row class="dr-datatable">
             <el-col :span="24">
-                 <TopBar type="payRecord" :ids="selectlist" :pageInfo="PayRecordList.pageInfo"></TopBar>
+                <TopBar type="payRecord" :ids="selectlist" :pageInfo="PayRecordList.pageInfo"></TopBar>
                 <DataTable :pageInfo="PayRecordList.pageInfo" :dataList="PayRecordList.docs"  @changeContentSelectList="changeSelect"></DataTable>
                 <Pagination :pageInfo="PayRecordList.pageInfo" pageType="PayRecordList"></Pagination>
             </el-col>
