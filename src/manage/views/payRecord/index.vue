@@ -10,13 +10,10 @@
     </div>
 </template>
 
-
-
-
 <script>
+    import TopBar from '../common/TopBar.vue';
     import DataTable from './dataTable.vue';
     import Pagination from '../common/Pagination.vue';
-    import TopBar from '../common/TopBar.vue';
 
     import {
         mapGetters,
