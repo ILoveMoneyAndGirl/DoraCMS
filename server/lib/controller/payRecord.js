@@ -155,6 +155,7 @@ class PayRecord {
             if (errMsg) {
                 throw new siteFunc.UserException(errMsg);
             }
+            console.log(req.query.ids)
             await PayRecordModel.remove({
                 _id: req.query.ids
             });

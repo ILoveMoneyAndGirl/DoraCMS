@@ -512,7 +512,7 @@ export default {
               this.$store.dispatch("getContentList");
             }
              else if (target === "payRecord") {
-              this.$store.dispatch("payRecordList");
+              this.$store.dispatch("getPayRecordList");
             }
             this.$message({
               message: `${this.$t("main.scr_modal_del_succes_info")}`,
