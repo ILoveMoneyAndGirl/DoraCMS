@@ -156,9 +156,16 @@ class PayRecord {
                 throw new siteFunc.UserException(errMsg);
             }
             console.log(req.query.ids)
-            await PayRecordModel.remove({
-                _id: req.query.ids
+            // await PayRecordModel.remove({
+            //     _id: req.query.ids
+            // });
+
+            await ContentModel.remove({
+                '_id': {
+                    $in: req.query.ids
+                }
             });
+
             res.send(siteFunc.renderApiData(req, res, 200, 'PayRecord', {}, 'delete'))
 
         } catch (err) {
