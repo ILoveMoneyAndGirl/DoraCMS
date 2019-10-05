@@ -11,6 +11,7 @@
 </template>
 
 <script>
+
     import TopBar from '../common/TopBar.vue';
     import DataTable from './dataTable.vue';
     import Pagination from '../common/Pagination.vue';
@@ -29,7 +30,8 @@
         },
         components: {
             DataTable,
-            Pagination
+            Pagination,
+            TopBar
         },
          methods: {
             changeSelect(ids) {
