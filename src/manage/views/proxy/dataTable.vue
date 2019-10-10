@@ -24,7 +24,7 @@
             <el-table-column :label="$t('main.dataTableOptions')" width="150">
                 <template slot-scope="scope">
                     <el-button size="mini" type="primary" plain round @click="edit(scope.$index, dataList)"><i class="fa fa-edit"></i></el-button>
-                    <el-button size="mini" type="danger" plain round icon="el-icon-delete" @click="delete(scope.$index, dataList)"></el-button>
+                    <el-button size="mini" type="danger" plain round icon="el-icon-delete" @click="deleteOne(scope.$index, dataList)"></el-button>
                 </template>
             </el-table-column>
         </el-table>
@@ -57,7 +57,7 @@ export default {
         formData: rowData
       });
     },
-    delete(index, rows) {
+    deleteOne(index, rows) {
       this.$confirm(
         this.$t("main.del_notice"),
         this.$t("main.scr_modal_title"),
