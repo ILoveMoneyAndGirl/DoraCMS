@@ -72,7 +72,7 @@ class PayRecord {
           
 
             let data = await PayRecordModel.find(queryObj).sort({
-                createDate:1
+                createDate:-1
             }).skip(Number(pageSize) * (Number(current) - 1)).limit(Number(pageSize));
 
 
