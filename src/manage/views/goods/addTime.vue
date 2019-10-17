@@ -5,6 +5,7 @@
                 <el-form-item :label="$t('goods.userName')" >
                     <el-input size="small" v-model="dialogState.userName"></el-input>
                 </el-form-item>
+
                 <el-form-item>
                     <el-button size="medium" type="primary" @click="submitForm('ruleForm')">{{$t('main.form_btnText_save')}}</el-button>
                 </el-form-item>
