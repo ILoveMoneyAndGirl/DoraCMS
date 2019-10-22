@@ -51,6 +51,13 @@
         </el-button>
       </div>
 
+      <div v-else-if="type === 'notice'">
+        <el-button size="small" type="primary" plain round @click="addNotice">
+          <i class="fa fa-fw fa-plus" aria-hidden="true"></i>
+        </el-button>
+      </div>
+
+
         <div v-else-if="type === 'host'">
         <el-button size="small" type="primary" plain round @click="addHost">
           <i class="fa fa-fw fa-plus" aria-hidden="true"></i>
@@ -612,6 +619,15 @@ export default {
     addGoods() {
 
       this.$store.dispatch("showGoodsForm",{
+        show:true,
+        edit: false,
+      });
+
+    },
+
+    addNotice() {
+
+      this.$store.dispatch("showNoticeForm",{
         show:true,
         edit: false,
       });

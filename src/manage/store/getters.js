@@ -74,6 +74,10 @@ const getters = {
     GoodsList: state => state.app.goods.goodsList,
     GoodsListFormState: state => state.app.goods.formState,
 
+    NoticeList: state => state.app.notice.noticeList,
+    NoticeListFormState: state => state.app.notice.formState,
+
+
     PayUrlList: state => state.app.payUrl.payUrlList,
     //PayUrlTreeList: state => state.app.payUrl.payUrlTreeList,
     PayUrlListFormState: state => state.app.payUrl.formState,

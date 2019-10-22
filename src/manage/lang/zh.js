@@ -675,6 +675,11 @@ soft: {
     ip:"ip地址",
     id:"id号"
   },
+    notice:{
+        title:"标题",
+        content:"内容",
+        enable:"是否有效"
+    },
 
  payRecord:{
     state:"状态",

@@ -509,6 +509,28 @@ const app = {
         err: {}
       }
     },
+
+      notice: {
+      formState: {
+        show: false,
+        edit: false,
+
+        formData: {
+          title:false,
+          content:"",
+          enable:false
+        }
+      },
+      noticeList: {
+        pageInfo: {},
+        docs: []
+      },
+      notice: {
+        state: '',
+        err: {}
+      }
+    },
+
     payUrl: {
       formState: {
         type: 'root',
@@ -1081,6 +1103,10 @@ const app = {
 //---------------------------------------------------------------------------------------------------------------------------
     [types.GOODS_LIST](state, goodsList) {
       state.goods.goodsList = goodsList
+    },
+
+    [types.NOTICE_LIST](state, noticeList) {
+      state.notice.noticeList = noticeList
     },
 
     [types.USER_LIST](state, userlist) {

@@ -140,6 +140,21 @@ export default {
           pageSize,
           searchkey
         });
+
+        else if (this.pageType === "HostList") {
+        this.$store.dispatch("getHostList", {
+          current: targetCurrent,
+          pageSize,
+          searchkey
+        });
+
+        else if (this.pageType === "NoticeList") {
+        this.$store.dispatch("getHostList", {
+          current: targetCurrent,
+          pageSize,
+          searchkey
+        });
+        
       }
 
       //ComponentPaginationEnd

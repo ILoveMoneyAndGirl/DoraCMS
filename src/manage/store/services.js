@@ -344,9 +344,25 @@ export default {
         return reqJsonData('manage/goods/updateOne', params)
     },
 
+
+
     deleteGoods(params) {
         return reqJsonData('manage/goods/delete', params, 'get')
     },
+
+    deleteNotice(params) {
+        return reqJsonData('manage/notice/delete', params, 'get')
+    },
+
+    updateNotice(params) {
+        return reqJsonData('manage/notice/updateOne', params)
+    },
+
+    addNotice(params) {
+        return reqJsonData('manage/notice/add', params)
+    },
+
+
 
     addGoods(params) {
         return reqJsonData('manage/goods/add', params)
