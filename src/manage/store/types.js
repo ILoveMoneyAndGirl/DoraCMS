@@ -46,6 +46,8 @@ export const VERSIONMANAGEIOS_FORMSTATE = 'VERSIONMANAGEIOS_FORMSTATE';
 //------------------------
 export const GOODS_LIST = 'GOODS_LIST';
 export const NOTICE_LIST = 'NOTICE_LIST';
+export const NOTICE_FORMSTATE = 'NOTICE_FORMSTATE';
+
 
 
 export const GOODS_FORMSTATE = 'GOODS_FORMSTATE';
