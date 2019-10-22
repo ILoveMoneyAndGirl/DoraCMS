@@ -149,7 +149,7 @@ export default {
         });
 
         else if (this.pageType === "NoticeList") {
-        this.$store.dispatch("getHostList", {
+        this.$store.dispatch("getNoticeList", {
           current: targetCurrent,
           pageSize,
           searchkey

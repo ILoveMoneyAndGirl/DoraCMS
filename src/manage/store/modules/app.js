@@ -1821,6 +1821,36 @@ const app = {
       })
     },
 
+    getNoticeList({
+      commit
+    }, params = {}) {
+      services.goodsList(params).then((result) => {
+        commit(types.NOTICE_LIST, result.data.data)
+      })
+    },
+
+    
+    showNoticeForm: ({
+      commit
+    }, params = {
+      edit: false,
+      formData: {}
+    }) => {
+      commit(types.NOTICE_FORMSTATE, {
+        show: true,
+        edit: params.edit,
+        formData: params.formData
+      })
+    },
+
+    hideNoticeForm: ({
+      commit
+    }) => {
+      commit(types.NOTICE_FORMSTATE, {
+        show: false
+      })
+    },
+
 
     getUserList({
       commit
