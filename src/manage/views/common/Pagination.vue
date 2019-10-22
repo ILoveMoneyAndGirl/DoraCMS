@@ -125,38 +125,30 @@ export default {
           pageSize,
           searchkey
         });
-      }
-      else if (this.pageType === "UserList") {
+      } else if (this.pageType === "UserList") {
         this.$store.dispatch("getUserList", {
           current: targetCurrent,
           pageSize,
           searchkey
         });
-      }
-
-        else if (this.pageType === "PayRecordList") {
-        this.$store.dispatch("getPayRecordList", {
-          current: targetCurrent,
-          pageSize,
-          searchkey
-        });
-        }
-
-        else if (this.pageType === "HostList") {
-        this.$store.dispatch("getHostList", {
-          current: targetCurrent,
-          pageSize,
-          searchkey
-        });
-        }
-
-        else if (this.pageType === "NoticeList") {
+      } else if (this.pageType === "PayRecordList") {
+          this.$store.dispatch("getPayRecordList", {
+            current: targetCurrent,
+            pageSize,
+            searchkey
+          });
+      }else if (this.pageType === "HostList") {
+          this.$store.dispatch("getHostList", {
+            current: targetCurrent,
+            pageSize,
+            searchkey
+          });
+      }else if (this.pageType === "NoticeList") {
         this.$store.dispatch("getNoticeList", {
           current: targetCurrent,
           pageSize,
           searchkey
         });
-        
       }
 
       //ComponentPaginationEnd
