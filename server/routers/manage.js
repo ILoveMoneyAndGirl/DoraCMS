@@ -321,6 +321,13 @@ router.post('/goods/updateOne', authToken, authPower, HelloOperation.UpdateGoods
 router.get('/goods/delete', authToken, authPower, HelloOperation.DeleteGoods);
 
 router.post('/goods/add', authToken, authPower, HelloOperation.AddGoods);
+
+router.get('/notice/getList', authToken, authPower, HelloOperation.GetNotice);
+router.post('/notice/updateOne', authToken, authPower, HelloOperation.UpdateNotice);
+router.get('/notice/delete', authToken, authPower, HelloOperation.DeleteNotice);
+router.post('/notice/add', authToken, authPower, HelloOperation.AddNotice);
+
+
 router.get('/user/delete', authToken, authPower, HelloOperation.DeleteUser);
 
 router.post('/time/add', authToken, authPower, HelloOperation.AddTime);
