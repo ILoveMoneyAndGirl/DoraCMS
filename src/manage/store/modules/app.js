@@ -1108,6 +1108,19 @@ const app = {
     [types.NOTICE_LIST](state, noticeList) {
       state.notice.noticeList = noticeList
     },
+    
+
+    [types.NOTICE_FORMSTATE](state, formState) {
+      state.notice.formState.show = formState.show;
+      state.notice.formState.edit = formState.edit;
+      state.notice.formState.formData = Object.assign({
+        content: '',
+        title: '',
+        enable: ''
+      }, formState.formData);
+
+    },
+
 
     [types.USER_LIST](state, userlist) {
       state.user.userList = userlist
@@ -1829,7 +1842,7 @@ const app = {
       })
     },
 
-    
+
     showNoticeForm: ({
       commit
     }, params = {
