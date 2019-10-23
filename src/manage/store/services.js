@@ -361,6 +361,10 @@ export default {
     addNotice(params) {
         return reqJsonData('manage/notice/add', params)
     },
+    noticeList(params) {
+        return reqJsonData('manage/notice/getList', params, 'get')
+    },
+
 
 
 

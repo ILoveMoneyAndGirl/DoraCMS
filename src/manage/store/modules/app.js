@@ -1824,7 +1824,7 @@ const app = {
     getNoticeList({
       commit
     }, params = {}) {
-      services.goodsList(params).then((result) => {
+      services.noticeList(params).then((result) => {
         commit(types.NOTICE_LIST, result.data.data)
       })
     },
