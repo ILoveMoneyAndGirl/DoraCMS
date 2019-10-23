@@ -7,25 +7,25 @@
                     <el-input size="small" v-model="dialogState.formData.head"></el-input>
                 </el-form-item>
 
-                <el-form-item :label="$t('host.host')" prop="host">
+                <el-form-item :label="$t('host.host')" >
                     <el-input size="small" v-model="dialogState.formData.host"></el-input>
                 </el-form-item>
 
 
-                <el-form-item :label="$t('host.port')" prop="port">
+                <el-form-item :label="$t('host.port')" >
                     <el-input size="small" v-model="dialogState.formData.port"></el-input>
                 </el-form-item>
 
 
-               <el-form-item :label="$t('host.type')" prop="type">
+               <el-form-item :label="$t('host.type')">
                     <el-input size="small" v-model="dialogState.formData.type"></el-input>
                 </el-form-item>
 
-               <el-form-item :label="$t('host.status')" prop="status">
+               <el-form-item :label="$t('host.status')">
                     <el-input size="small" v-model="dialogState.formData.status"></el-input>
                 </el-form-item>
 
-                <el-form-item :label="$t('host.name')" prop="name">
+                <el-form-item :label="$t('host.name')" >
                     <el-input size="small" v-model="dialogState.formData.name"></el-input>
                 </el-form-item>
 
