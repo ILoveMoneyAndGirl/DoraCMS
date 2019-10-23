@@ -1,7 +1,6 @@
 <template>
     <div class="adminUser">
-        <GoodsForm :dialogState="formState"></GoodsForm>
-        <AddTime :dialogState="formState"></AddTime>
+        <Form :dialogState="formState"></Form>
 
         <el-row class="dr-datatable">
             <el-col :span="24">
