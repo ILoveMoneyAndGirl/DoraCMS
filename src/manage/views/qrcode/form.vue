@@ -36,7 +36,6 @@
 
                 <el-form-item v-show="dialogState.formData.type==='price'&& !dialogState.formData.isAny" :label="$t('payUrl.price')" prop="price">
                     <el-input size="small"  v-model="dialogState.formData.price"></el-input>
-
                 </el-form-item>
 
 
