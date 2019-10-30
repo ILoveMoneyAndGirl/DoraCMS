@@ -36,6 +36,8 @@
 
                 <el-form-item v-show="dialogState.formData.type==='price'&& !dialogState.formData.isAny" :label="$t('payUrl.price')" prop="price">
                     <el-input size="small"  v-model="dialogState.formData.price"></el-input>
+                    <el-input size="small"  v-model="dialogState.formData.timeOut"></el-input>
+
                 </el-form-item>
 
 
@@ -55,6 +57,7 @@
                         <img v-if="dialogState.formData.url" :src="dialogState.formData.url" class="avatar">
                         <i v-else class="el-icon-plus avatar-uploader-icon"></i>
                     </el-upload>
+                     <el-input size="small"  v-model="dialogState.formData.timeOut"></el-input>
                  </el-form-item>
 
 
