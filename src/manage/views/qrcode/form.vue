@@ -52,8 +52,16 @@
                         <img v-if="dialogState.formData.url" :src="dialogState.formData.url" class="avatar">
                         <i v-else class="el-icon-plus avatar-uploader-icon"></i>
                     </el-upload>
-                     <el-input size="small"  v-model="dialogState.formData.timeOut"></el-input>
                  </el-form-item>
+
+
+               <el-form-item class="upSimg" v-show="dialogState.formData.type==='price'" :label="$t('payUrl.timeOut')" >
+                  <el-input size="small"  v-model="dialogState.formData.timeOut"></el-input>
+                </el-form-item>
+
+
+
+
 
 
 
