@@ -36,16 +36,12 @@
 
                 <el-form-item v-show="dialogState.formData.type==='price'&& !dialogState.formData.isAny" :label="$t('payUrl.price')" prop="price">
                     <el-input size="small"  v-model="dialogState.formData.price"></el-input>
-                    <el-input size="small"  v-model="dialogState.formData.timeOut"></el-input>
 
                 </el-form-item>
 
 
 
-   
-
-
-
+  
                 <el-form-item class="upSimg" v-show="dialogState.formData.type==='price'" :label="$t('payUrl.qrCode')" prop="url">
                       <el-upload
                         class="avatar-uploader"
