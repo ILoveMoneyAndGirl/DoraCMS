@@ -181,6 +181,7 @@ class PayUrl {
                 isAny: fields.isAny,
                 tagPrice: fields.tagPrice,
                 channel:fields.channel,
+                timeOut:fields.timeOut
             }
             const item_id = fields._id;
             try {
@@ -216,6 +217,7 @@ class PayUrl {
                 parentId: fields.parentId,
                 type:fields.type,
                 channel:fields.channel,
+                timeOut:fields.timeOut,
                 adminUser:req.session.adminUserInfo._id
             }
                 const newObj = new PayUrlModel(obj);
