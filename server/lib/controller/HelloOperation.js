@@ -152,7 +152,9 @@ class HelloOperation {
 
             if (searchkey) {
                 //let reKey = new RegExp(searchkey, 'i')
-                queryObj.userName =searchkey
+                queryObj.userName ={
+                        $regex: searchkey
+                    }
             }
 
             let data={
