@@ -163,16 +163,11 @@ class HelloOperation {
                 current:current,
             }
 
-            console.log("????????????_______>")
-            console.log(data)
-                        console.log(queryObj)
 
             data.action="GetUser"
             PostData.PostDataByUrl(req.session.vpnServer,data,function(err,d)
             {
-                console.log("XXXX")
-                console.log(err)
-                console.log(d)
+
                 if(err)
                     res.send(siteFunc.renderApiErr(req, res, 500, err, 'getlist'))
                 else{
