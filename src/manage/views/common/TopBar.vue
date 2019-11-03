@@ -242,6 +242,20 @@
       <div class="dr-toolbar-right" style="text-align:left" v-else-if="type === 'adminTemplate'">
         <el-tag :v-if="path" type="info" size="small">{{path}}</el-tag>
       </div>
+
+        <div class="dr-toolbar-right" v-else-if="type === 'contentMessage'">
+        <el-input
+          class="dr-searchInput"
+          size="small"
+          :placeholder="$t('topBar.messageContent')"
+          v-model="pageInfo.searchkey"
+          suffix-icon="el-icon-search"
+          @keyup.enter.native="searchResult"
+          :on-icon-click="searchResult"
+        ></el-input>
+      </div>
+
+
       <!-- TOPBARRIGHT -->
       <div class="dr-toolbar-right" v-else>&nbsp;</div>
     </div>
@@ -365,7 +379,13 @@ export default {
         this.$store.dispatch("getContentMessageList", {
           searchkey
         });
-      } else if (this.type == "regUser") {
+      } else if (this.type == "UserList") {
+          this.$store.dispatch("getUserList", {
+          searchkey,
+        });
+        } 
+
+      else if (this.type == "regUser") {
         this.$store.dispatch("getRegUserList", {
           searchkey,
           isTopBar: "1"

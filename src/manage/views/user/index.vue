@@ -2,6 +2,7 @@
     <div class="User">
         <el-row class="dr-datatable">
             <el-col :span="24">
+             <TopBar type="UserList" :pageInfo="UserList.pageInfo"></TopBar>
                 <DataTable :pageInfo="UserList.pageInfo" :dataList="UserList.docs"></DataTable>
                 <Pagination :pageInfo="UserList.pageInfo" pageType="UserList"></Pagination>
             </el-col>
