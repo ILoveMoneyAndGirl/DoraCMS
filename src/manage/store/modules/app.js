@@ -1123,6 +1123,7 @@ const app = {
 
 
     [types.USER_LIST](state, userlist) {
+      console.log(userlist)
       state.user.userList = userlist
     },
 
