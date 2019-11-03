@@ -223,6 +223,24 @@
           :on-icon-click="searchResult"
         ></el-input>
       </div>
+
+
+
+            <div class="dr-toolbar-right" v-else-if="type === 'UserList'">
+        <el-input
+          class="dr-searchInput"
+          size="small"
+          placeholder="邮箱"
+          v-model="pageInfo.searchkey"
+          suffix-icon="el-icon-search"
+          @keyup.enter.native="searchResult"
+          :on-icon-click="searchResult"
+        ></el-input>
+      </div>
+
+
+
+
       <div class="dr-toolbar-right" v-else-if="type === 'systemOptionLogs'">
         <el-select
           class="dr-searchInput"
