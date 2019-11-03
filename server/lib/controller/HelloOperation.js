@@ -161,11 +161,12 @@ class HelloOperation {
                 queryObj:queryObj,
                 pageSize:pageSize,
                 current:current,
-                pageSize:pageSize
             }
 
             console.log("????????????_______>")
             console.log(data)
+                        console.log(queryObj)
+
             data.action="GetUser"
             PostData.PostDataByUrl(req.session.vpnServer,data,function(err,d)
             {
