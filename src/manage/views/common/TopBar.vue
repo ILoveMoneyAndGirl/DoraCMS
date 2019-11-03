@@ -226,7 +226,7 @@
 
 
 
-            <div class="dr-toolbar-right" v-else-if="type === 'UserList'">
+      <div class="dr-toolbar-right" v-else-if="type === 'UserList'">
         <el-input
           class="dr-searchInput"
           size="small"
@@ -402,7 +402,7 @@ export default {
         });
       } else if (this.type == "UserList") {
           this.$store.dispatch("getUserList", {
-          searchkey,
+          searchkey
         });
         } 
 
