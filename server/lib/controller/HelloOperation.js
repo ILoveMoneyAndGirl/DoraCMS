@@ -170,6 +170,9 @@ class HelloOperation {
             data.action="GetUser"
             PostData.PostDataByUrl(req.session.vpnServer,data,function(err,d)
             {
+                console.log("XXXX")
+                console.log(err)
+                console.log(d)
                 if(err)
                     res.send(siteFunc.renderApiErr(req, res, 500, err, 'getlist'))
                 else{
@@ -188,7 +191,7 @@ class HelloOperation {
                         return rendeData.data;
                      } else {
                          if (useClient == '2') {
-                             res.send(siteFunc.renderApiData(req, res, 200, 'getlist', data));
+                             res.send(siteFunc.renderApiData(req, res, 200, 'getlist', sendData));
                          } else {
                              res.send(rendeData);
                         }
